@@ -29,10 +29,11 @@ function createHeaderNavbar() {
     html += '<button class="btn search-bar-item btn-search col-2" type="button"><i class="fa fa-search"></i></button>'
     html += '</form>'
     html += '<div class="navbar-nav ml-5">'
-    html += '<button class="btn btn-danger" type="button">Login</button>'    
+    html += '<button id="btn-login" class="btn btn-danger" type="button">Login</button>'    
     html += '</div>'
     html += '</nav>'
     body.insertAdjacentHTML("afterbegin", html)
+    document.getElementById("btn-login").onclick = () => { window.location.href='./login.html'; }
 }
 
 function createFooter() {
