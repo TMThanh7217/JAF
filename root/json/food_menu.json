@@ -1,0 +1,80 @@
+[{
+    "id":0,
+    "name":"Chili noodle soup with fresh vegetables on top",
+    "type":"food",
+    "src":"../images/food/Chili-noodle-soup-with-fresh-vegetables-on-top.jpg",
+    "price":10,
+    "status":"stocking"
+},
+{
+    "id":1,
+    "name":"Full english breakfast",
+    "type":"food",
+    "src":"../images/food/full-english-breakfast.jpg",
+    "price":13,
+    "status":"stocking"
+},
+{
+    "id":2,
+    "name":"Green salad with bread",
+    "type":"food",
+    "src":"../images/food/green-salad-with-bread.jpg",
+    "price":8,
+    "status":"stocking"
+},
+{
+    "id":3,
+    "name":"Healthy green beans salad with egg and hemp seeds",
+    "type":"food",
+    "src":"../images/food/healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg",
+    "price":9,
+    "status":"stocking"
+},
+{
+    "id":4,
+    "name":"Juicy beef burger",
+    "type":"food",
+    "src":"../images/food/juicy-beef-burger.jpg",
+    "price":10,
+    "status":"stocking"
+},
+{
+    "id":5,
+    "name":"Omelet with ham cheese spinach and tomatoes",
+    "type":"food",
+    "src":"../images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg",
+    "price":12,
+    "status":"stocking"
+},
+{
+    "id":6,
+    "name":"Stuffed bell pepper rice",
+    "type":"food",
+    "src":"../images/food/stuffed-bell-pepper-rice.jpg",
+    "price":10,
+    "status":"stocking"
+},
+{
+    "id":7,
+    "name":"Tacos with pulled pork fresh vegetables and cream",
+    "type":"food",
+    "src":"../images/food/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg",
+    "price":10,
+    "status":"stocking"
+},
+{
+    "id":8,
+    "name":"vegetable-couscous-with-shrimps-and-fishegetable couscous with shrimps and fish",
+    "type":"food",
+    "src":"../images/food/vegetable-couscous-with-shrimps-and-fish.jpg",
+    "price":10,
+    "status":"stocking"
+},
+{
+    "id":9,
+    "name":"Vegetables tacos with cilantro and lemon",
+    "type":"food",
+    "src":"../images/food/vegetables-tacos-with-cilantro-and-lemon.jpg",
+    "price":10,
+    "status":"stocking"
+}]
