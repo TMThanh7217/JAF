@@ -2,10 +2,10 @@ function createHeaderNavbar() {
     var body = document.getElementsByTagName("body")[0];
     var html = "";
     html += "<nav class='navbar navbar-expand-sm bg-light navbar-light sticky-top'>"
-    html += '<a class="navbar-brand" href="#"><img src="../images/JAF_logo.png" class="img-fluid" alt="" style="width: 50px;"></a>'
+    html += '<a class="navbar-brand" href="./index.html"><img src="../images/JAF_logo.png" class="img-fluid" alt="" style="width: 50px;"></a>'
     html += '<ul class="navbar-nav">'
     html += '<li class="nav-item">'
-    html += '<a href="#" class="nav-link">Menu</a>'
+    html += '<a href="./menu.html" class="nav-link">Menu</a>'
     html += '</li>'            
     html += '<li class="nav-item">'
     html += '<a class="nav-link" href="#">Food</a>'
@@ -78,6 +78,15 @@ function createFooter() {
 }
 
 function createHeaderFooter() {
+    createTitle();
     createHeaderNavbar();
     createFooter();
+}
+
+function createTitle() {
+    var title = document.getElementsByTagName("title")[0];
+    title.innerHTML = "JAF-Jerry And Friends";
+    var html = '<link rel="icon" href="../images/JAF_logo.png">'
+    var head = document.getElementsByTagName("head")[0];
+    head.insertAdjacentHTML("afterbegin", html);
 }
