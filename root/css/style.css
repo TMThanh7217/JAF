@@ -6,6 +6,7 @@
     color: #fff;
     padding: 1px;
     height: 41px;
+    min-width: 200px;
 }
 
 .navbar-nav .nav-item.active .nav-link,
@@ -23,6 +24,7 @@
 
 .fa-search {
     color: aliceblue;
+    width: 100%;
 }
 
 .btn-search, .btn-order {
@@ -118,7 +120,7 @@ p {
 
 .btn-order {
     border-radius:20px;
-    height: 60px;
+    height: 70px;
     width: 70%;
     font-weight: bold;
     font-size: 20px;
@@ -145,7 +147,7 @@ p {
     min-width: 250px;
     max-width: 300px;
     width: 90%;
-    height: 80%;
+    height: 90%;
 }
 
 .card-header {
