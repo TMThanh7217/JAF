@@ -27,7 +27,7 @@ function createHeaderNavbar() {
     html += '</div>'
     html += '</li>'
     html += '</ul>'
-    html += '<form class="form ml-auto search-bar mr-5 row">'
+    html += '<form class="form ml-auto search-bar mr-lg-5 mr-md-4 mr-sm-0 mr-xs-0 my-auto row">'
     html += '<input class="form-control search-bar-item search-field col-10" type="text" placeholder="Search">'
     html += '<button class="btn search-bar-item btn-search col-2" type="button"><i class="fa fa-search"></i></button>'
     html += '</form>'
@@ -135,7 +135,7 @@ function createProductRow(product_array) {
 
 function createProductCol() {
     let col = document.createElement("div");
-    col.className = "col-md-4 col-lg-4 g-mb-30 tb-cell";
+    col.className = "col-sm-12 col-md-12 col-lg-4 g-mb-30 tb-cell";
     return col;
 }
 
@@ -146,7 +146,7 @@ function createProductCard(p_data) {
     
     // Card header
     let card_header = document.createElement("div");
-    card_header.className = "card-header d-flex align-items-center justify-content-center h-100 g-bg-white";
+    card_header.className = "card-header d-flex align-items-center justify-content-center g-bg-white";
     
     let card_img = document.createElement("img");
     card_img.className = "img-thumbnail";
@@ -159,20 +159,23 @@ function createProductCard(p_data) {
     card_body.className = "card-body d-flex flex-column";
     
     let card_body_header = document.createElement("h4");
-    card_body_header.className = "h5 g-color-black g-font-weight-600 g-mb-10";
+    card_body_header.className = "h5 g-color-black g-font-weight-600 g-mb-10 mt-0 mb-3";
     card_body_header.innerHTML = p_data.name;
     
     let card_body_paragraph = document.createElement("p");
     card_body_paragraph.innerHTML = p_data.detail;
     
     let card_body_span = document.createElement("span");
-    card_body_span.className = "d-block g-color-primary g-font-size-16";
+    card_body_span.className = "d-block g-color-primary g-font-size-16 mb-3 mt-auto price";
     card_body_span.innerHTML = p_data.price + "$";
     
     let card_body_button = document.createElement("button");
-    card_body_button.className = "btn btn-lg btn-block btn-order mt-3 mx-auto";
+    card_body_button.className = "btn btn-lg btn-block btn-order mb-2 mx-auto";
     card_body_button.type = "button";
     card_body_button.innerHTML = "Order Now";
+    card_body_button.onclick = () => {
+        document.location.href = "#";
+    }
 
     card_body.appendChild(card_body_header);
     card_body.appendChild(card_body_paragraph);
