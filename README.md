@@ -1,1 +1,1 @@
-# JerryBookstore
+# Jerry and Friends
