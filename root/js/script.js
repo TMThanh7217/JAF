@@ -11,10 +11,10 @@ function createHeaderNavbar() {
     html += '<a href="./menu.html" class="nav-link">Menu</a>'
     html += '</li>'            
     html += '<li class="nav-item">'
-    html += '<a class="nav-link" href="#">Food</a>'
+    html += '<a href="./food_menu.html" class="nav-link">Food</a>'
     html += '</li>'
     html += '<li class="nav-item">'
-    html += '<a class="nav-link" href="#">Drink</a>'
+    html += '<a href="./drink_menu.html" class="nav-link">Drink</a>'
     html += '</li>'
     html += '<li class="nav-item dropdown">'
     html += '<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">'
@@ -98,6 +98,38 @@ function initMenu() {
     let data = JSON.parse(json);
     console.log(data)
     let menu = document.getElementById("menu");
+    console.log(menu);
+
+    let row1_products = data.slice(0, 3);
+    let row2_products = data.slice(3);
+
+    let row1 = createProductRow(row1_products);
+    let row2 = createProductRow(row2_products);
+
+    menu.appendChild(row1);
+    menu.appendChild(row2);
+}
+
+function initFoodMenu(){
+    let data = JSON.parse(json);
+    console.log(data)
+    let menu = document.getElementById("food_menu");
+    console.log(menu);
+
+    let row1_products = data.slice(0, 3);
+    let row2_products = data.slice(3);
+
+    let row1 = createProductRow(row1_products);
+    let row2 = createProductRow(row2_products);
+
+    menu.appendChild(row1);
+    menu.appendChild(row2);
+}
+
+function initDrinkMenu(){
+    let data = JSON.parse(json);
+    console.log(data)
+    let menu = document.getElementById("drink_menu");
     console.log(menu);
 
     let row1_products = data.slice(0, 3);
