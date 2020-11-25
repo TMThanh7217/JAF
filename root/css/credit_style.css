@@ -1,6 +1,7 @@
-#credit_body {
+div[name="credit_body"] {
     background-color: cornsilk;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 

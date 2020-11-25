@@ -1,8 +1,11 @@
+var MENU_PATH = "../json/menu.json"
+var json = '[{"id":0,"name":"Chili noodle soup with fresh vegetables on top","type":"food","src":"../images/food/Chili-noodle-soup-with-fresh-vegetables-on-top.jpg","price":10,"status":"stocking"},{"id":1,"name":"Full english breakfast","type":"food","src":"../images/food/full-english-breakfast.jpg","price":13,"status":"stocking"},{"id":2,"name":"Green salad with bread","type":"food","src":"../images/food/green-salad-with-bread.jpg","price":8,"status":"stocking"},{"id":3,"name":"Healthy green beans salad with egg and hemp seeds","type":"food","src":"../images/food/healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg","price":9,"status":"stocking"},{"id":4,"name":"Juicy beef burger","type":"food","src":"../images/food/juicy-beef-burger.jpg","price":10,"status":"stocking"},{"id":5,"name":"omelet with ham cheese spinach and tomatoes","type":"food","src":"../images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg","price":12,"status":"stocking"}]'
+
 function createHeaderNavbar() {
     var body = document.getElementsByTagName("body")[0];
     var html = "";
-    html += "<nav class='navbar navbar-expand-sm bg-light navbar-light sticky-top'>"
-    html += '<a class="navbar-brand" href="./index.html"><img src="../images/JAF_logo.png" class="img-fluid" alt="" style="width: 50px;"></a>'
+    html += "<nav class='navbar navbar-expand-sm bg-light navbar-light sticky-top mb-5'>"
+    html += '<a class="navbar-brand" href="./index.html"><img src="../images/logo & bg & etc/JAF_logo.png" class="img-fluid" alt="" style="width: 50px;"></a>'
     html += '<ul class="navbar-nav">'
     html += '<li class="nav-item">'
     html += '<a href="./menu.html" class="nav-link">Menu</a>'
@@ -19,8 +22,8 @@ function createHeaderNavbar() {
     html += '</a>'
     html += '<div class="dropdown-menu">'
     html += '<a class="dropdown-item" href="#">Best seller</a>'
-    html += '<a class="dropdown-item" href="#">Best comment</a>'
-    html += '<a class="dropdown-item" href="#">Newly added</a>'
+    html += '<a class="dropdown-item" href="#">Most comments</a>'
+    html += '<a class="dropdown-item" href="#">Recently added</a>'
     html += '</div>'
     html += '</li>'
     html += '</ul>'
@@ -55,7 +58,7 @@ function createFooter() {
     html += '<a href="./index.html">Home</a>'
     html += '</li>'
     html += '<li class="mb-sm-3">'
-    html += '<a href="#!">About Us</a>'
+    html += '<a href="./credit.html">About Us</a>'
     html += '</li>'
     html += '<li class="mb-sm-3">'
     html += '<a href="#!">Help</a>'
@@ -86,7 +89,12 @@ function createHeaderFooter() {
 function createTitle() {
     var title = document.getElementsByTagName("title")[0];
     title.innerHTML = "JAF-Jerry And Friends";
-    var html = '<link rel="icon" href="../images/JAF_logo.png">'
+    var html = '<link rel="icon" href="../images/logo & bg & etc/JAF_logo.png">'
     var head = document.getElementsByTagName("head")[0];
     head.insertAdjacentHTML("afterbegin", html);
+}
+
+function loadMenu() {
+    var data = JSON.parse(json);
+    console.log(data)
 }
