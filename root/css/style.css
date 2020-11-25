@@ -123,7 +123,20 @@ p {
 .btn-order {
     border-radius:20px;
     height: 90%;
-    width: 260px;
+    width: 70%;
     font-weight: bold;
     font-size: 20px;
+    text-overflow: ellipsis;
+}
+
+.menu-label {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    font-weight: bold;
+    font-size: 50px;
+    color: #fff;
+    background-color: #dc3545;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -6px rgba(0, 0, 0, 0.15);
 }
