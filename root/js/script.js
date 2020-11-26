@@ -131,8 +131,26 @@ function initFoodMenuOnIndex() {
     console.log(rows)
     let menu = document.getElementById("food_menu");
     let row = createProductRow(rows[0]);
+    row.id = "food_menu_tmp";
     console.log(row);
     menu.appendChild(row);
+    let more = document.createElement("div");
+    let btn = document.createElement("button");
+    more.id = "more_food";
+    btn.className = "btn-order";
+    btn.innerHTML = "More";
+    btn.addEventListener("click", initMoreFoodMenu);
+    more.className = "d-flex justify-content-center";
+    more.appendChild(btn);
+    menu.appendChild(more);
+}
+
+function initMoreFoodMenu() {
+    let tmp2 = document.getElementById("more_food");
+    tmp2.remove();
+    let tmp1 = document.getElementById("food_menu_tmp");
+    tmp1.remove();
+    initFoodMenu();
 }
 
 function initDrinkMenu() {
@@ -153,8 +171,26 @@ function initDrinkMenuOnIndex() {
     console.log(rows)
     let menu = document.getElementById("drink_menu");
     let row = createProductRow(rows[0]);
+    row.id = "drink_menu_tmp";
     console.log(row);
     menu.appendChild(row);
+    let more = document.createElement("div");
+    let btn = document.createElement("button");
+    more.id = "more_drink";
+    btn.className = "btn-order";
+    btn.innerHTML = "More";
+    btn.addEventListener("click", initMoreDrinkMenu);
+    more.className = "d-flex justify-content-center";
+    more.appendChild(btn);
+    menu.appendChild(more);
+}
+
+function initMoreDrinkMenu() {
+    let tmp2 = document.getElementById("more_drink");
+    tmp2.remove();
+    let tmp1 = document.getElementById("drink_menu_tmp");
+    tmp1.remove();
+    initDrinkMenu();
 }
 
 function getRows(data, cap) {
