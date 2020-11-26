@@ -112,7 +112,7 @@ function initMenu() {
     menu.appendChild(row2);
 }
 
-function initFoodMenu(){
+function initFoodMenu() {
     let data = JSON.parse(foods_json);
     let rows = getRows(data, 3);
     console.log(rows)
@@ -142,6 +142,7 @@ function getRows(data, cap) {
         let row_data = data.slice(i, i + cap);
         rows.push(row_data);
     }
+    
     return rows;
 }
 
