@@ -158,3 +158,8 @@ p {
     font-weight: bold;
     font-size: 40px !important;
 }
+
+.img-profile {
+    min-width: 150px;
+    width: 100%;
+}

@@ -2,6 +2,8 @@ var MENU_PATH = "../json/menu.json"
 var json = '[{"id":0,"name":"Coffee Americano","detail":"Cold coffee americano with ice cube","type":"drink","src":"../images/drink/cold-coffee-americano-with-ice-cube.jpg","price":12,"status":"stocking"},{"id":1,"name":"Lemon Drink","detail":"Fresh non alcoholic lemon drink","type":"drink","src":"../images/drink/fresh-non-alcoholic-lemon-drink.jpg","price":14,"status":"stocking"},{"id":2,"name":"Cocktail","detail":"Gin and tonic cocktail with orange and thyme","type":"drink","src":"../images/drink/gin-and-tonic-cocktail-with-orange-and-thyme.jpg","price":12,"status":"stocking"},{"id":3,"name":"Lime juice","detail":"Fresh lime juice","type":"drink","src":"../images/drink/lime-juice.jpg","price":9,"status":"stocking"},{"id":4,"name":"Special Drink #1","detail":"Summer good morning drink","type":"drink","src":"../images/drink/summer-good-morning-drink.jpg","price":10,"status":"stocking"},{"id":0,"name":"Noodle","detail":"Chili noodle soup with fresh vegetables on top","type":"food","src":"../images/food/Chili-noodle-soup-with-fresh-vegetables-on-top.jpg","price":10,"status":"stocking"},{"id":1,"name":"Breakfast Set #1","detail":"Full english breakfast","type":"food","src":"../images/food/full-english-breakfast.jpg","price":13,"status":"stocking"},{"id":2,"name":"Salad #1","detail":"Green salad with bread","type":"food","src":"../images/food/green-salad-with-bread.jpg","price":8,"status":"stocking"},{"id":3,"name":"Salad #2","detail":"Healthy green beans salad with egg and hemp seeds","type":"food","src":"../images/food/healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg","price":9,"status":"stocking"},{"id":4,"name":"Beef Burger","detail":"Juicy beef burger","type":"food","src":"../images/food/juicy-beef-burger.jpg","price":10,"status":"stocking"},{"id":5,"name":"Omelet","detail":"Omelet with ham cheese spinach and tomatoes","type":"food","src":"../images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg","price":12,"status":"stocking"},{"id":6,"name":"Stuffed bell pepper rice","detail":"Stuffed bell pepper rice","type":"food","src":"../images/food/stuffed-bell-pepper-rice.jpg","price":10,"status":"stocking"},{"id":7,"name":"Tacos #1","detail":"Tacos with pulled pork fresh vegetables and cream","type":"food","src":"../images/food/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg","price":10,"status":"stocking"},{"id":8,"name":"Couscous","detail":"vegetable-couscous-with-shrimps-and-fishegetable couscous with shrimps and fish","type":"food","src":"../images/food/vegetable-couscous-with-shrimps-and-fish.jpg","price":10,"status":"stocking"},{"id":9,"name":"Tacos #2","detail":"Vegetables tacos with cilantro and lemon","type":"food","src":"../images/food/vegetables-tacos-with-cilantro-and-lemon.jpg","price":10,"status":"stocking"}]'
 var drinks_json = '[{"id":0,"name":"Coffee Americano","detail":"Cold coffee americano with ice cube","type":"drink","src":"../images/drink/cold-coffee-americano-with-ice-cube.jpg","price":12,"status":"stocking"},{"id":1,"name":"Lemon Drink","detail":"Fresh non alcoholic lemon drink","type":"drink","src":"../images/drink/fresh-non-alcoholic-lemon-drink.jpg","price":14,"status":"stocking"},{"id":2,"name":"Cocktail","detail":"Gin and tonic cocktail with orange and thyme","type":"drink","src":"../images/drink/gin-and-tonic-cocktail-with-orange-and-thyme.jpg","price":12,"status":"stocking"},{"id":3,"name":"Lime juice","detail":"Fresh lime juice","type":"drink","src":"../images/drink/lime-juice.jpg","price":9,"status":"stocking"},{"id":4,"name":"Special Drink #1","detail":"Summer good morning drink","type":"drink","src":"../images/drink/summer-good-morning-drink.jpg","price":10,"status":"stocking"}]'
 var foods_json = '[{"id":0,"name":"Noodle","detail":"Chili noodle soup with fresh vegetables on top","type":"food","src":"../images/food/Chili-noodle-soup-with-fresh-vegetables-on-top.jpg","price":10,"status":"stocking"},{"id":1,"name":"Breakfast Set #1","detail":"Full english breakfast","type":"food","src":"../images/food/full-english-breakfast.jpg","price":13,"status":"stocking"},{"id":2,"name":"Salad #1","detail":"Green salad with bread","type":"food","src":"../images/food/green-salad-with-bread.jpg","price":8,"status":"stocking"},{"id":3,"name":"Salad #2","detail":"Healthy green beans salad with egg and hemp seeds","type":"food","src":"../images/food/healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg","price":9,"status":"stocking"},{"id":4,"name":"Beef Burger","detail":"Juicy beef burger","type":"food","src":"../images/food/juicy-beef-burger.jpg","price":10,"status":"stocking"},{"id":5,"name":"Omelet","detail":"Omelet with ham cheese spinach and tomatoes","type":"food","src":"../images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg","price":12,"status":"stocking"},{"id":6,"name":"Stuffed bell pepper rice","detail":"Stuffed bell pepper rice","type":"food","src":"../images/food/stuffed-bell-pepper-rice.jpg","price":10,"status":"stocking"},{"id":7,"name":"Tacos #1","detail":"Tacos with pulled pork fresh vegetables and cream","type":"food","src":"../images/food/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg","price":10,"status":"stocking"},{"id":8,"name":"Couscous","detail":"vegetable-couscous-with-shrimps-and-fishegetable couscous with shrimps and fish","type":"food","src":"../images/food/vegetable-couscous-with-shrimps-and-fish.jpg","price":10,"status":"stocking"},{"id":9,"name":"Tacos #2","detail":"Vegetables tacos with cilantro and lemon","type":"food","src":"../images/food/vegetables-tacos-with-cilantro-and-lemon.jpg","price":10,"status":"stocking"}]'
+var staff_json = '[{"id":"18127130","name":"Tran Phuoc Loc","avt":"","position":"Worker","quote":"OK, FINE, THANKS!"},{"id":"18127217","name":"Trinh Minh Thanh","avt":"","position":"Worker","quote":"STELLAAAAAAAAAAAA!!!!!!!!!!!!"},{"id":"18127xxx","name":"Tran Dinh Phat","avt":"","position":"Worker","quote":"WIBU NEVER DIE!!!!!!!!!!!!!"}]'
+
 
 function createHeaderNavbar() {
     var body = document.getElementsByTagName("body")[0];
@@ -210,6 +212,61 @@ function createProductCard(p_data) {
     card_body.appendChild(card_body_span);
     card_body.appendChild(card_body_button);
 
+    // Connect card header & card body
+    card.appendChild(card_header);
+    card.appendChild(card_body);
+
+    return card;
+}
+
+function initCreditPage() {
+    let data = JSON.parse(staff_json);
+    let credit = document.getElementById("credit");
+    for(let person of data) {
+        let card = createProfileCard(person);
+        credit.appendChild(card);
+    }
+}
+
+function createProfileCard(data) {
+    // Card
+    let card = document.createElement("div");
+    card.className = "col-lg-3 col-md-12 col-sm-12 mx-auto card u-shadow-v18 g-bg-white text-center rounded g-px-20 g-py-40 g-mb-5 h-100 card-profile";
+    
+    // Card header
+    let card_header = document.createElement("div");
+    card_header.className = "card-header d-flex align-items-center justify-content-center g-bg-white";
+    
+    let card_img = document.createElement("img");
+    card_img.className = "img-thumbnail img-profile";
+    let avt_src = data.avt == "" ? "../images/logo & bg & etc/temp_avatar.png": data.avt;
+    card_img.src = avt_src;
+    card_img.alt = "";
+    card_header.appendChild(card_img);
+    
+    // Card body
+    let card_body = document.createElement("div");
+    card_body.className = "card-body d-flex flex-column";
+    
+    let card_body_header = document.createElement("h4");
+    card_body_header.className = "h5 g-color-black g-font-weight-600 g-mb-10 mt-0 mb-3";
+    card_body_header.innerHTML = data.name;
+    
+    let card_body_id = document.createElement("p");
+    card_body_id.innerHTML = data.id;
+    
+    let card_body_pos = document.createElement("p");
+    card_body_pos.className = "d-block g-color-primary g-font-size-16 mb-3 mt-auto quote";
+    card_body_pos.innerHTML = data.position;
+
+    let card_body_quote = document.createElement("p");
+    card_body_quote.innerHTML = data.quote;
+    
+    card_body.appendChild(card_body_header);
+    card_body.appendChild(card_body_id);
+    card_body.appendChild(card_body_pos);
+    card_body.appendChild(card_body_quote);
+    
     // Connect card header & card body
     card.appendChild(card_header);
     card.appendChild(card_body);
