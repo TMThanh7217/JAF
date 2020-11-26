@@ -139,7 +139,9 @@ function initFoodMenuOnIndex() {
     more.id = "more_food";
     btn.className = "btn-order";
     btn.innerHTML = "More";
-    btn.addEventListener("click", initMoreFoodMenu);
+    btn.onclick = function() {
+        location.href = "food_menu.html";
+    };
     more.className = "d-flex justify-content-center";
     more.appendChild(btn);
     menu.appendChild(more);
@@ -179,7 +181,9 @@ function initDrinkMenuOnIndex() {
     more.id = "more_drink";
     btn.className = "btn-order";
     btn.innerHTML = "More";
-    btn.addEventListener("click", initMoreDrinkMenu);
+    btn.onclick = function() {
+        location.href = "drink_menu.html";
+    };
     more.className = "d-flex justify-content-center";
     more.appendChild(btn);
     menu.appendChild(more);
