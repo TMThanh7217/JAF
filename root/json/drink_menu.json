@@ -1,6 +1,7 @@
 [{
     "id":0,
-    "name":"Cold coffee americano with ice cube",
+    "name":"Coffee Americano",
+    "detail":"Cold coffee americano with ice cube",
     "type":"drink",
     "src":"../images/drink/cold-coffee-americano-with-ice-cube.jpg",
     "price":12,
@@ -8,7 +9,8 @@
 },
 {
     "id":1,
-    "name":"Fresh non alcoholic lemon drink",
+    "name":"Lemon Drink",
+    "detail":"Fresh non alcoholic lemon drink",
     "type":"drink",
     "src":"../images/drink/fresh-non-alcoholic-lemon-drink.jpg",
     "price":14,
@@ -16,7 +18,8 @@
 },
 {
     "id":2,
-    "name":"Gin and tonic cocktail with orange and thyme",
+    "name":"Cocktail",
+    "detail":"Gin and tonic cocktail with orange and thyme",
     "type":"drink",
     "src":"../images/drink/gin-and-tonic-cocktail-with-orange-and-thyme.jpg",
     "price":12,
@@ -25,6 +28,7 @@
 {
     "id":3,
     "name":"Lime juice",
+    "detail":"Fresh lime juice",
     "type":"drink",
     "src":"../images/drink/lime-juice.jpg",
     "price":9,
@@ -32,7 +36,8 @@
 },
 {
     "id":4,
-    "name":"Summer good morning drink",
+    "name":"Special Drink #1",
+    "detail":"Summer good morning drink",
     "type":"drink",
     "src":"../images/drink/summer-good-morning-drink.jpg",
     "price":10,

@@ -1,5 +1,7 @@
 var MENU_PATH = "../json/menu.json"
-var json = '[{"id":0,"name":"Noodle","detail":"Chili noodle soup with fresh vegetables on top","type":"food","src":"../images/food/Chili-noodle-soup-with-fresh-vegetables-on-top.jpg","price":10,"status":"stocking"},{"id":1,"name":"Breakfast Set","detail":"Full english breakfast","type":"food","src":"../images/food/full-english-breakfast.jpg","price":13,"status":"stocking"},{"id":2,"name":"Salad #1","detail":"Green salad with bread","type":"food","src":"../images/food/green-salad-with-bread.jpg","price":8,"status":"stocking"},{"id":3,"name":"Salad #2","detail":"Healthy green beans salad with egg and hemp seeds","type":"food","src":"../images/food/healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg","price":9,"status":"stocking"},{"id":4,"name":"Beef Burger","detail":"Juicy beef burger","type":"food","src":"../images/food/juicy-beef-burger.jpg","price":10,"status":"stocking"},{"id":5,"name":"Omelet","detail":"omelet with ham cheese spinach and tomatoes","type":"food","src":"../images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg","price":12,"status":"stocking"}]'
+var json = '[{"id":0,"name":"Coffee Americano","detail":"Cold coffee americano with ice cube","type":"drink","src":"../images/drink/cold-coffee-americano-with-ice-cube.jpg","price":12,"status":"stocking"},{"id":1,"name":"Lemon Drink","detail":"Fresh non alcoholic lemon drink","type":"drink","src":"../images/drink/fresh-non-alcoholic-lemon-drink.jpg","price":14,"status":"stocking"},{"id":2,"name":"Cocktail","detail":"Gin and tonic cocktail with orange and thyme","type":"drink","src":"../images/drink/gin-and-tonic-cocktail-with-orange-and-thyme.jpg","price":12,"status":"stocking"},{"id":3,"name":"Lime juice","detail":"Fresh lime juice","type":"drink","src":"../images/drink/lime-juice.jpg","price":9,"status":"stocking"},{"id":4,"name":"Special Drink #1","detail":"Summer good morning drink","type":"drink","src":"../images/drink/summer-good-morning-drink.jpg","price":10,"status":"stocking"},{"id":0,"name":"Noodle","detail":"Chili noodle soup with fresh vegetables on top","type":"food","src":"../images/food/Chili-noodle-soup-with-fresh-vegetables-on-top.jpg","price":10,"status":"stocking"},{"id":1,"name":"Breakfast Set #1","detail":"Full english breakfast","type":"food","src":"../images/food/full-english-breakfast.jpg","price":13,"status":"stocking"},{"id":2,"name":"Salad #1","detail":"Green salad with bread","type":"food","src":"../images/food/green-salad-with-bread.jpg","price":8,"status":"stocking"},{"id":3,"name":"Salad #2","detail":"Healthy green beans salad with egg and hemp seeds","type":"food","src":"../images/food/healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg","price":9,"status":"stocking"},{"id":4,"name":"Beef Burger","detail":"Juicy beef burger","type":"food","src":"../images/food/juicy-beef-burger.jpg","price":10,"status":"stocking"},{"id":5,"name":"Omelet","detail":"Omelet with ham cheese spinach and tomatoes","type":"food","src":"../images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg","price":12,"status":"stocking"},{"id":6,"name":"Stuffed bell pepper rice","detail":"Stuffed bell pepper rice","type":"food","src":"../images/food/stuffed-bell-pepper-rice.jpg","price":10,"status":"stocking"},{"id":7,"name":"Tacos #1","detail":"Tacos with pulled pork fresh vegetables and cream","type":"food","src":"../images/food/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg","price":10,"status":"stocking"},{"id":8,"name":"Couscous","detail":"vegetable-couscous-with-shrimps-and-fishegetable couscous with shrimps and fish","type":"food","src":"../images/food/vegetable-couscous-with-shrimps-and-fish.jpg","price":10,"status":"stocking"},{"id":9,"name":"Tacos #2","detail":"Vegetables tacos with cilantro and lemon","type":"food","src":"../images/food/vegetables-tacos-with-cilantro-and-lemon.jpg","price":10,"status":"stocking"}]'
+var drinks_json = '[{"id":0,"name":"Coffee Americano","detail":"Cold coffee americano with ice cube","type":"drink","src":"../images/drink/cold-coffee-americano-with-ice-cube.jpg","price":12,"status":"stocking"},{"id":1,"name":"Lemon Drink","detail":"Fresh non alcoholic lemon drink","type":"drink","src":"../images/drink/fresh-non-alcoholic-lemon-drink.jpg","price":14,"status":"stocking"},{"id":2,"name":"Cocktail","detail":"Gin and tonic cocktail with orange and thyme","type":"drink","src":"../images/drink/gin-and-tonic-cocktail-with-orange-and-thyme.jpg","price":12,"status":"stocking"},{"id":3,"name":"Lime juice","detail":"Fresh lime juice","type":"drink","src":"../images/drink/lime-juice.jpg","price":9,"status":"stocking"},{"id":4,"name":"Special Drink #1","detail":"Summer good morning drink","type":"drink","src":"../images/drink/summer-good-morning-drink.jpg","price":10,"status":"stocking"}]'
+var foods_json = '[{"id":0,"name":"Noodle","detail":"Chili noodle soup with fresh vegetables on top","type":"food","src":"../images/food/Chili-noodle-soup-with-fresh-vegetables-on-top.jpg","price":10,"status":"stocking"},{"id":1,"name":"Breakfast Set #1","detail":"Full english breakfast","type":"food","src":"../images/food/full-english-breakfast.jpg","price":13,"status":"stocking"},{"id":2,"name":"Salad #1","detail":"Green salad with bread","type":"food","src":"../images/food/green-salad-with-bread.jpg","price":8,"status":"stocking"},{"id":3,"name":"Salad #2","detail":"Healthy green beans salad with egg and hemp seeds","type":"food","src":"../images/food/healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg","price":9,"status":"stocking"},{"id":4,"name":"Beef Burger","detail":"Juicy beef burger","type":"food","src":"../images/food/juicy-beef-burger.jpg","price":10,"status":"stocking"},{"id":5,"name":"Omelet","detail":"Omelet with ham cheese spinach and tomatoes","type":"food","src":"../images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg","price":12,"status":"stocking"},{"id":6,"name":"Stuffed bell pepper rice","detail":"Stuffed bell pepper rice","type":"food","src":"../images/food/stuffed-bell-pepper-rice.jpg","price":10,"status":"stocking"},{"id":7,"name":"Tacos #1","detail":"Tacos with pulled pork fresh vegetables and cream","type":"food","src":"../images/food/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg","price":10,"status":"stocking"},{"id":8,"name":"Couscous","detail":"vegetable-couscous-with-shrimps-and-fishegetable couscous with shrimps and fish","type":"food","src":"../images/food/vegetable-couscous-with-shrimps-and-fish.jpg","price":10,"status":"stocking"},{"id":9,"name":"Tacos #2","detail":"Vegetables tacos with cilantro and lemon","type":"food","src":"../images/food/vegetables-tacos-with-cilantro-and-lemon.jpg","price":10,"status":"stocking"}]'
 
 function createHeaderNavbar() {
     var body = document.getElementsByTagName("body")[0];
@@ -111,56 +113,49 @@ function initMenu() {
 }
 
 function initFoodMenu(){
-    let data = JSON.parse(json);
-    console.log(data)
+    let data = JSON.parse(foods_json);
+    let rows = getRows(data, 3);
+    console.log(rows)
     let menu = document.getElementById("food_menu");
-    console.log(menu);
-
-    let row1_products = data.slice(0, 3);
-    let row2_products = data.slice(3);
-
-    let row1 = createProductRow(row1_products);
-    let row2 = createProductRow(row2_products);
-
-    menu.appendChild(row1);
-    menu.appendChild(row2);
+    for(let line of rows) {
+        let row = createProductRow(line);
+        console.log(line);
+        menu.appendChild(row);
+    }
 }
 
-function initDrinkMenu(){
-    let data = JSON.parse(json);
-    console.log(data)
+function initDrinkMenu() {
+    let data = JSON.parse(drinks_json);
+    let rows = getRows(data, 3);
+    console.log(rows)
     let menu = document.getElementById("drink_menu");
-    console.log(menu);
-
-    let row1_products = data.slice(0, 3);
-    let row2_products = data.slice(3);
-
-    let row1 = createProductRow(row1_products);
-    let row2 = createProductRow(row2_products);
-
-    menu.appendChild(row1);
-    menu.appendChild(row2);
+    for(let line of rows) {
+        let row = createProductRow(line);
+        console.log(line);
+        menu.appendChild(row);
+    }
 }
 
-function createProductRow(product_array) {
+function getRows(data, cap) {
+    let rows = []; 
+    for(let i = 0; i < data.length; i += cap) {
+        let row_data = data.slice(i, i + cap);
+        rows.push(row_data);
+    }
+    return rows;
+}
+
+function createProductRow(row_data_array) {
     let row = document.createElement("div");
     row.className = "row card-group";
     
-    let col_1 = createProductCol();
-    let col_1_card = createProductCard(product_array[0]);
-    col_1.appendChild(col_1_card);
-
-    let col_2 = createProductCol();
-    let col_2_card = createProductCard(product_array[1]);
-    col_2.appendChild(col_2_card);
-
-    let col_3 = createProductCol();
-    let col_3_card = createProductCard(product_array[2]);
-    col_3.appendChild(col_3_card);
-
-    row.appendChild(col_1);
-    row.appendChild(col_2);
-    row.appendChild(col_3);
+    for(let elem of row_data_array) {
+        console.log(elem)
+        let cell = createProductCol();
+        let cell_data = createProductCard(elem);
+        cell.appendChild(cell_data);
+        row.appendChild(cell);
+    }
 
     return row;
 }
