@@ -42,4 +42,31 @@
     "src":"../images/drink/summer-good-morning-drink.jpg",
     "price":10,
     "status":"stocking"
+},
+{
+    "id":5,
+    "name":"Cappucino",
+    "detail":"Hot cappucino",
+    "type":"drink",
+    "src":"../images/drink/cappuccino.jpg",
+    "price":12,
+    "status":"stocking"
+},
+{
+    "id":6,
+    "name":"Cereals muesli",
+    "detail":"Tasty cereals muesli",
+    "type":"drink",
+    "src":"../images/drink/cereals-muesli.jpg",
+    "price":10,
+    "status":"stocking"
+},
+{
+    "id":7,
+    "name":"Orange juice",
+    "detail":"Freshly squeeze orange juice",
+    "type":"drink",
+    "src":"../images/drink/fresh-orange-juice.jpg",
+    "price":11,
+    "status":"stocking"
 }]
