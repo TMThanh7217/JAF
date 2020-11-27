@@ -87,4 +87,40 @@
     "src":"../images/food/vegetables-tacos-with-cilantro-and-lemon.jpg",
     "price":10,
     "status":"stocking"
+},
+{
+    "id":10,
+    "name":"Classic burger",
+    "detail":"classic-burger",
+    "type":"food",
+    "src":"../images/food/classic-burger.jpg",
+    "price":12,
+    "status":"stocking"
+},
+{
+    "id":11,
+    "name":"Pizza",
+    "detail":"Pizza with tomato",
+    "type":"food",
+    "src":"../images/food/pizza-tomato.jpg",
+    "price":20,
+    "status":"stocking"
+},
+{
+    "id":12,
+    "name":"Salmon",
+    "detail":"Salmon with seasame",
+    "type":"food",
+    "src":"../images/food/salmon-sesame.jpg",
+    "price":30,
+    "status":"stocking"
+},
+{
+    "id":13,
+    "name":"Pancake",
+    "detail":"Pancake with delicious honey on top",
+    "type":"food",
+    "src":"../images/food/pancakes-honey.jpg",
+    "price":25,
+    "status":"stocking"
 }]
