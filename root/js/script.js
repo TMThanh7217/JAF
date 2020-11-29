@@ -99,10 +99,8 @@ function createTitle() {
 
 function initMenu() {
     let data = JSON.parse(json);
-    console.log(data)
     let menu = document.getElementById("menu");
-    console.log(menu);
-
+  
     let row1_products = data.slice(0, 3);
     let row2_products = data.slice(3);
 
@@ -116,23 +114,34 @@ function initMenu() {
 function initFoodMenu() {
     let data = JSON.parse(foods_json);
     let rows = getRows(data, 3);
-    console.log(rows)
+    let initRows = rows.splice(0, 2);
     let menu = document.getElementById("food_menu");
     for(let line of rows) {
         let row = createProductRow(line);
-        console.log(line);
         menu.appendChild(row);
     }
+    
+    initSeeMoreBtn();
+}
+
+function initSeeMoreBtn() {
+    let body = document.getElementsByClassName("container-fluid")[0];
+    let moreBtn = document.createElement("button");
+    let container = document.createElement("div");
+    container.className = "container-fluid d-flex justify-content-center";
+    moreBtn.className = "btn btn-danger btn-large btn-seemore mx-auto mb-3";
+    moreBtn.innerHTML = "See more";
+
+    container.appendChild(moreBtn);
+    body.appendChild(container);
 }
 
 function initFoodMenuOnIndex() {
     let data = JSON.parse(foods_json);
     let rows = getRows(data, 3);
-    console.log(rows)
     let menu = document.getElementById("food_menu");
     let row = createProductRow(rows[0]);
     row.id = "food_menu_tmp";
-    console.log(row);
     menu.appendChild(row);
     let more = document.createElement("div");
     let btn = document.createElement("button");
@@ -212,7 +221,6 @@ function createProductRow(row_data_array) {
     row.className = "row card-group";
     
     for(let elem of row_data_array) {
-        console.log(elem)
         let cell = createProductCol();
         let cell_data = createProductCard(elem);
         cell.appendChild(cell_data);
@@ -331,4 +339,8 @@ function createProfileCard(data) {
     card.appendChild(card_body);
 
     return card;
+}
+
+function addTwoRows(current) {
+
 }

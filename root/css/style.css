@@ -1,3 +1,7 @@
+    /* * {
+        border: solid black;
+    } */
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -162,4 +166,15 @@ p {
 .img-profile {
     min-width: 150px;
     width: 100%;
+}
+
+.btn-seemore {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    width: 300px;
+    font-size: 50px;
+    border-radius: 20px;
+    font-weight: bold;
 }
