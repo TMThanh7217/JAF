@@ -4,90 +4,9 @@ var drinks_json = '[{"id":0,"name":"Coffee Americano","detail":"Cold coffee amer
 var foods_json = '[{"id":0,"name":"Noodle","detail":"Chili noodle soup with fresh vegetables on top","type":"food","src":"../images/food/Chili-noodle-soup-with-fresh-vegetables-on-top.jpg","price":10,"status":"stocking"},{"id":1,"name":"Breakfast Set #1","detail":"Full english breakfast","type":"food","src":"../images/food/full-english-breakfast.jpg","price":13,"status":"stocking"},{"id":2,"name":"Salad #1","detail":"Green salad with bread","type":"food","src":"../images/food/green-salad-with-bread.jpg","price":8,"status":"stocking"},{"id":3,"name":"Salad #2","detail":"Healthy green beans salad with egg and hemp seeds","type":"food","src":"../images/food/healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg","price":9,"status":"stocking"},{"id":4,"name":"Beef Burger","detail":"Juicy beef burger","type":"food","src":"../images/food/juicy-beef-burger.jpg","price":10,"status":"stocking"},{"id":5,"name":"Omelet","detail":"Omelet with ham cheese spinach and tomatoes","type":"food","src":"../images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg","price":12,"status":"stocking"},{"id":6,"name":"Stuffed bell pepper rice","detail":"Stuffed bell pepper rice","type":"food","src":"../images/food/stuffed-bell-pepper-rice.jpg","price":10,"status":"stocking"},{"id":7,"name":"Tacos #1","detail":"Tacos with pulled pork fresh vegetables and cream","type":"food","src":"../images/food/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg","price":10,"status":"stocking"},{"id":8,"name":"Couscous","detail":"vegetable-couscous-with-shrimps-and-fishegetable couscous with shrimps and fish","type":"food","src":"../images/food/vegetable-couscous-with-shrimps-and-fish.jpg","price":10,"status":"stocking"},{"id":9,"name":"Tacos #2","detail":"Vegetables tacos with cilantro and lemon","type":"food","src":"../images/food/vegetables-tacos-with-cilantro-and-lemon.jpg","price":10,"status":"stocking"},{"id":10,"name":"Classic burger","detail":"classic-burger","type":"food","src":"../images/food/classic-burger.jpg","price":12,"status":"stocking"},{"id":11,"name":"Pizza","detail":"Pizza with tomato","type":"food","src":"../images/food/pizza-tomato.jpg","price":20,"status":"stocking"},{"id":12,"name":"Salmon","detail":"Salmon with seasame","type":"food","src":"../images/food/salmon-sesame.jpg","price":30,"status":"stocking"},{"id":13,"name":"Pancake","detail":"Pancake with delicious honey on top","type":"food","src":"../images/food/pancakes-honey.jpg","price":25,"status":"stocking"}]'
 var staff_json = '[{"id":"18127130","name":"Tran Phuoc Loc","avt":"","position":"Worker","quote":"OK, FINE, THANKS!"},{"id":"18127217","name":"Trinh Minh Thanh","avt":"","position":"Worker","quote":"STELLAAAAAAAAAAAA!!!!!!!!!!!!"},{"id":"18127xxx","name":"Tran Dinh Phat","avt":"","position":"Worker","quote":"WIBU NEVER DIE!!!!!!!!!!!!!"}]'
 
-function createHeaderNavbar() {
-    var body = document.getElementsByTagName("body")[0];
-    var html = "";
-    html += "<nav class='navbar navbar-expand-sm bg-light navbar-light sticky-top mb-5'>"
-    html += '<a class="navbar-brand" href="./index.html"><img src="../images/logo & bg & etc/JAF_logo.png" class="img-fluid" alt="" style="width: 50px;"></a>'
-    html += '<ul class="navbar-nav">'
-    html += '<li class="nav-item">'
-    html += '<a href="./menu.html" class="nav-link">Menu</a>'
-    html += '</li>'            
-    html += '<li class="nav-item">'
-    html += '<a href="./food_menu.html" class="nav-link">Food</a>'
-    html += '</li>'
-    html += '<li class="nav-item">'
-    html += '<a href="./drink_menu.html" class="nav-link">Drink</a>'
-    html += '</li>'
-    html += '<li class="nav-item dropdown">'
-    html += '<a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">'
-    html += 'Explore'
-    html += '</a>'
-    html += '<div class="dropdown-menu">'
-    html += '<a class="dropdown-item" href="#">Best seller</a>'
-    html += '<a class="dropdown-item" href="#">Most comments</a>'
-    html += '<a class="dropdown-item" href="#">Recently added</a>'
-    html += '</div>'
-    html += '</li>'
-    html += '</ul>'
-    html += '<form class="form ml-auto search-bar mr-lg-5 mr-md-4 mr-sm-0 mr-xs-0 my-auto row">'
-    html += '<input class="form-control search-bar-item search-field col-10" type="text" placeholder="Search">'
-    html += '<button class="btn search-bar-item btn-search col-2" type="button"><i class="fa fa-search"></i></button>'
-    html += '</form>'
-    html += '<div class="navbar-nav ml-5">'
-    html += '<button id="btn-login" class="btn btn-danger" type="button">Login</button>'    
-    html += '</div>'
-    html += '</nav>'
-    body.insertAdjacentHTML("afterbegin", html)
-    document.getElementById("btn-login").onclick = () => { window.location.href='./login.html'; }
-}
 
-function createFooter() {
-    var body = document.getElementsByTagName("body")[0];
-    var html = "";
-    html += '<footer class="page-footer bg-light font-small pt-4">'
-    html += '<div class="container-fluid text-center text-md-left">'
-    html += '<div class="row">'
-    html += '<div class="col-md-6 mt-md-0 mt-3">'
-    html += '<h5 class="text-uppercase">About Team</h5>'
-    html += '<p>Team with student members who are learning to use bs4 to create a website.</p>'
-    html += '<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste quos, ratione cum tenetur perferendis et pariatur. Itaque veritatis vitae, eveniet delectus minus ut consequatur dolore enim quia odit atque sequi quidem maiores consequuntur provident quis assumenda ipsam. Odit deleniti fuga adipisci, velit sequi pariatur beatae ratione maxime, aperiam ad vel.</p>'
-    html += '</div>'
-    html += '<hr class="clearfix w-100 d-md-none pb-3">'
-    html += '<div class="col-md-3 mb-md-0 mb-3">'
-    html += '<h5 class="text-uppercase">Useful Links</h5>'
-    html += '<ul class="list-unstyled">'
-    html += '<li class="mb-3">'
-    html += '<a href="./index.html">Home</a>'
-    html += '</li>'
-    html += '<li class="mb-sm-3">'
-    html += '<a href="./credit.html">About Us</a>'
-    html += '</li>'
-    html += '<li class="mb-sm-3">'
-    html += '<a href="#!">Help</a>'
-    html += '</li>'
-    html += '<li class="mb-sm-3">'
-    html += '<a href="#!">Your Account</a>'
-    html += '</li></ul></div>'
-    html += '<div class="col-md-3 mb-md-0 mb-3">'
-    html += '<h5 class="text-uppercase">Contacts</h5>'
-    html += '<ul class="list-unstyled"><li>'
-    html += '<p>Address: HCM, 123 HCM Street, VN</p>'
-    html += '</li><li><p>Phone: 0123456789</p>'
-    html += '</li><li><p>Social: <a href="#">fb.com/jafteam</a></p></li><li>'
-    html += '<p>E-Mail: jafteam@gmail.com</p>'
-    html += '</li></ul></div></div></div>'
-    html += '<div class="footer-copyright text-center text-white py-3" style="background-color: #dc3545;">© 2020 Copyright: '
-    html += '<a href="https://mdbootstrap.com/" style="color: white; text-decoration: underline;""> MDBootstrap.com</a>'
-    html += '</div>'
-    body.insertAdjacentHTML("beforeend", html)
-}
 
-function createHeaderFooter() {
-    createTitle();
-    createHeaderNavbar();
-    createFooter();
-}
+
 
 function createTitle() {
     let title = document.getElementsByTagName("title")[0];
@@ -344,3 +263,5 @@ function createProfileCard(data) {
 function addTwoRows(current) {
 
 }
+
+module.exports.getRows = getRows;

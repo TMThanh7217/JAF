@@ -178,3 +178,7 @@ p {
     border-radius: 20px;
     font-weight: bold;
 }
+
+.navbar-brand {
+    cursor: pointer;
+}

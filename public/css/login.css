@@ -10,7 +10,6 @@ body{
     background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('../images/logo & bg & etc/bg.jpg');
     background-position: center;
     background-size:cover;
-    position:absolute;
 }
 
 .formbox{
