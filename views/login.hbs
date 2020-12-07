@@ -1,5 +1,4 @@
 <div class="page py-3">
-
     <div class="formbox">
         <div class="button-box">
             <div id="btn"></div>
@@ -7,20 +6,29 @@
             <button type="button" class="toggle-btn" onclick="register()">Register</button>
         </div>
         <div class="logo">
-            <img src="../images/logo & bg & etc/rsz_logo.png">
+            <img src="/images/logo & bg & etc/rsz_logo.png">
         </div>
-        <form id="login" class="input-btn">
-            <input type="text" class="input-field" placeholder="Username" required>
-            <input type="password" class="input-field" placeholder="Password" required>
+        <form id="login" action="/login" class="input-btn" method="POST">
+        {{#if checkLogIn}}
+            <input type="text" class="input-field form-control is-invalid" name="username" placeholder="Username" required>
+            <small class="text-danger">Invalid username</small>
+            <input type="password" class="input-field form-control is-invalid" name="password" placeholder="Password" required>
+            <small class="text-danger">Invalid password</small>
             <input type="checkbox" class="input-box"><span>Remember Password</span>
             <button type="submit" class="sumbit-btn">LOG IN</button>
+        {{else}}
+            <input type="text" class="input-field " name="username" placeholder="Username" required>
+            <input type="password" class="input-field" name="password" placeholder="Password" required>
+            <input type="checkbox" class="input-box"><span>Remember Password</span>
+            <button type="submit" class="sumbit-btn">LOG IN</button>
+        {{/if}}
         </form>
-        <form id="register" class="input-btn" method="post" action="/user/login">
+        <form id="register" action="/register" class="input-btn" method="POST">
             <input type="text" class="input-field" placeholder="Username" required>
             <input type="email" class="input-field" placeholder="Email" required>
             <input type="password" class="input-field" placeholder="Password" required>
             <input type="checkbox" class="input-box"><span>Agree to the terms and conditions</span>
-            <button type="submit" class="sumbit-btn">REGISTER</button>
+            <button type="submit" class="sumbit-btn">REGISTER</button>  
         </form>
     </div>
 </div>
@@ -40,4 +48,3 @@
     z.style.left="0px";
     }
 </script>
-</div>

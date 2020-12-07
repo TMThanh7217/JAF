@@ -47,6 +47,19 @@
                     <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout</a>
             </div>
         </div>
+        {{else if isAdmin}}
+        <div class="dropdown">
+            <button type='button' class='btn dropdown-toggle btn-user caret-off' data-toggle='dropdown' style="color: red; font-weight: bold">Admin <i class='fa fa-user ml-3'></i></button>
+            <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/profile"><i class="fa fa-address-book" aria-hidden="true"></i>&nbsp; Profile</a>
+                    <a class="dropdown-item" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Cart</a>
+                    <a class="dropdown-item" href="/noitifications"><i class="fa fa-bell" aria-hidden="true"></i>&nbsp; Notifications</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-cutlery" aria-hidden="true"></i>&nbsp; Orders</a>
+                    <a class="dropdown-item" href="#"><i class="fa fa-history" aria-hidden="true"></i>&nbsp; History</a>
+                    <a class="dropdown-item" href="/coupon"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp; Coupons</a>
+                    <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout</a>
+            </div>
+        </div>
         {{else}}
         <button id="btn-login" class="btn btn-danger" type="button" onclick="document.location.href='/login'">Login</button>
         {{/if}}

@@ -2,11 +2,14 @@ const express = require('express');
 const fs = require('fs');
 const { get } = require('http');
 const app = express();
-const router = express.Router;
+const bodyParser = require("body-parser")
+//const router = express.Router();
 const port = process.env.PORT || 8000;
 app.use(express.static(__dirname + "/public"));
 const myApi = require(__dirname + '/public/js/script.js');
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 let exprHbs = require("express-handlebars");
 let hbs = exprHbs.create({
@@ -17,18 +20,20 @@ let hbs = exprHbs.create({
 });
 
 app.engine('hbs', hbs.engine);
-
 app.set('view engine', 'hbs');
 
 app.use((req, res, next) => {
    res.locals.isLoggedIn = false;
+   res.locals.isAdmin = false;
    next();
 });
 
 var user_state = false;
+var admin_state = false;
 
 app.get('/', (req, res) => {
   res.locals.isLoggedIn = user_state;
+  res.locals.isAdmin = admin_state;
   var raw_food_data = fs.readFileSync(__dirname + '/public/json/food_menu.json');
   var raw_drink_data = fs.readFileSync(__dirname + '/public/json/drink_menu.json');
   var food_data = JSON.parse(raw_food_data);
@@ -44,15 +49,37 @@ app.get('/', (req, res) => {
 })
 
 app.get('/login', (req, res) => {
-    user_state = true;
-    res.locals.isLoggedIn = user_state;
+    /*user_state = true;
+    res.locals.isLoggedIn = user_state;*/
     res.render('login');
 })
 
+app.post("/login", (req, res) => {
+  console.log("AAaaaAAAAAAAAAAAAAAAAAAAAAAAAa")
+  console.log(req.body);
+  var username = req.body.username;
+  var password = req.body.password;
+  console.log("username: " + username + " | password: " + password);
+  if (username == "user" && password == "user") {
+    user_state = true;
+    console.log("Log in as user");
+    res.redirect("/");
+    res.end();
+  }
+  else if (username == "admin" && password == "admin") {
+    admin_state = true;
+    console.log("Log in as admin");
+    res.redirect("/");
+    res.end();
+  }
+});
+
 app.get('/logout', (req, res) => {
   user_state = false;
+  admin_state = false;
   res.locals.isLoggedIn = user_state;
-  var raw_food_data = fs.readFileSync(__dirname + '/public/json/food_menu.json');
+  res.locals.isAdmin = admin_state;
+  /*var raw_food_data = fs.readFileSync(__dirname + '/public/json/food_menu.json');
   var raw_drink_data = fs.readFileSync(__dirname + '/public/json/drink_menu.json');
   var food_data = JSON.parse(raw_food_data);
   var drink_data = JSON.parse(raw_drink_data);
@@ -63,43 +90,50 @@ app.get('/logout', (req, res) => {
     pre_foods: FoodRows[0],
     pre_drinks: DrinkRows[0],
   }
-  res.render('index', page_data);
+  res.render('index', page_data);*/
+  res.redirect("/");
 })
-
 
 app.get('/credit', (req, res) => {
     res.locals.isLoggedIn = user_state;
+    res.locals.isAdmin = admin_state;
     var staffs = JSON.parse(fs.readFileSync(__dirname + "/public/json/staff.json"));
     res.render('credit', {staff_infos: staffs});
 })
 
 app.get("/profile", (req, res) => {
   res.locals.isLoggedIn = user_state;
+  res.locals.isAdmin = admin_state;
   res.render('profile');
 })
 
 app.get("/coupon", (req, res) => {
   res.locals.isLoggedIn = user_state;
+  res.locals.isAdmin = admin_state;
   res.render('coupon');
 })
 
 app.get("/cart", (req, res) => {
   res.locals.isLoggedIn = user_state;
+  res.locals.isAdmin = admin_state;
   res.render('cart');
 })
 
 app.get("/notifications", (req, res) => {
   res.locals.isLoggedIn = user_state;
+  res.locals.isAdmin = admin_state;
   res.render('notifications');
 })
 
 app.get("/product", (req, res) => {
   res.locals.isLoggedIn = user_state;
+  res.locals.isAdmin = admin_state;
   res.render('product');
 })
 
 app.get('/:menu_cate', (req, res) => {
     res.locals.isLoggedIn = user_state;
+    res.locals.isAdmin = admin_state;
     var cate = req.params.menu_cate;
     var rows;
     switch (cate) {
