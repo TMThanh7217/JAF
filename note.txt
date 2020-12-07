@@ -1,0 +1,11 @@
+Phân quyền người dùng
+Guess chưa đăng nhập khi bấm vào order now thì hệ thống sẽ alert, yêu cầu đăng nhập + để nút login kế bên
+link your account cho người dùng đăng nhập
+Help?
+Best seller
+most comments
+recently added
+Admin thêm xóa sửa
+Chi tiết sản phẩm khi bấm vào 1 sản phẩm cụ thể
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Lấy = get + post: https://codeforgeek.com/handle-get-post-request-express-4/
