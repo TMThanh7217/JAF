@@ -92,6 +92,11 @@ app.get("/notifications", (req, res) => {
   res.render('notifications');
 })
 
+app.get("/product", (req, res) => {
+  res.locals.isLoggedIn = user_state;
+  res.render('product');
+})
+
 app.get('/:menu_cate', (req, res) => {
     res.locals.isLoggedIn = user_state;
     var cate = req.params.menu_cate;

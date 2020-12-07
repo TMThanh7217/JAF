@@ -147,11 +147,12 @@ p {
     border: 1px solid black;
 } */
 
-.img-thumbnail {
+.sm-img {
     min-width: 250px;
     max-width: 300px;
     width: 90%;
     height: 90%;
+    cursor: pointer;
 }
 
 .card-header {
