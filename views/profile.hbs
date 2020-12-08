@@ -4,17 +4,14 @@
         <div class="col-4 ">
           <ul style=" list-style-type: none">
             <li class="active my-3" style="font-size:20px;"><a href="/profile">
-              <i class="fa fa-users">My Account</i></a></li>
-
+            <i class="fa fa-users">My Account</i></a></li>
+            {{#if isLoggedIn}}
             <li class="my-3" style="font-size:20px;"><a href="/coupon">
-              <i class="fa fa-ticket" style="color:black">My Coupon</i></a></li>
-
+            <i class="fa fa-ticket" style="color:black">My Coupon</i></a></li>
             <li class="my-3" style="font-size:20px;"><a href="/notifications">
-              <i class="fa fa-bell" style="color:black">My Notifications</i></a></li>
+            <i class="fa fa-bell" style="color:black">My Notifications</i></a></li>
+            {{/if}}
           </ul>
-          <div class="input-group">
-
-          </div>
         </div>
 
       <div class="col-8" style="border: 1px solid white">
