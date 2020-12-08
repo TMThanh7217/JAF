@@ -11,6 +11,8 @@ const myApi = require(__dirname + '/public/js/script.js');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+const product = require(__dirname + "/public/js/menu.js");
+
 let exprHbs = require("express-handlebars");
 let hbs = exprHbs.create({
   extname : "hbs",
@@ -134,7 +136,11 @@ app.get("/product", (req, res) => {
 app.get("/manage_product", (req, res) => {
   res.locals.isLoggedIn = user_state;
   res.locals.isAdmin = admin_state;
-  res.render('manage_account');
+  let list = [];
+  for (let prod of product.products) {
+      list.push(prod);
+  }
+  res.render('manage_product', {product: list});
 })
 
 app.get("/manage_account", (req, res) => {
