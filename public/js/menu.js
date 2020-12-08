@@ -217,6 +217,6 @@ var products = [{
     "price":25,
     "status":"stocking",
     "stock":"10"
-}];
+}]
 
 module.exports.products = products;

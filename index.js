@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 const product = require(__dirname + "/public/js/menu.js");
+const userdata = require(__dirname + "/public/js/userdata.js");
 
 let exprHbs = require("express-handlebars");
 let hbs = exprHbs.create({
@@ -143,10 +144,14 @@ app.get("/manage_product", (req, res) => {
   res.render('manage_product', {product: list});
 })
 
-app.get("/manage_account", (req, res) => {
+app.get("/manage_user", (req, res) => {
   res.locals.isLoggedIn = user_state;
   res.locals.isAdmin = admin_state;
-  res.render('manage_account');
+  let list = [];
+  for (let ele of userdata.userdata) {
+      list.push(ele);
+  }
+  res.render('manage_user', {userdata: list});
 })
 
 app.get('/:menu_cate', (req, res) => {
