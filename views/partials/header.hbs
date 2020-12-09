@@ -59,7 +59,32 @@
         </div>
         {{else}}
         <button id="btn-login" class="btn btn-danger" type="button" onclick="document.location.href='/login'">Login</button>
+        <!-- Button trigger modal -->
+        <button type="button" id="myButton" class="btn btn-primary " data-toggle="modal" data-target="#myModal">Help</button>
         {{/if}}
-    </div>
-
 </nav>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content"  >
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Default account</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="myContent">
+                <h4>User</h4>
+                <p>Username: user</p>
+                <p>Username: user</p>
+                <h4>Admin</h4>
+                <p>Username: admin</p>
+                <p>Username: admin</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
