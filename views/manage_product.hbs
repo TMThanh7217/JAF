@@ -1,72 +1,71 @@
-    <div class="pb-5">
-      <div>AHAHAaha</div>
-        <div class="container">
-          <div class="row">
-            <div class="col-2">
-                <ul class="list-group" id="categories">
-                    <li class="list-group-item"><a href="/manage_product">Menu</a></li>
-                    <li class="list-group-item"><a href="/manage_product_food">Food</a></li>
-                    <li class="list-group-item"><a href="/manage_product_drink">Drink</a></li>
-                </ul>
-            </div>
-            <div class="col-10 bg-white rounded shadow-sm mb-5">
-              
-              <table class="table table-responsive" style="text-align:center;">
-                <thead>
-                  <tr>
-                    <th class="border-0 bg-light" >
-                      <div class="p-2 px-3 text-uppercase">Product</div>
-                    </th>
-                    <th scope="col" class="border-0 bg-light" >
-                      <div class="py-2 text-uppercase">Price</div>
-                    </th>
-                    <th scope="col" class="border-0 bg-light" >
-                      <div class="py-2 text-uppercase">Status</div>
-                    </th>
-                    <th scope="col" class="border-0 bg-light" >
-                      <div class="py-2 text-uppercase">Quantity</div>
-                    </th>
-                    <th scope="col" class="border-0 bg-light" >
-                      <div class="py-2 text-uppercase">Delete</div>
-                    </th>
-                  </tr>
-                </thead>
-                {{#each product}}
-                <tbody>
-                  <tr>
-                    <td class="border-0" style="width: 40%;">
-                      <div>
-                        <img src={{this.src}} alt="" class="img-fluid img-thumbnail rounded shadow-sm">
-                        <div class="d-flex justify-content-center align-middle">
-                          <h5 class="mb-0"> <input class="border-0" type="text" placeholder="Name: {{this.name}}" style="font-weight: bold;"></input></h5>
-                          <input class="border-0 text-muted font-weight-normal font-italic d-block" placeholder="Type: {{this.type}}" style="font-weight: bold;"></input>
-                        </div>
-                      </div>  
-                    </td>
-                    <td class="border-0 align-middle" style="width: 10%;">
-                      <input class="border-0" type="text" placeholder="{{this.price}}" size="5" style="text-align: center; font-weight: bold;"></input>
-                    </td>
-                    <td class="border-0 align-middle" style="width: 10%;">
-                    <input class="border-0" type="text" placeholder="{{this.status}}" size="5" style="text-align: center; font-weight: bold"></input>  
-                    </td>
-                    <td class="border-0 align-middle" style="width: 20%;">
-                      <strong>
-                        <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">+</button>
-                          {{this.stock}}
-                        <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">-</button>
-                      </strong>
-                    </td>
-                    <td class="border-0 align-middle" style="width: 10%;"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
-                  </tr>
-                </tbody>
-                {{/each }}
-              </table>
-              
-              <!-- End -->
-            </div>
-          </div>
-    
+<div class="pb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+            <ul class="list-group" id="categories">
+                <li class="list-group-item"><a href="/manage_product">Menu</a></li>
+                <li class="list-group-item"><a href="/manage_product_food">Food</a></li>
+                <li class="list-group-item"><a href="/manage_product_drink">Drink</a></li>
+            </ul>
+        </div>
+        <div class="col-10 bg-white rounded shadow-sm mb-5">
+          
+          <table class="table table-responsive" style="text-align:center;">
+            <thead>
+              <tr>
+                <th class="border-0 bg-light" >
+                  <div class="p-2 px-3 text-uppercase">Product</div>
+                </th>
+                <th scope="col" class="border-0 bg-light" >
+                  <div class="py-2 text-uppercase">Price</div>
+                </th>
+                <th scope="col" class="border-0 bg-light" >
+                  <div class="py-2 text-uppercase">Status</div>
+                </th>
+                <th scope="col" class="border-0 bg-light" >
+                  <div class="py-2 text-uppercase">Quantity</div>
+                </th>
+                <th scope="col" class="border-0 bg-light" >
+                  <div class="py-2 text-uppercase">Delete</div>
+                </th>
+              </tr>
+            </thead>
+            {{#each product}}
+            <tbody>
+              <tr>
+                <td class="border-0" style="width: 40%;">
+                  <div>
+                    <img src={{this.src}} alt="" class="img-fluid img-thumbnail rounded shadow-sm">
+                    <div class="d-flex justify-content-center align-middle">
+                      <h5 class="mb-0"> <input class="border-0" type="text" placeholder="Name: {{this.name}}" style="font-weight: bold;"></input></h5>
+                      <input class="border-0 text-muted font-weight-normal font-italic d-block" placeholder="Type: {{this.type}}" style="font-weight: bold;"></input>
+                    </div>
+                  </div>  
+                </td>
+                <td class="border-0 align-middle" style="width: 10%;">
+                  <input class="border-0" type="text" placeholder="{{this.price}}" size="5" style="text-align: center; font-weight: bold;"></input>
+                </td>
+                <td class="border-0 align-middle" style="width: 10%;">
+                <input class="border-0" type="text" placeholder="{{this.status}}" size="5" style="text-align: center; font-weight: bold"></input>  
+                </td>
+                <td class="border-0 align-middle" style="width: 20%;">
+                  <strong>
+                    <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">+</button>
+                      {{this.stock}}
+                    <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">-</button>
+                  </strong>
+                </td>
+                <td class="border-0 align-middle" style="width: 10%;"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+              </tr>
+            </tbody>
+            {{/each }}
+          </table>
+          
+          <!-- End -->
         </div>
       </div>
+
     </div>
-    
+  </div>
+</div>
+
