@@ -37,7 +37,7 @@
         {{#if isLoggedIn}}
         <div class="dropdown">
             <button type='button' class='btn dropdown-toggle btn-user caret-off' data-toggle='dropdown'>Account <i class='fa fa-user ml-3'></i></button>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu dropdown-left">
                     <a class="dropdown-item" href="/profile"><i class="fa fa-address-book" aria-hidden="true"></i>&nbsp; Profile</a>
                     <a class="dropdown-item" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Cart</a>
                     <a class="dropdown-item" href="/notifications"><i class="fa fa-bell" aria-hidden="true"></i>&nbsp; Notifications</a>
@@ -50,7 +50,7 @@
         {{else if isAdmin}}
         <div class="dropdown">
             <button type='button' class='btn dropdown-toggle btn-user caret-off' data-toggle='dropdown' style="color: red; font-weight: bold">Admin <i class='fa fa-user-plus ml-3'></i></button>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu dropdown-left">
                     <a class="dropdown-item" href="/profile"><i class="fa fa-address-book" aria-hidden="true"></i>&nbsp; Profile</a>
                     <a class="dropdown-item" href="/manage_product"><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; Manage product</a>
                     <a class="dropdown-item" href="/manage_user"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; Manage user</a>
@@ -58,9 +58,10 @@
             </div>
         </div>
         {{else}}
-        <button id="btn-login" class="btn btn-danger" type="button" onclick="document.location.href='/login'">Login</button>
         <!-- Button trigger modal -->
-        <button type="button" id="myButton" class="btn btn-primary " data-toggle="modal" data-target="#myModal">Help</button>
+        <button type="button" id="myButton" class="btn btn-success  mr-3" data-toggle="modal" data-target="#myModal">Test Accounts</button>
+        
+        <button id="btn-login" class="btn btn-danger" type="button" onclick="document.location.href='/login'">Login</button>
         {{/if}}
     </div>
 </nav>
@@ -70,7 +71,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content"  >
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Default account</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Test accounts</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -78,13 +79,13 @@
             <div class="modal-body" id="myContent">
                 <h4>User</h4>
                 <p>Username: user</p>
-                <p>Username: user</p>
+                <p>Password: user</p>
                 <h4>Admin</h4>
                 <p>Username: admin</p>
-                <p>Username: admin</p>
+                <p>Password: admin</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
