@@ -15,6 +15,7 @@ const product = require(__dirname + "/public/js/menu.js");
 const userdata = require(__dirname + "/public/js/userdata.js");
 
 let exprHbs = require("express-handlebars");
+const { drinks } = require('./public/js/menu');
 let hbs = exprHbs.create({
   extname : "hbs",
   defaultLayout : 'layout',
@@ -140,6 +141,26 @@ app.get("/manage_product", (req, res) => {
   let list = [];
   for (let prod of product.products) {
       list.push(prod);
+  }
+  res.render('manage_product', {product: list});
+})
+
+app.get("/manage_product_food", (req, res) => {
+  res.locals.isLoggedIn = user_state;
+  res.locals.isAdmin = admin_state;
+  let list = [];
+  for (let item of product.foods) {
+      list.push(item);
+  }
+  res.render('manage_product', {product: list});
+})
+
+app.get("/manage_product_drink", (req, res) => {
+  res.locals.isLoggedIn = user_state;
+  res.locals.isAdmin = admin_state;
+  let list = [];
+  for (let item of product.drinks) {
+      list.push(item);
   }
   res.render('manage_product', {product: list});
 })
