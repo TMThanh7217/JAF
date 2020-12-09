@@ -6,7 +6,8 @@ var products = [{
     "src":"../images/drink/cold-coffee-americano-with-ice-cube.jpg",
     "price":12,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":1,
@@ -16,7 +17,8 @@ var products = [{
     "src":"../images/drink/fresh-non-alcoholic-lemon-drink.jpg",
     "price":14,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":2,
@@ -26,7 +28,8 @@ var products = [{
     "src":"../images/drink/gin-and-tonic-cocktail-with-orange-and-thyme.jpg",
     "price":12,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":3,
@@ -36,7 +39,8 @@ var products = [{
     "src":"../images/drink/lime-juice.jpg",
     "price":9,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":4,
@@ -46,7 +50,8 @@ var products = [{
     "src":"../images/drink/summer-good-morning-drink.jpg",
     "price":10,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":5,
@@ -56,7 +61,8 @@ var products = [{
     "src":"../images/drink/cappuccino.jpg",
     "price":12,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":6,
@@ -66,7 +72,8 @@ var products = [{
     "src":"../images/drink/cereals-muesli.jpg",
     "price":10,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":7,
@@ -76,7 +83,8 @@ var products = [{
     "src":"../images/drink/fresh-orange-juice.jpg",
     "price":11,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":0,
@@ -86,7 +94,8 @@ var products = [{
     "src":"../images/food/Chili-noodle-soup-with-fresh-vegetables-on-top.jpg",
     "price":10,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":1,
@@ -96,7 +105,8 @@ var products = [{
     "src":"../images/food/full-english-breakfast.jpg",
     "price":13,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":2,
@@ -106,7 +116,8 @@ var products = [{
     "src":"../images/food/green-salad-with-bread.jpg",
     "price":8,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":3,
@@ -116,7 +127,8 @@ var products = [{
     "src":"../images/food/healthy-green-beans-salad-with-egg-and-hemp-seeds.jpg",
     "price":9,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":4,
@@ -126,7 +138,8 @@ var products = [{
     "src":"../images/food/juicy-beef-burger.jpg",
     "price":10,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":5,
@@ -136,7 +149,8 @@ var products = [{
     "src":"../images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg",
     "price":12,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":6,
@@ -146,7 +160,8 @@ var products = [{
     "src":"../images/food/stuffed-bell-pepper-rice.jpg",
     "price":10,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":7,
@@ -156,7 +171,8 @@ var products = [{
     "src":"../images/food/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg",
     "price":10,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":8,
@@ -166,7 +182,8 @@ var products = [{
     "src":"../images/food/vegetable-couscous-with-shrimps-and-fish.jpg",
     "price":10,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":9,
@@ -176,7 +193,8 @@ var products = [{
     "src":"../images/food/vegetables-tacos-with-cilantro-and-lemon.jpg",
     "price":10,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":10,
@@ -186,7 +204,8 @@ var products = [{
     "src":"../images/food/classic-burger.jpg",
     "price":12,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":11,
@@ -196,7 +215,8 @@ var products = [{
     "src":"../images/food/pizza-tomato.jpg",
     "price":20,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":12,
@@ -206,7 +226,8 @@ var products = [{
     "src":"../images/food/salmon-sesame.jpg",
     "price":30,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 },
 {
     "id":13,
@@ -216,7 +237,8 @@ var products = [{
     "src":"../images/food/pancakes-honey.jpg",
     "price":25,
     "status":"stocking",
-    "stock":"10"
+    "stock":10,
+    "like":20
 }]
 
 module.exports.products = products;

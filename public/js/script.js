@@ -125,7 +125,7 @@ function initMoreDrinkMenu() {
     initDrinkMenu();
 }
 
-function getRows(data, cap) {
+function _getRows(data, cap) {
     let rows = []; 
     for(let i = 0; i < data.length; i += cap) {
         let row_data = data.slice(i, i + cap);
@@ -261,14 +261,14 @@ function createProfileCard(data) {
 }
 
 // Source: https://www.w3schools.com/js/tryit.asp?filename=tryjs_cookie_username
-function setCookie(cname, cvalue, exdays) {
+function _setCookie(cname, cvalue, exdays) {
     var d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     var expires = "expires=" + d.toGMTString();
     document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
   
-function getCookie(cname) {
+function _getCookie(cname) {
 var name = cname + "=";
 var decodedCookie = decodeURIComponent(document.cookie);
 var ca = decodedCookie.split(';');
@@ -284,11 +284,10 @@ for(var i = 0; i < ca.length; i++) {
 return "";
 }
 
-function userLogin () {
-
+var myModule = {
+    setCookie : _setCookie,
+    getCookie : _getCookie,
+    getRows : _getRows 
 }
 
-module.exports.getRows = getRows;
-module.exports.setCookie = setCookie;
-module.exports.getCookie = getCookie;
-module.exports.userLogin = userLogin;
+module.exports = myModule;
