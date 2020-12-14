@@ -290,4 +290,30 @@ var myModule = {
     getRows : _getRows 
 }
 
+function switchProductManageDisplay() {
+    var add_product = document.getElementById("add-product");
+    var search_product = document.getElementById("search-product");
+    if (add_product.style.display == "none") {
+        add_product.style.display = "block";
+        search_product.style.display = "none";
+    }
+    else {
+        add_product.style.display = "none";
+        search_product.style.display = "block";
+    }
+}
+
+function switchUserManageDisplay() {
+    var add_product = document.getElementById("add-user");
+    var search_product = document.getElementById("search-user");
+    if (add_product.style.display == "none") {
+        add_product.style.display = "block";
+        search_product.style.display = "none";
+    }
+    else {
+        add_product.style.display = "none";
+        search_product.style.display = "block";
+    }
+}
+
 module.exports = myModule;
