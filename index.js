@@ -11,6 +11,10 @@ const myApi = require(__dirname + '/public/js/script.js');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
+const comments = JSON.parse(fs.readFileSync(__dirname + "/public/json/comments.json"));
+const products = JSON.parse(fs.readFileSync(__dirname + "/public/json/menu.json"));
+
 let exprHbs = require("express-handlebars");
 const { drinks } = require('./public/js/menu');
 let hbs = exprHbs.create({
@@ -151,11 +155,26 @@ app.get("/notifications", (req, res) => {
 })
 
 app.get("/product", (req, res) => {
+  
   if (user_state == 1)
     res.locals.isLoggedIn = true;
   else if(user_state == 0) 
     res.locals.isAdmin = true;
-  res.render('product');
+    let p = products.find(elem => elem.id.toString() == req.query.id);
+    let page_data = {
+      title: "JAF - " + p.name,
+      comments: comments,
+      product:p
+    }
+    res.render('product', page_data);  
+})
+
+app.get("/help", (req, res) => {
+  if (user_state == 1)
+    res.locals.isLoggedIn = true;
+  else if(user_state == 0) 
+    res.locals.isAdmin = true;
+  res.render('help');
 })
 
 app.get("/manage_product", (req, res) => {
