@@ -124,8 +124,8 @@ p {
 
 .btn-order {
     border-radius:20px;
-    height: 70px;
-    width: 70%;
+    height: 50px;
+    width: 150px;
     font-weight: bold;
     font-size: 20px;
     text-overflow: ellipsis;
@@ -343,4 +343,30 @@ input[type=number] {
 
 .btn-like:hover {
     opacity: 0.9;
+}
+
+.cmt-avatar {
+    max-height: 200px;
+}
+
+.cmt-rating {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+}
+
+.cmt-rating_like, .cmt-rating_dislike {
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 16px;
+    color: rgb(69, 93, 204);
+}
+
+.cmt-rating_like:hover, .cmt-rating_dislike:hover {
+    cursor: pointer;
+    margin-left: 20px;
+    font-size: 16px;
+    color: rgb(69, 93, 204);
+    opacity: 0.7;
+    text-decoration: underline;
 }

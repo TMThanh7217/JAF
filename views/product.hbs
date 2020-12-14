@@ -1,13 +1,13 @@
 <div class="container-fluid p-5">
     <div id="content" class="row">
         <div class="col-5">
-            <img src="images/drink/cappuccino.jpg" class="img-fluid img-thumbnail" alt="">
+            <img src="{{product.src}}" class="img-fluid img-thumbnail" alt="" style="max-height: 400px;">
         </div>
         <div class="col-7 product-info d-flex flex-column justify-content-between">
-            <h1 class="h1">Cappuccino</h1>
-            <h2><i class="fa fa-heart mr-2" style="color: palevioletred;"></i><span class="h2"><b>100</b></span></h2>
+            <h1 class="h1">{{product.name}}</h1>
+            <h2><i class="fa fa-heart mr-2" style="color: palevioletred;"></i><span class="h2"><b>{{product.like}}</b></span></h2>
             <div class="container-fluid m-bg-white product-infor_prices">
-                <span class="product-infor_prices-real">$4</span>
+                <span class="product-infor_prices-real">${{product.price}}</span>
                 <del class="product-infor_prices-org">$5</del>
                 <span class="product-infor_prices-discount">-20%</span>
             </div>
@@ -47,5 +47,30 @@
             </div>
             <button class="btn btn-order">Add to cart</button>
         </div>
+    </div>
+
+    <div class="container-fluid p-5">
+        {{#each comments}}
+        <div class="row">
+            <div class="col-md-2 col-sm-4 col-lg-2"><img src="{{this.avatar}}" alt="" class="cmt-avatar img-thumbnail img-fluid"></div>
+            <div class="col-md-10 col-sm-8 col-lg-10">
+                <span class="cmt-author h2"><b>{{this.author}}</b></span>
+                <span class="date-sm">in <span style="font-size: 16px">{{this.date}}</span></span>
+                <div class="prd-rating">
+                    {{#if this.liked}}
+                    <i class="fa fa-heart mr-2" style="color: palevioletred; font-size: 30px"></i>
+                    <span class="h5"><b> Liked</b></span>
+                    {{else}}
+                    <i class="fa fa-heart mr-2" style="color: black; font-size: 30px"></i>
+                    <span class="h4"><b> Disliked</b></span>
+                    {{/if}}
+                </div>
+                <p>{{this.content}}</p>
+                <div class="cmt-rating">
+                    <span class="cmt-rating_like">Like</span><span class="cmt-rating_dislike">Dislike</span>
+                </div>
+            </div>
+        </div>
+        {{/each}}
     </div>
 </div>

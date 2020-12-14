@@ -13,6 +13,9 @@ app.use(bodyParser.json());
 
 const product = require(__dirname + "/public/js/menu.js");
 const userdata = require(__dirname + "/public/js/userdata.js");
+const comments = JSON.parse(fs.readFileSync(__dirname + "/public/json/comments.json"));
+const products = JSON.parse(fs.readFileSync(__dirname + "/public/json/menu.json"));
+
 
 let exprHbs = require("express-handlebars");
 const { drinks } = require('./public/js/menu');
@@ -132,7 +135,13 @@ app.get("/notifications", (req, res) => {
 app.get("/product", (req, res) => {
   res.locals.isLoggedIn = user_state;
   res.locals.isAdmin = admin_state;
-  res.render('product');
+  let p = products.find(elem => elem.id.toString() == req.query.id);
+  let page_data = {
+    title: "JAF - " + p.name,
+    comments: comments,
+    product:p
+  }
+  res.render('product', page_data);
 })
 
 app.get("/manage_product", (req, res) => {
