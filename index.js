@@ -161,6 +161,14 @@ app.get("/product", (req, res) => {
     res.render('product', page_data);  
 })
 
+app.get("/help", (req, res) => {
+  if (user_state == 1)
+    res.locals.isLoggedIn = true;
+  else if(user_state == 0) 
+    res.locals.isAdmin = true;
+  res.render('help');
+})
+
 app.get("/manage_product", (req, res) => {
   if (user_state == 1)
     res.locals.isLoggedIn = true;
