@@ -2,7 +2,7 @@
   <div class="container" id="switch-btn-container">
     <button class="switch-btn btn btn-danger" onclick="switchProductManageDisplay()">Switch</button>
   </div>
-  <div class="container" id="add-product">
+  <div class="container" id="add-product" style="display: none;">
     <div class="row">
       <div class="col-12"><h2>Add product</h2></div>
     </div>
@@ -60,7 +60,7 @@
     </div>
   </div>
 
-  <div class="container" id="search-product" style="display: none;">
+  <div class="container" id="search-product" >
     <div class="row">
       <div class="col-2">
           <div class="list-group" id="categories">
@@ -96,7 +96,7 @@
             <tr>
               <td class="border-0" style="width: 40%;">
                 <div>
-                  <img src={{this.src}} alt="" class="img-fluid img-thumbnail rounded shadow-sm">
+                  <img src={{this.src}} alt="" class="img-fluid img-thumbnail rounded shadow-sm" style="max-height: 350px;">
                   <div class="d-flex justify-content-center align-middle">
                     <h5 class="mb-0"> <input class="border-0" type="text" placeholder="Name: {{this.name}}" style="font-weight: bold;"></input></h5>
                     <input class="border-0 text-muted font-weight-normal font-italic d-block" placeholder="Type: {{this.type}}" style="font-weight: bold;"></input>
