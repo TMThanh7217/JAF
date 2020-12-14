@@ -131,6 +131,13 @@ app.get("/product", (req, res) => {
   res.render('product');
 })
 
+app.get("/help", (req, res) => {
+  res.locals.isLoggedIn = user_state;
+  res.locals.isAdmin = admin_state;
+  res.render('help');
+})
+
+
 app.get('/:menu_cate', (req, res) => {
     res.locals.isLoggedIn = user_state;
     res.locals.isAdmin = admin_state;
