@@ -20,7 +20,31 @@
                         <a href="#!">Help</a>
                     </li>
                     <li class="mb-sm-3">
-                        <a href="#!">Your Account</a>
+                        {{#if isLoggedIn}}
+                        <a href="/profile">Your Account</a>
+                        {{else}}
+                        <a href="#" data-toggle="modal" data-target="#accountErrorModal">Your Account</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="accountErrorModal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content"  >
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Error</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" id="myContent">
+                                        <h2>Please Login before use this function!!!</h2>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button id="btn-login" class="btn btn-danger ml-3" type="button" onclick="document.location.href='/login'">Login</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}}
                     </li>
                 </ul>
             </div>
