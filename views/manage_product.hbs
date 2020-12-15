@@ -78,6 +78,9 @@
                 <div class="p-2 px-3 text-uppercase">Product</div>
               </th>
               <th scope="col" class="border-0 bg-light" >
+                <div class="py-2 text-uppercase">ID</div>
+              </th>
+              <th scope="col" class="border-0 bg-light" >
                 <div class="py-2 text-uppercase">Price</div>
               </th>
               <th scope="col" class="border-0 bg-light" >
@@ -94,9 +97,9 @@
           {{#each product}}
           <tbody>
             <tr>
-              <td class="border-0" style="width: 40%;">
+              <td class="border-0">
                 <div>
-                  <img src={{this.src}} alt="" class="img-fluid img-thumbnail rounded shadow-sm" style="max-height: 350px;">
+                  <img src={{this.src}} alt="" class="img-fluid img-thumbnail rounded shadow-sm" style="max-height: 300px;">
                   <div class="d-flex justify-content-center align-middle">
                     <h5 class="mb-0"> <input class="border-0" type="text" placeholder="Name: {{this.name}}" style="font-weight: bold;"></input></h5>
                     <input class="border-0 text-muted font-weight-normal font-italic d-block" placeholder="Type: {{this.type}}" style="font-weight: bold;"></input>
@@ -104,17 +107,16 @@
                 </div>  
               </td>
               <td class="border-0 align-middle" style="width: 10%;">
+                <input class="border-0" type="text" placeholder="{{this.id}}" size="3" style="text-align: center; font-weight: bold;"></input>
+              </td>
+              <td class="border-0 align-middle" style="width: 10%;">
                 <input class="border-0" type="text" placeholder="{{this.price}}" size="5" style="text-align: center; font-weight: bold;"></input>
               </td>
               <td class="border-0 align-middle" style="width: 10%;">
-              <input class="border-0" type="text" placeholder="{{this.status}}" size="5" style="text-align: center; font-weight: bold"></input>  
+                <input class="border-0" type="text" placeholder="{{this.status}}" size="4" style="text-align: center; font-weight: bold"></input>  
               </td>
               <td class="border-0 align-middle" style="width: 20%;">
-                <strong>
-                  <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">+</button>
-                    {{this.stock}}
-                  <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">-</button>
-                </strong>
+                <input class="border-0" type="text" placeholder="{{this.stock}}" size="5" style="text-align: center; font-weight: bold"></input>  
               </td>
               <td class="border-0 align-middle" style="width: 10%;"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
             </tr>
