@@ -162,6 +162,11 @@ app.get("/help", (req, res) => {
   res.render('help');
 })
 
+app.get("/deal", (req, res) => {
+  res.locals.user = user
+  res.render('deal');
+})
+
 app.get("/manage_product", (req, res) => {
   res.locals.user = user
   let product_data = fs.readFileSync(__dirname + "/public/json/menu.json");
