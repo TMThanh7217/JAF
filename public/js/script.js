@@ -296,16 +296,19 @@ function switchProductManageDisplay() {
     if (add_product.style.display == "none") {
         add_product.style.display = "block";
         search_product.style.display = "none";
+        document.querySelector('#admin-switch-btn').innerHTML = "Search product";
     }
     else {
         add_product.style.display = "none";
         search_product.style.display = "block";
+        document.querySelector('#admin-switch-btn').innerHTML = "Add product";
     }
 }
 
 function switchUserManageDisplay() {
     var add_product = document.getElementById("add-user");
     var search_product = document.getElementById("search-user");
+    var switch_button = document.getElementById("admin-switch-btn");
     if (add_product.style.display == "none") {
         add_product.style.display = "block";
         search_product.style.display = "none";
