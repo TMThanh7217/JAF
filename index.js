@@ -132,10 +132,7 @@ app.get("/coupon", (req, res) => {
 })
 
 app.get("/help", (req, res) => {
-  if (user_state == 1)
-    res.locals.isLoggedIn = true;
-  else if(user_state == 0) 
-    res.locals.isAdmin = true;
+  res.locals.user = user
   res.render('help');
 })
 
@@ -199,7 +196,7 @@ res.locals.user = user
 })
 
 app.get("/manage_user", (req, res) => {
-res.locals.user = user
+  res.locals.user = user
   let rawdata = fs.readFileSync(__dirname + "/public/json/userdata.json");
   let data = JSON.parse(rawdata);
   let list = [];
@@ -210,7 +207,7 @@ res.locals.user = user
 })
 
 app.get('/:menu_cate', (req, res) => {
-res.locals.user = user
+  res.locals.user = user
   var cate = req.params.menu_cate;
   var rows;
   switch (cate) {
