@@ -1,6 +1,6 @@
 <div class="pb-5">
   <div class="container" id="switch-btn-container">
-    <button class="switch-btn btn btn-danger" onclick="switchProductManageDisplay()">Switch</button>
+    <button class="switch-btn btn btn-danger" id="admin-switch-btn" onclick="switchProductManageDisplay()">Add product</button>
   </div>
   <div class="container" id="add-product" style="display: none;">
     <div class="row">
@@ -61,6 +61,9 @@
   </div>
 
   <div class="container" id="search-product" >
+    <div class="row">
+      <div class="col-12"><h2>Search product</h2></div>
+    </div>
     <div class="row">
       <div class="col-2">
           <div class="list-group" id="categories">
