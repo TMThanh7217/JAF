@@ -370,3 +370,29 @@ input[type=number] {
     opacity: 0.7;
     text-decoration: underline;
 }
+
+#categories .list-group-item.active,
+#categories .list-group-item:hover {
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+#categories .list-group-item {
+    background-color: #fff;
+    outline: 0;
+}
+
+.switch-btn {
+    margin-bottom: 3vh;
+}
+
+.help_account-btn, .help_wt-btn, .help_payment-btn, .help_order-btn {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.help_account-btn:hover, .help_wt-btn:hover, .help_payment-btn:hover, .help_order-btn:hover {
+    opacity: 0.7;
+}

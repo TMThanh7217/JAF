@@ -34,7 +34,7 @@
     </form>
 
     <div class="navbar-nav ml-5">
-        {{#if isLoggedIn}}
+        {{#if (isCommon user)}}
         <div class="dropdown">
             <button type='button' class='btn dropdown-toggle btn-user caret-off' data-toggle='dropdown'>Account <i class='fa fa-user ml-3'></i></button>
             <div class="dropdown-menu dropdown-left">
@@ -47,7 +47,7 @@
                     <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout</a>
             </div>
         </div>
-        {{else if isAdmin}}
+        {{else if (isAdmin user)}}
         <div class="dropdown">
             <button type='button' class='btn dropdown-toggle btn-user caret-off' data-toggle='dropdown' style="color: red; font-weight: bold">Admin <i class='fa fa-user-plus ml-3'></i></button>
             <div class="dropdown-menu dropdown-left">
