@@ -131,6 +131,14 @@ app.get("/coupon", (req, res) => {
   res.render('coupon');
 })
 
+app.get("/help", (req, res) => {
+  if (user_state == 1)
+    res.locals.isLoggedIn = true;
+  else if(user_state == 0) 
+    res.locals.isAdmin = true;
+  res.render('help');
+})
+
 app.get("/cart", (req, res) => {
   res.locals.user = user
   res.render('cart');
