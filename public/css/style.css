@@ -349,27 +349,13 @@ input[type=number] {
     max-height: 200px;
 }
 
-.cmt-rating {
-    position: absolute;
-    bottom: 5px;
-    left: 0px;
-}
-
-.cmt-rating-count {
-    position: absolute;
-    bottom: 25px;
-    left: 0px;
-}
-
 .cmt-rating_like-count, .cmt-rating_dislike-count {
-    margin-left: 20px;
     font-size: 16px;
     color: rgb(69, 93, 204);
 }
 
 .cmt-rating_like, .cmt-rating_dislike {
     cursor: pointer;
-    margin-left: 20px;
     font-size: 16px;
     color: rgb(69, 93, 204);
 }
@@ -421,4 +407,14 @@ input[type=number] {
 #comment-form_submit-btn {
     width: 150px;
     align-self: flex-end;
+}
+
+.cmt-container {
+    border: 1px solid gainsboro;
+    height: 50%;
+}
+
+.cmt-col {
+    display: flex;
+    flex-direction: column;
 }
