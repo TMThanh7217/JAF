@@ -2,24 +2,30 @@
     {
         "productID":0,
         "avatar":"images/logo & bg & etc/default-avatar.jpg",
-        "author":"Some body",
-        "liked":false,
-        "content":"No, it suck!!",
-        "date":"12/14/2020"
-    },
-    {
-        "productID":0,
-        "avatar":"images/logo & bg & etc/default-avatar.jpg",
         "author":"Nana Nakawa",
-        "liked":true,
+        "isLiked":true,
+        "like":1000,
+        "dislike": 1,
         "content":"I like it, I love it!!!",
         "date":"12/14/2020"
     },
     {
         "productID":0,
         "avatar":"images/logo & bg & etc/default-avatar.jpg",
+        "author":"Some body",
+        "isLiked":false,
+        "like":0,
+        "dislike": 100,
+        "content":"No, it suck!!",
+        "date":"12/14/2020"
+    },
+    {
+        "productID":0,
+        "avatar":"images/logo & bg & etc/default-avatar.jpg",
         "author":"Some guy",
-        "liked":true,
+        "isLiked":true,
+        "like":1,
+        "dislike": 1,
         "content":"Fine, better with sugar.",
         "date":"12/14/2020"
     },
@@ -27,7 +33,9 @@
         "productID":0,
         "avatar":"images/logo & bg & etc/default-avatar.jpg",
         "author":"Some one",
-        "liked":true,
+        "isLiked":true,
+        "like":1,
+        "dislike": 1,
         "content":"It ok to be not ok.",
         "date":"12/14/2020"
     }

@@ -50,6 +50,23 @@
     </div>
 
     <div class="container-fluid p-5">
+     
+        <form id="comment-form" class="md-form d-flex flex-column">
+
+            <div class="label-area">
+                <i id="comment-form_icon" class="fas fa-pencil-alt prefix"></i>
+                <label id="comment-form_label" for="comment-form_text-area">Give a comment</label>
+            </div>
+
+            <textarea id="comment-form_text-area" name="text-area" class="md-textarea form-control" rows="3"></textarea>
+            
+            <button id="comment-form_submit-btn" type="button" class="btn btn-danger mt-3" onclick="">Send</button>
+
+        </form>
+    
+    </div>
+
+    <div class="container-fluid p-5">
         {{#each comments}}
         <div class="row">
             <div class="col-md-2 col-sm-4 col-lg-2"><img src="{{this.avatar}}" alt="" class="cmt-avatar img-thumbnail img-fluid"></div>
@@ -57,7 +74,7 @@
                 <span class="cmt-author h2"><b>{{this.author}}</b></span>
                 <span class="date-sm">in <span style="font-size: 16px">{{this.date}}</span></span>
                 <div class="prd-rating">
-                    {{#if this.liked}}
+                    {{#if this.isLiked}}
                     <i class="fa fa-heart mr-2" style="color: palevioletred; font-size: 30px"></i>
                     <span class="h5"><b> Liked</b></span>
                     {{else}}
@@ -66,8 +83,13 @@
                     {{/if}}
                 </div>
                 <p>{{this.content}}</p>
+                <div class="cmt-rating-count">
+                    <span class="cmt-rating_like-count"><i class="fa fa-thumbs-o-up mr-2" aria-hidden="true"></i>{{this.like}}</span>
+                    <span class="cmt-rating_dislike-count"><i class="fa fa-thumbs-o-down mr-2" aria-hidden="true"></i>{{this.dislike}}</span>
+                </div>
                 <div class="cmt-rating">
-                    <span class="cmt-rating_like">Like</span><span class="cmt-rating_dislike">Dislike</span>
+                    <span class="cmt-rating_like">Like</span>
+                    <span class="cmt-rating_dislike">Dislike</span>
                 </div>
             </div>
         </div>

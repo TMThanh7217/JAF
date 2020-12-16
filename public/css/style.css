@@ -355,6 +355,18 @@ input[type=number] {
     left: 0px;
 }
 
+.cmt-rating-count {
+    position: absolute;
+    bottom: 25px;
+    left: 0px;
+}
+
+.cmt-rating_like-count, .cmt-rating_dislike-count {
+    margin-left: 20px;
+    font-size: 16px;
+    color: rgb(69, 93, 204);
+}
+
 .cmt-rating_like, .cmt-rating_dislike {
     cursor: pointer;
     margin-left: 20px;
@@ -395,4 +407,18 @@ input[type=number] {
 
 .help_account-btn:hover, .help_wt-btn:hover, .help_payment-btn:hover, .help_order-btn:hover {
     opacity: 0.7;
+}
+
+#comment-form_text-area:focus {
+    border: 1px solid #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(240, 18, 18, 0.2);
+}
+
+#comment-form_label, #comment-form_icon {
+    font-size: 40px;
+}
+
+#comment-form_submit-btn {
+    width: 150px;
+    align-self: flex-end;
 }
