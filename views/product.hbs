@@ -70,7 +70,7 @@
         {{#each comments}}
         <div class="row">
             <div class="col-md-2 col-sm-4 col-lg-2"><img src="{{this.avatar}}" alt="" class="cmt-avatar img-thumbnail img-fluid"></div>
-            <div class="col-md-10 col-sm-8 col-lg-10">
+            <div class="col-md-10 col-sm-8 col-lg-10 cmt-col">
                 <span class="cmt-author h2"><b>{{this.author}}</b></span>
                 <span class="date-sm">in <span style="font-size: 16px">{{this.date}}</span></span>
                 <div class="prd-rating">
@@ -82,15 +82,19 @@
                     <span class="h4"><b> Disliked</b></span>
                     {{/if}}
                 </div>
-                <p>{{this.content}}</p>
-                <div class="cmt-rating-count">
-                    <span class="cmt-rating_like-count"><i class="fa fa-thumbs-o-up mr-2" aria-hidden="true"></i>{{this.like}}</span>
-                    <span class="cmt-rating_dislike-count"><i class="fa fa-thumbs-o-down mr-2" aria-hidden="true"></i>{{this.dislike}}</span>
+                <div class="cmt-container p-2 my-2">
+                    <p>{{this.content}}</p>
                 </div>
-                <div class="cmt-rating">
-                    <span class="cmt-rating_like">Like</span>
-                    <span class="cmt-rating_dislike">Dislike</span>
+                
+                <div class="cmt-rating_group-count row">
+                    <span class="cmt-rating_like-count col-lg-1 col-md-2 col-sm-2 col-xs-3"><i class="fa fa-thumbs-o-up mr-2" aria-hidden="true"></i>{{this.like}}</span>
+                    <span class="cmt-rating_dislike-count col-lg-1 col-md-2 col-sm-2 col-xs-3"><i class="fa fa-thumbs-o-down mr-2" aria-hidden="true"></i>{{this.dislike}}</span>
                 </div>
+                <div class="cmt-rating_group-btn row">
+                    <span class="cmt-rating_like col-lg-1 col-md-2 col-sm-2 col-xs-3">Like</span>
+                    <span class="cmt-rating_dislike col-lg-1 col-md-2 col-sm-2 col-xs-3">Dislike</span>
+                </div>
+
             </div>
         </div>
         {{/each}}
