@@ -1,20 +1,19 @@
 <div class="pb-5">
   <div class="container" id="switch-btn-container">
-    <button class="switch-btn btn btn-danger" id="admin-switch-btn" onclick="switchProductManageDisplay()">Add product</button>
+    <button class="switch-btn btn btn-danger" id="admin-product-switch-btn" onclick="switchProductManageDisplay()">Add product</button>
   </div>
   <div class="container" id="add-product" style="display: none;">
     <div class="row">
       <div class="col-12"><h2>Add product</h2></div>
     </div>
 
-    <div class="row">
+    <div class="row d-flex justify-content-center">
       <div class="col-6">
         <img src="../images/drink/cappuccino.jpg" alt="" class="img-fluid img-thumbnail">
         <div class="form-group">
           <label for=""></label>
           <input type="file" class="form-control-file" name="" id="" placeholder="" aria-describedby="fileHelpId">
         </div>
-        <button type="submit" class="btn btn-danger text-uppercase btn-block mt-2">Upload image</button>
       </div>
       <div class="col-6">
         <form action="">
@@ -54,8 +53,13 @@
           </div>
         </form>
       </div>
-      <div class="col-12 mt-2">
-        <button type="submit" class="btn btn-danger text-uppercase btn-block">Confirm</button>
+      <div class="row col-7 mt-2">
+        <div class="col-6">
+          <button type="submit" class="btn btn-danger text-uppercase btn-block">Upload image</button>
+        </div>
+        <div class="col-6">
+          <button type="submit" class="btn btn-danger text-uppercase btn-block">Confirm</button>
+        </div>
       </div>
     </div>
   </div>

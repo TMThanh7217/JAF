@@ -1,6 +1,6 @@
 <div class="pb-5">
   <div class="container" id="switch-btn-container">
-    <button class="switch-btn btn btn-danger" onclick="switchUserManageDisplay()">Switch</button>
+    <button class="switch-btn btn btn-danger" id="admin-user-switch-btn" onclick="switchUserManageDisplay()">Search user</button>
   </div>
 
   <div class="container" id="add-user">
@@ -8,14 +8,13 @@
       <div class="col-12"><h2>Add user</h2></div>
     </div>
 
-    <div class="row">
+    <div class="row d-flex justify-content-center">
       <div class="col-6">
         <img src="../images/logo & bg & etc/temp_avatar.png" width="50%" height="auto" alt="" class="img-fluid img-thumbnail img-responsive">
         <div class="form-group">
           <label for=""></label>
           <input type="file" class="form-control-file" name="" id="" placeholder="" aria-describedby="fileHelpId">
         </div>
-        <button type="submit" class="btn btn-danger text-uppercase btn-block mt-2">Upload image</button>
       </div>
       <div class="col-6">
         <form action="">
@@ -43,8 +42,13 @@
           </div>
         </form>
       </div>
-      <div class="col-12 mt-2">
-        <button type="submit" class="btn btn-danger text-uppercase btn-block">Confirm</button>
+      <div class="row col-7 mt-2">
+        <div class="col-6">
+          <button type="submit" class="btn btn-danger text-uppercase btn-block">Upload image</button>
+        </div>
+        <div class="col-6">
+          <button type="submit" class="btn btn-danger text-uppercase btn-block">Confirm</button>
+        </div>
       </div>
     </div>
   </div>
