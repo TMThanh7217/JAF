@@ -1,13 +1,11 @@
-[
-    {
+[{
         "productID":0,
         "avatar":"images/logo & bg & etc/default-avatar.jpg",
         "author":"Nana Nakawa",
         "isLiked":true,
         "like":1000,
         "dislike": 1,
-        "content":"I like it, I love it!!!",
-        "date":"12/14/2020"
+        "content":"I like it, I love it!!!"
     },
     {
         "productID":0,
@@ -16,8 +14,7 @@
         "isLiked":false,
         "like":0,
         "dislike": 100,
-        "content":"No, it suck!!",
-        "date":"12/14/2020"
+        "content":"No, it suck!!"
     },
     {
         "productID":0,
@@ -26,8 +23,7 @@
         "isLiked":true,
         "like":1,
         "dislike": 1,
-        "content":"Fine, better with sugar.",
-        "date":"12/14/2020"
+        "content":"Fine, better with sugar."
     },
     {
         "productID":0,
@@ -36,7 +32,5 @@
         "isLiked":true,
         "like":1,
         "dislike": 1,
-        "content":"It ok to be not ok.",
-        "date":"12/14/2020"
-    }
-]
+        "content":"It ok to be not ok."
+}]

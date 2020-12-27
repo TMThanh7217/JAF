@@ -13,12 +13,12 @@ module.exports = {
     */
     let path = require('path');
     let fs = require('fs');
-    let userDatas = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/userdata.json')));
-    for (let userData of userDatas) {
-      userData.createdAt = Sequelize.literal('NOW()');
-      userData.updatedAt = Sequelize.literal('NOW()');
+    let userdata = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/userdata.json')));
+    for (let info of userdata) {
+      info.createdAt = Sequelize.literal('NOW()');
+      info.updatedAt = Sequelize.literal('NOW()');
     }
-    await queryInterface.bulkInsert('UserData', userDatas);
+    await queryInterface.bulkInsert('UserData', userdata);
   },
 
   down: async (queryInterface, Sequelize) => {
