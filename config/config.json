@@ -1,0 +1,29 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "JAFDB",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "TeaCakeDB",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "efsxgqeldaoogb",
+    "password": "fbf6fc1c39db3437650585b3d2ac7a8fa4ec9d98449bc1af93d65f0183971537",
+    "database": "dbenpc09etndas",
+    "host": "ec2-75-101-212-64.compute-1.amazonaws.com",
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+          "require": true,
+          "rejectUnauthorized": false
+      }
+    }
+  }
+}

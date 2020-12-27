@@ -7,7 +7,7 @@ const bodyParser = require("body-parser")
 const port = process.env.PORT || 8000;
 app.use(express.static(__dirname + "/public"));
 const myApi = require(__dirname + '/public/js/script.js');
-
+const models = require('./models');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -18,7 +18,7 @@ const ANONYMOUS = -1;
 
 
 const comments = JSON.parse(fs.readFileSync(__dirname + "/public/json/comments.json"));
-const products = JSON.parse(fs.readFileSync(__dirname + "/public/json/menu.json"));
+const products = JSON.parse(fs.readFileSync(__dirname + "/public/json/products.json"));
 
 
 function isLoggedIn(user) {
@@ -60,25 +60,16 @@ var user = ANONYMOUS;
 //customer_state = 1
 //admin_state = 0
 //not login = ANONYMOUS
+app.set("user", user);
 
-app.get('/', (req, res) => {
-  /*res.locals.isLoggedIn = user;
-  res.locals.isAdmin = admin_state;*/
-  res.locals.user = user
 
-  var raw_food_data = fs.readFileSync(__dirname + '/public/json/food_menu.json');
-  var raw_drink_data = fs.readFileSync(__dirname + '/public/json/drink_menu.json');
-  var food_data = JSON.parse(raw_food_data);
-  var drink_data = JSON.parse(raw_drink_data);
-  var FoodRows = myApi.getRows(food_data, 3);
-  var DrinkRows = myApi.getRows(drink_data, 3);
-  var page_data = {
-    title: "JAF - Home",
-    pre_foods: FoodRows[0],
-    pre_drinks: DrinkRows[0],
-  }
-  res.render('index', page_data);
+app.get('/sync', (req, res) => {
+  models.sequelize.sync().then(() => {
+    res.send("JAFDB sync successfully!!!");
+  })
 })
+
+app.use("/", require("./routes/indexRouter"));
 
 app.get('/login', (req, res) => {
     /*user = true;
@@ -169,7 +160,7 @@ app.get("/deal", (req, res) => {
 
 app.get("/manage_product", (req, res) => {
   res.locals.user = user
-  let product_data = fs.readFileSync(__dirname + "/public/json/menu.json");
+  let product_data = fs.readFileSync(__dirname + "/public/json/products.json");
   let products = JSON.parse(product_data);
   let list = [];
   for (let prod of products) {
@@ -180,7 +171,7 @@ app.get("/manage_product", (req, res) => {
 
 app.get("/manage_product_food", (req, res) => {
 res.locals.user = user
-  let product_data = fs.readFileSync(__dirname + "/public/json/food_menu.json");
+  let product_data = fs.readFileSync(__dirname + "/public/json/food_products.json");
   let products = JSON.parse(product_data);
   let list = [];
   for (let item of products) {
@@ -191,7 +182,7 @@ res.locals.user = user
 
 app.get("/manage_product_drink", (req, res) => {
 res.locals.user = user
-  let product_data = fs.readFileSync(__dirname + "/public/json/drink_menu.json");
+  let product_data = fs.readFileSync(__dirname + "/public/json/drink_products.json");
   let products = JSON.parse(product_data);
   let list = [];
   for (let item of products) {
@@ -217,15 +208,15 @@ app.get('/:menu_cate', (req, res) => {
   var rows;
   switch (cate) {
       case "foods": {
-          rows = myApi.getRows(JSON.parse(fs.readFileSync(__dirname + '/public/json/food_menu.json')), 3);
+          rows = myApi.getRows(JSON.parse(fs.readFileSync(__dirname + '/public/json/food_products.json')), 3);
           break;
       }
       case "drinks": {    
-          rows = myApi.getRows(JSON.parse(fs.readFileSync(__dirname + '/public/json/drink_menu.json')), 3);
+          rows = myApi.getRows(JSON.parse(fs.readFileSync(__dirname + '/public/json/drink_products.json')), 3);
           break;
       }
       case "menu": {
-          rows = myApi.getRows(JSON.parse(fs.readFileSync(__dirname + '/public/json/menu.json')), 3)
+          rows = myApi.getRows(JSON.parse(fs.readFileSync(__dirname + '/public/json/products.json')), 3)
       }
     }
   var page_data = {
