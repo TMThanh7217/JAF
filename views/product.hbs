@@ -1,10 +1,10 @@
 <div class="container-fluid p-5">
     <div id="content" class="row">
-        <div class="col-5">
-            <img src="{{product.src}}" class="img-fluid img-thumbnail" alt="" style="max-height: 400px;">
+        <div class="col-5 d-flex justify-content-center">
+            <img src="{{product.src}}" class="img-fluid img-thumbnail mx-auto" alt="" style="max-height: 400px;">
         </div>
         <div class="col-7 product-info d-flex flex-column justify-content-between">
-            <h1 class="h1">{{product.name}}</h1>
+            <h1 class="h1"><strong>{{product.name}}</strong></h1>
             <h2><i class="fa fa-heart mr-2" style="color: palevioletred;"></i><span class="h2"><b>{{product.like}}</b></span></h2>
             <div class="container-fluid m-bg-white product-infor_prices">
                 <span class="product-infor_prices-real">${{product.price}}</span>
