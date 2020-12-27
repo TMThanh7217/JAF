@@ -79,9 +79,7 @@ app.get('/login', (req, res) => {
 })
 
 app.post("/login", (req, res) => {
-  console.log("AAaaaAAAAAAAAAAAAAAAAAAAAAAAAa")
-  console.log(req.body);
-  res.locals.user = user
+  res.locals.user = app.get("user");
   var username = req.body.username;
   var password = req.body.password;
   console.log("username: " + username + " | password: " + password);
@@ -202,30 +200,7 @@ app.get("/manage_user", (req, res) => {
   res.render('manage_user', {userdata: list});
 })
 
-app.get('/:menu_cate', (req, res) => {
-  res.locals.user = user
-  var cate = req.params.menu_cate;
-  var rows;
-  switch (cate) {
-      case "foods": {
-          rows = myApi.getRows(JSON.parse(fs.readFileSync(__dirname + '/public/json/food_products.json')), 3);
-          break;
-      }
-      case "drinks": {    
-          rows = myApi.getRows(JSON.parse(fs.readFileSync(__dirname + '/public/json/drink_products.json')), 3);
-          break;
-      }
-      case "menu": {
-          rows = myApi.getRows(JSON.parse(fs.readFileSync(__dirname + '/public/json/products.json')), 3)
-      }
-    }
-  var page_data = {
-      title: "JAF - Menu",
-      rows: rows,
-      name: cate.toUpperCase()
-  }
-  res.render('menu', page_data);
-})
+app.use('/products', require("./routes/productsRouter"));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

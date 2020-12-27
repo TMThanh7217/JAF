@@ -20,7 +20,9 @@ router.get("/", (req, res) => {
                     }
                     res.render('index', page_data);
                 })
+                .catch(err => res.send("Error: " + err));
         })
+        .catch(err => res.send("Error: " + err));
 })
 
 module.exports = router
