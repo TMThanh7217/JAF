@@ -135,17 +135,6 @@ app.get("/notifications", (req, res) => {
   res.render('notifications');
 })
 
-app.get("/product", (req, res) => { 
-  res.locals.user = user
-  let p = products.find(elem => elem.id.toString() == req.query.id);
-  let page_data = {
-    title: "JAF - " + p.name,
-    comments: comments,
-    product:p
-  }
-    res.render('product', page_data);  
-})
-
 app.get("/help", (req, res) => {
   res.locals.user = user
   res.render('help');

@@ -50,4 +50,19 @@ router.get("/foods", (req, res) => {
         })
 })
 
+router.get("/:id", (req, res) => {
+    var id = Number(req.params.id);
+    productController
+        .getByID(id)
+        .then(product => {
+            res.locals.user = req.app.get("user");
+            var page_data = {
+                title : `JAF - ${product.name}`,
+                product : product,
+                comments : {}
+            }
+            res.render("product", page_data);
+        })
+})
+
 module.exports = router;

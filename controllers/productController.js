@@ -78,4 +78,18 @@ controller.getTrendingDrinks = () => {
     })
 }
 
+controller.getByID = id => {
+    return new Promise((resolve, reject) => {
+        Product
+            .findOne({
+                where: {
+                    id : id
+                },
+                raw : true
+            })
+            .then(product => resolve(product))
+            .catch(error => reject(new Error(error))); 
+    })
+}
+
 module.exports = controller;
