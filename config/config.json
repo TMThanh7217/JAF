@@ -9,7 +9,7 @@
   "test": {
     "username": "postgres",
     "password": "postgres",
-    "database": "TeaCakeDB",
+    "database": "JAFDB",
     "host": "localhost",
     "dialect": "postgres"
   },
