@@ -60,6 +60,8 @@ var user = ANONYMOUS;
 //customer_state = 1
 //admin_state = 0
 //not login = ANONYMOUS
+app.set("user", user);
+
 
 app.get('/sync', (req, res) => {
   models.sequelize.sync().then(() => {
@@ -67,24 +69,7 @@ app.get('/sync', (req, res) => {
   })
 })
 
-app.get('/', (req, res) => {
-  /*res.locals.isLoggedIn = user;
-  res.locals.isAdmin = admin_state;*/
-  res.locals.user = user
-
-  var raw_food_data = fs.readFileSync(__dirname + '/public/json/food_products.json');
-  var raw_drink_data = fs.readFileSync(__dirname + '/public/json/drink_products.json');
-  var food_data = JSON.parse(raw_food_data);
-  var drink_data = JSON.parse(raw_drink_data);
-  var FoodRows = myApi.getRows(food_data, 3);
-  var DrinkRows = myApi.getRows(drink_data, 3);
-  var page_data = {
-    title: "JAF - Home",
-    pre_foods: FoodRows[0],
-    pre_drinks: DrinkRows[0],
-  }
-  res.render('index', page_data);
-})
+app.use("/", require("./routes/indexRouter"));
 
 app.get('/login', (req, res) => {
     /*user = true;
