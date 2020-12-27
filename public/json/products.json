@@ -29,7 +29,7 @@
     "price":12,
     "status":"stocking",
     "stock":10,
-    "like":27
+    "like":47
 },
 {
     "id":17,
@@ -161,7 +161,7 @@
     "price":10,
     "status":"stocking",
     "stock":10,
-    "like":44
+    "like":51
 },
 {
     "id":7,
