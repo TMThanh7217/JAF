@@ -1,18 +1,30 @@
 [{
     "id":0,
     "name":"Aperiam Eligendi",
-    "avt":"",
-    "joinDate":"1/12/2020"
+    "email":"AperiamEligendi@gmail.com",
+    "gender":true,
+    "phoneNumber":"0123414525",
+    "avtPath":"",
+    "username":"AperiamEligendi",
+    "password":"AperiamEligendi"
 },
 {
     "id":1,
     "name":"Dolorum Voluptatum",
-    "avt":"",
-    "joinDate":"1/12/2020"
+    "email":"DolorumVoluptatum@gmail.com",
+    "gender":false,
+    "phoneNumber":"0111123415",
+    "avtPath":"",
+    "username":"DolorumVoluptatum",
+    "password":"DolorumVoluptatum"
 },
 {
     "id":2,
     "name":"Consectetur Amet",
-    "avt":"",
-    "joinDate":"1/12/2020"
+    "email":"ConsecteturAmet@gmail.com",
+    "gender":true,
+    "phoneNumber":"01995123415",
+    "avtPath":"",
+    "username":"ConsecteturAmet",
+    "password":"ConsecteturAmet"
 }]
