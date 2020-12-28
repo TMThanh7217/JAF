@@ -70,11 +70,25 @@
     </div>
     <div class="row">
       <div class="col-2">
-          <div class="list-group" id="categories">
-              <button class="list-group-item" onclick="document.location.href='/manage_product'">Menu</button>
-              <button class="list-group-item" onclick="document.location.href='/manage_product_food'">Food</button>
-              <button class="list-group-item" onclick="document.location.href='/manage_product_drink'">Drink</button>
+        {{#if (isManageProducts pageNumber)}}
+          <div class="list-group admin-sidebar" id="categories">
+              <button class="list-group-item admin-sidebar__item admin-sidebar__item--active" onclick="document.location.href='/admin/manage/products'">Menu</button>
+              <button class="list-group-item admin-sidebar__item" onclick="document.location.href='/admin/manage/products/foods'">Foods</button>
+              <button class="list-group-item admin-sidebar__item" onclick="document.location.href='/admin/manage/products/drinks'">Drinks</button>
           </div>
+        {{else if (isManageFoods pageNumber)}}
+          <div class="list-group admin-sidebar" id="categories">
+              <button class="list-group-item admin-sidebar__item" onclick="document.location.href='/admin/manage/products'">Menu</button>
+              <button class="list-group-item admin-sidebar__item admin-sidebar__item--active" onclick="document.location.href='/admin/manage/products/foods'">Foods</button>
+              <button class="list-group-item admin-sidebar__item" onclick="document.location.href='/admin/manage/products/drinks'">Drinks</button>
+          </div>
+        {{else}}
+          <div class="list-group admin-sidebar" id="categories">
+              <button class="list-group-item admin-sidebar__item" onclick="document.location.href='/admin/manage/products'">Menu</button>
+              <button class="list-group-item admin-sidebar__item" onclick="document.location.href='/admin/manage/products/foods'">Foods</button>
+              <button class="list-group-item admin-sidebar__item admin-sidebar__item--active" onclick="document.location.href='/admin/manage/products/drinks'">Drinks</button>
+          </div>
+        {{/if}}
       </div>
       <div class="col-10 bg-white rounded shadow-sm mb-5">
         
