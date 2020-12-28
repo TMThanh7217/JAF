@@ -63,6 +63,9 @@ router.get("/:id", (req, res) => {
             }
             res.render("product", page_data);
         })
+        .catch(err => {
+            res.send("Error: " + err);
+        })
 })
 
 module.exports = router;

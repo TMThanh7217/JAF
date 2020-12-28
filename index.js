@@ -33,6 +33,18 @@ function isCommon(user) {
   return user.toString() == (COMMON.toString())
 }
 
+function isManageProducts(pageNumber) {
+  return pageNumber == 1;
+}
+
+function isManageFoods(pageNumber) {
+  return pageNumber == 2;
+}
+
+function isManageDrinks(pageNumber) {
+  return pageNumber == 3;
+}
+
 let exprHbs = require("express-handlebars");
 const { drinks } = require('./public/js/menu');
 let hbs = exprHbs.create({
@@ -43,7 +55,10 @@ let hbs = exprHbs.create({
   helpers: {
     isLoggedIn : isLoggedIn,
     isCommon : isCommon,
-    isAdmin : isAdmin
+    isAdmin : isAdmin,
+    isManageProducts : isManageProducts,
+    isManageFoods : isManageFoods,
+    isManageDrinks : isManageDrinks
   }
 });
 
@@ -145,49 +160,7 @@ app.get("/deal", (req, res) => {
   res.render('deal');
 })
 
-app.get("/manage_product", (req, res) => {
-  res.locals.user = user
-  let product_data = fs.readFileSync(__dirname + "/public/json/products.json");
-  let products = JSON.parse(product_data);
-  let list = [];
-  for (let prod of products) {
-      list.push(prod);
-  }
-  res.render('manage_product', {product: list});
-})
-
-app.get("/manage_product_food", (req, res) => {
-res.locals.user = user
-  let product_data = fs.readFileSync(__dirname + "/public/json/food_products.json");
-  let products = JSON.parse(product_data);
-  let list = [];
-  for (let item of products) {
-      list.push(item);
-  }
-  res.render('manage_product', {product: list});
-})
-
-app.get("/manage_product_drink", (req, res) => {
-res.locals.user = user
-  let product_data = fs.readFileSync(__dirname + "/public/json/drink_products.json");
-  let products = JSON.parse(product_data);
-  let list = [];
-  for (let item of products) {
-      list.push(item);
-  }
-  res.render('manage_product', {product: list});
-})
-
-app.get("/manage_user", (req, res) => {
-  res.locals.user = user
-  let rawdata = fs.readFileSync(__dirname + "/public/json/userdata.json");
-  let data = JSON.parse(rawdata);
-  let list = [];
-  for (let ele of data) {
-      list.push(ele);
-  }
-  res.render('manage_user', {userdata: list});
-})
+app.use("/admin", require("./routes/adminRouter"));
 
 app.use('/products', require("./routes/productsRouter"));
 

@@ -418,3 +418,12 @@ input[type=number] {
     display: flex;
     flex-direction: column;
 }
+
+.admin-sidebar .admin-sidebar__item--active {
+    background-color: #dc3545 !important;
+    color: aliceblue;
+}
+
+.admin-sidebar .admin-sidebar__item:hover {
+    opacity: 0.6;
+}
