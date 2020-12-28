@@ -45,4 +45,9 @@ router.get("/manage/products/drinks", (req, res) => {
         .catch(err => res.send("Error: " + err));
 })
 
+router.get("/manage/users", (req, res) => {
+    res.locals.user = req.app.get("user");
+    res.render("manage-users", {title: "JAF - Manage Users"});
+})
+
 module.exports = router;

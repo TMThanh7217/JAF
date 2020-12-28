@@ -162,39 +162,6 @@ app.get("/deal", (req, res) => {
 
 app.use("/admin", require("./routes/adminRouter"));
 
-app.get("/manage_product_food", (req, res) => {
-res.locals.user = user
-  let product_data = fs.readFileSync(__dirname + "/public/json/food_products.json");
-  let products = JSON.parse(product_data);
-  let list = [];
-  for (let item of products) {
-      list.push(item);
-  }
-  res.render('manage_product', {product: list});
-})
-
-app.get("/manage_product_drink", (req, res) => {
-res.locals.user = user
-  let product_data = fs.readFileSync(__dirname + "/public/json/drink_products.json");
-  let products = JSON.parse(product_data);
-  let list = [];
-  for (let item of products) {
-      list.push(item);
-  }
-  res.render('manage_product', {product: list});
-})
-
-app.get("/manage_user", (req, res) => {
-  res.locals.user = user
-  let rawdata = fs.readFileSync(__dirname + "/public/json/userdata.json");
-  let data = JSON.parse(rawdata);
-  let list = [];
-  for (let ele of data) {
-      list.push(ele);
-  }
-  res.render('manage_user', {userdata: list});
-})
-
 app.use('/products', require("./routes/productsRouter"));
 
 app.listen(port, () => {
