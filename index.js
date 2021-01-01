@@ -57,6 +57,8 @@ let hbs = exprHbs.create({
   }
 });
 
+staffs = JSON.parse(fs.readFileSync(__dirname + "/public/json/staff.json"));
+
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
@@ -79,51 +81,24 @@ app.get('/sync', (req, res) => {
   })
 })
 
+//-------------------------------------------------------------------Routing-------------------------------------------------------------------
 app.use("/", require("./routes/indexRouter"));
 
 app.use('/', require('./routes/loginRouter'));
 
+app.use('/credit', require('./routes/creditRouter'));
 
-app.get('/credit', (req, res) => {
-  res.locals.user = req.app.get('user');
-  var staffs = JSON.parse(fs.readFileSync(__dirname + "/public/json/staff.json"));
-  res.render('credit', {staff_infos: staffs});
-})
+app.use('/profile', require('./routes/profileRouter'));
 
-app.get("/profile", (req, res) => {
-  res.locals.user = req.app.get('user');
-  res.render('profile');
-})
+app.use('/coupon', require('./routes/couponRouter'));
 
-app.get("/coupon", (req, res) => {
-  res.locals.user = req.app.get('user');
-  res.render('coupon');
-})
+app.use('/help', require('./routes/helpRouter'));
 
-app.get("/help", (req, res) => {
-  res.locals.user = req.app.get('user');
-  res.render('help');
-})
+app.use('/cart', require('./routes/cartRouter'));
 
-app.get("/cart", (req, res) => {
-  res.locals.user = req.app.get('user');
-  res.render('cart');
-})
+app.use('/notifications', require('./routes/notificationsRouter'));
 
-app.get("/notifications", (req, res) => {
-  res.locals.user = req.app.get('user');
-  res.render('notifications');
-})
-
-app.get("/help", (req, res) => {
-  res.locals.user = req.app.get('user');
-  res.render('help');
-})
-
-app.get("/deal", (req, res) => {
-  res.locals.user = req.app.get('user');
-  res.render('deal');
-})
+app.use('/deal', require('./routes/dealRouter'));
 
 app.use("/admin", require("./routes/adminRouter"));
 
