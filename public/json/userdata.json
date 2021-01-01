@@ -3,8 +3,8 @@
     "name":"Aperiam Eligendi",
     "email":"AperiamEligendi@gmail.com",
     "gender":true,
-    "phoneNumber":"0123414525",
-    "avtPath":"",
+    "phone":"0123414525",
+    "avatar":"",
     "username":"AperiamEligendi",
     "password":"AperiamEligendi"
 },
@@ -13,8 +13,8 @@
     "name":"Dolorum Voluptatum",
     "email":"DolorumVoluptatum@gmail.com",
     "gender":false,
-    "phoneNumber":"0111123415",
-    "avtPath":"",
+    "phone":"0111123415",
+    "avatar":"",
     "username":"DolorumVoluptatum",
     "password":"DolorumVoluptatum"
 },
@@ -23,8 +23,8 @@
     "name":"Consectetur Amet",
     "email":"ConsecteturAmet@gmail.com",
     "gender":true,
-    "phoneNumber":"01995123415",
-    "avtPath":"",
+    "phone":"01995123415",
+    "avatar":"",
     "username":"ConsecteturAmet",
     "password":"ConsecteturAmet"
 }]
