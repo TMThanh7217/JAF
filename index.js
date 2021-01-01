@@ -81,77 +81,47 @@ app.get('/sync', (req, res) => {
 
 app.use("/", require("./routes/indexRouter"));
 
-app.get('/login', (req, res) => {
-    /*user = true;
-    res.locals.isLoggedIn = user;*/
-    res.locals.user = user
-    res.render('login');
-})
+app.use('/', require('./routes/loginRouter'));
 
-app.post("/login", (req, res) => {
-  res.locals.user = app.get("user");
-  var username = req.body.username;
-  var password = req.body.password;
-  console.log("username: " + username + " | password: " + password);
-  if (username == "user" && password == "user") {
-    user = COMMON;
-    res.locals.user = user
-    console.log("Log in as user");
-    res.redirect("/");
-    res.end();
-  }
-  else if (username == "admin" && password == "admin") {
-    user = ADMIN;
-    res.locals.user = user
-    console.log("Log in as admin");
-    res.redirect("/");
-    res.end();
-  }
-});
-
-app.get('/logout', (req, res) => {
-  user = ANONYMOUS;
-  res.redirect("/");
-})
 
 app.get('/credit', (req, res) => {
-  res.locals.user = user
+  res.locals.user = req.app.get('user');
   var staffs = JSON.parse(fs.readFileSync(__dirname + "/public/json/staff.json"));
   res.render('credit', {staff_infos: staffs});
 })
 
 app.get("/profile", (req, res) => {
-    res.locals.user = user
+  res.locals.user = req.app.get('user');
   res.render('profile');
 })
 
 app.get("/coupon", (req, res) => {
-  res.locals.user = user
+  res.locals.user = req.app.get('user');
   res.render('coupon');
 })
 
 app.get("/help", (req, res) => {
-  res.locals.user = user
+  res.locals.user = req.app.get('user');
   res.render('help');
 })
 
 app.get("/cart", (req, res) => {
-  res.locals.user = user
+  res.locals.user = req.app.get('user');
   res.render('cart');
 })
 
 app.get("/notifications", (req, res) => {
-  res.locals.user = user
+  res.locals.user = req.app.get('user');
   res.render('notifications');
 })
 
 app.get("/help", (req, res) => {
-  res.locals.user = user
+  res.locals.user = req.app.get('user');
   res.render('help');
 })
 
 app.get("/deal", (req, res) => {
-  res.locals.user = user
+  res.locals.user = req.app.get('user');
   res.render('deal');
 })
 
