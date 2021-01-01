@@ -6,7 +6,6 @@ const bodyParser = require("body-parser")
 //const router = express.Router();
 const port = process.env.PORT || 8000;
 app.use(express.static(__dirname + "/public"));
-const myApi = require(__dirname + '/public/js/script.js');
 const models = require('./models');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -15,10 +14,6 @@ app.use(bodyParser.json());
 const COMMON = 1;
 const ADMIN = 0;
 const ANONYMOUS = -1;
-
-
-const comments = JSON.parse(fs.readFileSync(__dirname + "/public/json/comments.json"));
-const products = JSON.parse(fs.readFileSync(__dirname + "/public/json/products.json"));
 
 
 function isLoggedIn(user) {
