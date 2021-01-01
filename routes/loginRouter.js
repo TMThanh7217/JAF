@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+const controller = require('../controllers/userController');
 
 const COMMON = 1;
 const ADMIN = 0;
@@ -14,22 +15,28 @@ router.post('/handle_login', (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
     console.log("username: " + username + " | password: " + password);
-    if (username == "user" && password == "user") {
-        user = COMMON;
-        req.app.set('user', user);
-        console.log("Log in as user");
-        res.redirect("/");
-    }
-    else if (username == "admin" && password == "admin") {
-        user = ADMIN;
-        req.app.set('user', user);
+
+    if (username == "admin" && password == "admin"){
+        req.app.set('user', ADMIN);  
         console.log("Log in as admin");
         res.redirect("/");
     }
     else {
-        user = ANONYMOUS;
-        req.app.set('user', user);
-        res.render('login');
+        controller.searchUser(req.body.username, function(this_user) {
+            if (this_user != null){
+                if (password == this_user.password) {
+                    req.app.set('user', COMMON);
+                    console.log("Log in as user");
+                    res.redirect("/");
+                }
+                else {
+                    res.render('login');
+                }
+            }
+            else {
+                res.render('login');
+            }
+        });
     }
 });
 
