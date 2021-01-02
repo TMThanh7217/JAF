@@ -6,7 +6,7 @@ const saltRound = 10;
 
 controller.searchUser = function(username, callback){
 	Users.findOne({
-		where: { username: username },
+		where: { username: username.toLowerCase() },
 		raw: true
 	}).then(function(this_user) {
 		callback(this_user);
@@ -16,6 +16,8 @@ controller.searchUser = function(username, callback){
 controller.createUser = function(user) {
 	bcrypt.genSalt(saltRound, (err, salt) => {
 		bcrypt.hash(user.password, salt, (err, hash) => {
+			user.username = user.username.toLowerCase();
+			user.password = hash;
 			return Users.create(user);
 		})
 	})

@@ -44,6 +44,37 @@ router.post('/login', (req, res) => {
     });
 });
 
+router.post('/register', (req, res) => {
+    let user = {
+        email: req.body.regEmail,
+        username: req.body.regUsername,
+        password: req.body.regPassword,
+        name: "",
+        gender: true,
+        phone: "",
+        avatar: "",
+        authorization: 0
+    };
+
+    let confirmPassword = req.body.regConfirmPassword;
+
+    // check confirm password
+    if (user.password != confirmPassword) {
+        return res.render('login', {errMessage: 'Password does not match', func: "register()"});
+    }
+
+    // check if user exists
+    controller
+        .searchUser(user.username , function(userReg) {
+            if (userReg != null) {
+                return res.render('login', {errMessage: 'User name already exists'});
+            }
+            // create account
+            controller.createUser(user);
+            res.render("login", {Message: 'Account created'});
+        });    
+});
+
 router.get('/logout', (req, res) => {
     req.app.set('userAuthorization', userAuthorizationAPI.ANONYMOUS);
     res.locals.user = req.app.get('userAuthorization');
