@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', (req, res) => {
     res.locals.userAuthorization = req.app.get('userAuthorization');
-    res.render('deal');
+    res.render('explore');
 })
 
 module.exports = router;

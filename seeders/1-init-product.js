@@ -15,9 +15,11 @@ module.exports = {
     let fs = require('fs');
     let convert = require('../APIs/convert.js');
     let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/products.json')));
+    let random = require('../APIs/random');
     for (let product of products) {
       product.status = convert.statusToCode(product.status);
       product.type = convert.typeToCode(product.type);
+      product.orderTime = random.randInt(0, 50);
       product.createdAt = Sequelize.literal('NOW()');
       product.updatedAt = Sequelize.literal('NOW()');
     }

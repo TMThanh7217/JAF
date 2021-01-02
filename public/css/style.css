@@ -343,6 +343,7 @@ input[type=number] {
 
 .btn-like:hover {
     opacity: 0.9;
+    box-shadow: 0 0 0 0.2rem rgba(243, 6, 164, 0.2);
 }
 
 .cmt-avatar {
@@ -426,4 +427,12 @@ input[type=number] {
 
 .admin-sidebar .admin-sidebar__item:hover {
     opacity: 0.6;
+}
+
+.menu-label__btn {
+    font-size: 20px;
+}
+
+.dropdown-menu .dropdown-item-warning:hover {
+    background-color: #ffc107;
 }

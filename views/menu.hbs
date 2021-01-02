@@ -1,5 +1,13 @@
 <div id="menu" class="container-fluid p-5">
-    <div class="menu-label mb-3 p-2"><h1 class="ml-2">{{name}}</h1></div>
+    <div class="menu-label mb-3 p-2 d-flex">
+      <h1 class="ml-2 mr-auto">{{name}}</h1>
+      <button class="btn menu-label__btn btn-warning mr-2"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Sort"><i class="fa fa-sort-amount-desc mr-2" aria-hidden="true"></i></button>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item dropdown-item-warning" href="/products?sort=0"><i class="fa fa-heart mr-2"></i>Like</a>
+        <a class="dropdown-item dropdown-item-warning" href="/products?sort=1"><i class="fa fa-sort-alpha-desc mr-2" aria-hidden="true"></i>Name</a>
+        <a class="dropdown-item dropdown-item-warning" href="/products?sort=2"><i class="fa fa-clock-o mr-2" aria-hidden="true"></i>Recently</a>
+      </div>
+    </div>
     {{#each rows}}
     <div class="row card-group">
       {{#each this}}
