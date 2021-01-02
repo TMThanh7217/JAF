@@ -1,48 +1,52 @@
 var express = require("express");
 var router = express.Router();
 const controller = require('../controllers/userController');
-
-const COMMON = 1;
-const ADMIN = 0;
-const ANONYMOUS = -1;
+var bcrypt = require('bcrypt');
+var userAuthorizationAPI = require('../APIs/userAuthorization');
 
 router.get("/login", (req, res) => {
-    res.locals.user = req.app.get("user");
+    res.locals.user = req.app.get("userAuthorization");
     res.render('login');
 });
 
-router.post('/handle_login', (req, res) => {
+router.post('/login', (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
+
     console.log("username: " + username + " | password: " + password);
 
-    if (username == "admin" && password == "admin"){
-        req.app.set('user', ADMIN);  
-        console.log("Log in as admin");
-        res.redirect("/");
-    }
-    else {
-        controller.searchUser(req.body.username, function(this_user) {
-            if (this_user != null){
-                if (password == this_user.password) {
-                    req.app.set('user', COMMON);
-                    console.log("Log in as user");
-                    res.redirect("/");
-                }
-                else {
-                    res.render('login');
-                }
+    controller
+        .searchUser(username.toLowerCase(), function(user) {
+            if (user != null){
+                bcrypt.compare(password, user.password, (err, same) => {
+                    if (same) {
+                        req.app.set('userAuthorization', userAuthorizationAPI.isAdmin(user.authorization) ?
+                                                                                        userAuthorizationAPI.ADMIN :
+                                                                                        userAuthorizationAPI.COMMON);
+                        res.redirect('/');
+                    }
+                    else {
+                        res.locals.userAuthorization = req.app.get('userAuthorization');
+                        res.render('login', {
+                            title: "JAF - Login",
+                            errMessage: "Password or user name is incorrect."
+                        })
+                    }
+                })
             }
             else {
-                res.render('login');
+                res.locals.userAuthorization = req.app.get('userAuthorization');
+                res.render('login', {
+                    title: "JAF - Login",
+                    errMessage: "Password or user name is incorrect."
+                })
             }
-        });
-    }
+    });
 });
 
 router.get('/logout', (req, res) => {
-    req.app.set('user', ANONYMOUS);
-    res.locals.user = req.app.get('user');
+    req.app.set('userAuthorization', userAuthorizationAPI.ANONYMOUS);
+    res.locals.user = req.app.get('userAuthorization');
     res.redirect('/');
 })
 

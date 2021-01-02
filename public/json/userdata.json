@@ -1,30 +1,44 @@
 [{
     "id":0,
+    "name":"Tieu Trinh Trinh",
+    "email":"hocvatly12@gmail.com",
+    "gender":true,
+    "phone":"0123414525",
+    "avatar":"",
+    "username":"admin",
+    "password":"$2a$10$hBwPh3xs0aYSTmY4SHStpu2aufSBLSa0frYIFK/iMVfwZNANxYSZC",
+    "authorization" : 1
+},
+{
+    "id":1,
     "name":"Aperiam Eligendi",
     "email":"AperiamEligendi@gmail.com",
     "gender":true,
     "phone":"0123414525",
     "avatar":"",
-    "username":"AperiamEligendi",
-    "password":"AperiamEligendi"
+    "username":"aperiameligendi",
+    "password":"$2a$10$ahpvtC7NsGb3ddOmrzUq.uVmNb3gJY8vkAQ0n4riNP2LrhXXMouZW",
+    "authorization" : 0
 },
 {
-    "id":1,
+    "id":2,
     "name":"Dolorum Voluptatum",
     "email":"DolorumVoluptatum@gmail.com",
     "gender":false,
     "phone":"0111123415",
     "avatar":"",
-    "username":"DolorumVoluptatum",
-    "password":"DolorumVoluptatum"
+    "username":"dolorumvoluptatum",
+    "password":"$2a$10$0VTwNg8CDCDUeQp9grnc.u8/xLGyTSl/pA61uhbKl6ZZXKmReuXZW",
+    "authorization" : 0
 },
 {
-    "id":2,
+    "id":3,
     "name":"Consectetur Amet",
     "email":"ConsecteturAmet@gmail.com",
     "gender":true,
     "phone":"01995123415",
     "avatar":"",
-    "username":"ConsecteturAmet",
-    "password":"ConsecteturAmet"
+    "username":"consecteturamet",
+    "password":"$2a$10$H2t24Nj8HFrNyn.lTxhilOLKNmuA3eoC7cXc7ZhWnVjz62TcEsBbG",
+    "authorization" : 0
 }]

@@ -2,9 +2,10 @@ var express = require("express");
 var router = express.Router();
 var productsController = require("../controllers/productController");
 
-
 router.get("/manage/products", (req, res) => {
-    res.locals.user = req.app.get("user");
+    let userAuthorization = req.app.get("userAuthorization");
+    res.locals.userAuthorization = userAuthorization;
+
     productsController
         .getAll()
         .then(products => {
@@ -18,7 +19,7 @@ router.get("/manage/products", (req, res) => {
 })
 
 router.get("/manage/products/foods", (req, res) => {
-    res.locals.user = req.app.get("user");
+    res.locals.userAuthorization = req.app.get("userAuthorization");
     productsController
         .getFoods()
         .then(products => {
@@ -32,7 +33,7 @@ router.get("/manage/products/foods", (req, res) => {
 })
 
 router.get("/manage/products/drinks", (req, res) => {
-    res.locals.user = req.app.get("user");
+    res.locals.userAuthorization = req.app.get("userAuthorization");
     productsController
         .getDrinks()
         .then(products => {
@@ -46,7 +47,7 @@ router.get("/manage/products/drinks", (req, res) => {
 })
 
 router.get("/manage/users", (req, res) => {
-    res.locals.user = req.app.get("user");
+    res.locals.userAuthorization = req.app.get("userAuthorization");
     res.render("manage-users", {title: "JAF - Manage Users"});
 })
 

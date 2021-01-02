@@ -9,24 +9,9 @@ app.use(express.static(__dirname + "/public"));
 const models = require('./models');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+const userAuthorization = require('./APIs/userAuthorization');
 
 
-const COMMON = 1;
-const ADMIN = 0;
-const ANONYMOUS = -1;
-
-
-function isLoggedIn(user) {
-  return user.toString() != (ANONYMOUS.toString());
-}
-
-function isAdmin(user) {
-  return user.toString() == (ADMIN.toString())
-}
-
-function isCommon(user) {
-  return user.toString() == (COMMON.toString())
-}
 
 function isManageProducts(pageNumber) {
   return pageNumber == 1;
@@ -48,27 +33,20 @@ let hbs = exprHbs.create({
   layoutsDir : __dirname + '/views/layouts/',
   partialsDir : __dirname + '/views/partials/',
   helpers: {
-    isLoggedIn : isLoggedIn,
-    isCommon : isCommon,
-    isAdmin : isAdmin,
+    isLoggedIn : userAuthorization.isLoggedIn,
+    isCommon : userAuthorization.isCommon,
+    isAdmin : userAuthorization.isAdmin,
+    isAnonymous : userAuthorization.isAnonymous,
     isManageProducts : isManageProducts,
     isManageFoods : isManageFoods,
     isManageDrinks : isManageDrinks
   }
 });
 
-staffs = JSON.parse(fs.readFileSync(__dirname + "/public/json/staff.json"));
-
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
-app.use((req, res, next) => {
-   res.locals.isLoggedIn = false;
-   res.locals.isAdmin = false;
-   next();
-});
-
-var user = ANONYMOUS;
+var user = userAuthorization.ANONYMOUS;
 //customer_state = 1
 //admin_state = 0
 //not login = ANONYMOUS

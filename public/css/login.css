@@ -14,7 +14,7 @@ body{
 
 .formbox{
     width:380px;
-    height:480px;
+    height:600px !important;
     position: relative;
     margin:6% auto;
     background: #ffffff;
@@ -98,8 +98,10 @@ span{
 
 #login{
     left:50px;
+    margin-top: 80px;
 }
 
 #register{
     left:450px;
+    margin-top: 80px;
 }

@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
         .getAll()
         .then(products => {
             var productsRows = productsArray.getRows(products, DEFAULT_ROW_CAP);
-            res.locals.user = req.app.get("user");
+            res.locals.userAuthorization = req.app.get('userAuthorization');
             var page_data = {
                 title : "JAF - Menu",
                 name : "Menu",
@@ -25,7 +25,7 @@ router.get("/drinks", (req, res) => {
         .getDrinks()
         .then(drinks => {
             var productsRows = productsArray.getRows(drinks, DEFAULT_ROW_CAP);
-            res.locals.user = req.app.get("user");
+            res.locals.userAuthorization = req.app.get('userAuthorization');
             var page_data = {
                 title : "JAF - Drinks",
                 name : "Drinks",
@@ -40,7 +40,7 @@ router.get("/foods", (req, res) => {
         .getFoods()
         .then(foods => {
             var productsRows = productsArray.getRows(foods, DEFAULT_ROW_CAP);
-            res.locals.user = req.app.get("user");
+            res.locals.userAuthorization = req.app.get('userAuthorization');
             var page_data = {
                 title : "JAF - Foods",
                 name : "Foods",
@@ -55,7 +55,7 @@ router.get("/:id", (req, res) => {
     productController
         .getByID(id)
         .then(product => {
-            res.locals.user = req.app.get("user");
+            res.locals.userAuthorization = req.app.get('userAuthorization');
             var page_data = {
                 title : `JAF - ${product.name}`,
                 product : product,

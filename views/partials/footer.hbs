@@ -20,7 +20,7 @@
                         <a href="/help">Help</a>
                     </li>
                     <li class="mb-sm-3">
-                        {{#if (isLoggedIn user)}}
+                        {{#if (isLoggedIn userAuthorization)}}
                         <a href="/profile">Your Account</a>
                         {{else}}
                         <a href="#" data-toggle="modal" data-target="#accountErrorModal">Your Account</a>

@@ -1,7 +1,8 @@
 var controller = {};
-
+var bcrypt = require('bcrypt');
 var models = require('../models');
 var Users = models.User;
+const saltRound = 10;
 
 controller.searchUser = function(username, callback){
 	Users.findOne({
@@ -12,11 +13,12 @@ controller.searchUser = function(username, callback){
 	});
 };
 
-controller.createUser = function(user){
-	Users.create(user)
-	.catch(function(error) {
-		console.log(error)
-	});
+controller.createUser = function(user) {
+	bcrypt.genSalt(saltRound, (err, salt) => {
+		bcrypt.hash(user.password, salt, (err, hash) => {
+			return Users.create(user);
+		})
+	})
 };
 
 
