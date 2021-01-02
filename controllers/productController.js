@@ -5,10 +5,28 @@ var model = require("../models");
 var Product = model.Product;
 var converter = require("../APIs/convert");
 
-controller.getAll = () => {
+controller.getAll = (sort) => {
+    orderQuery = [];
+    switch (sort) {
+        case "name":
+            orderQuery = [["name", "ASC"]];
+            break;
+        case "like":
+            orderQuery = [["like", "DESC"]];
+            break;
+        case "updatedAt":
+            orderQuery = [["updatedAt", "DESC"]];
+            break;
+        default:
+            orderQuery = [["name", "ASC"]];
+            break;
+    }
     return new Promise((resolve, reject) => {
         Product
-            .findAll({raw : true})
+            .findAll({
+                raw : true,
+                order : orderQuery
+            })
             .then(products => resolve(products))
             .catch(error => reject(new Error(error))); 
     })

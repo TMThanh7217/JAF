@@ -5,8 +5,17 @@ var productsArray = require("../APIs/productsArray");
 const DEFAULT_ROW_CAP = 3;
 
 router.get("/", (req, res) => {
+    if (req.query.sort == null || req.query.sort == undefined || req.query.sort == "" || isNaN(req.query.sort))
+        req.query.sort = 'name';
+    else if (Number(req.query.sort) == 0) {
+        req.query.sort = 'like';
+    }
+    else if (Number(req.query.sort) == 1) {
+        req.query.sort = 'name';
+    }
+    else req.query.sort = 'updatedAt';
     productController
-        .getAll()
+        .getAll(req.query.sort)
         .then(products => {
             var productsRows = productsArray.getRows(products, DEFAULT_ROW_CAP);
             res.locals.userAuthorization = req.app.get('userAuthorization');
