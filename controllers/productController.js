@@ -17,6 +17,9 @@ controller.getAll = (sort) => {
         case "updatedAt":
             orderQuery = [["updatedAt", "DESC"]];
             break;
+        case "price":
+            orderQuery = [["price", "ASC"]];
+            break;
         default:
             orderQuery = [["name", "ASC"]];
             break;
@@ -122,6 +125,20 @@ controller.getByID = id => {
             })
             .then(product => resolve(product))
             .catch(error => reject(new Error(error))); 
+    })
+}
+
+controller.searchNameLike = name => {
+    return new Promise((resolve, rejects) => {
+        Product
+            .findAll({
+                where : {
+
+                },
+                raw : true
+            })
+            .then(products => resolve(products))
+            .catch(err => rejects(err));
     })
 }
 
