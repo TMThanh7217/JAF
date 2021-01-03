@@ -46,11 +46,10 @@ let hbs = exprHbs.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
-var user = userAuthorization.ANONYMOUS;
 //customer_state = 1
 //admin_state = 0
 //not login = ANONYMOUS
-app.set("user", user);
+app.set("userAuthorization", userAuthorization.ANONYMOUS);
 
 
 app.get('/sync', (req, res) => {

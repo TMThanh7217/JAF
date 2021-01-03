@@ -34,7 +34,7 @@
     </form>
 
     <div class="navbar-nav ml-5">
-        {{#if (isCommon userAuthorization)}}
+        {{#unless (isAnonymous userAuthorization)}}
         <div class="dropdown">
             <button type='button' class='btn dropdown-toggle btn-user caret-off' data-toggle='dropdown'>Account <i class='fa fa-user ml-3'></i></button>
             <div class="dropdown-menu dropdown-left">
@@ -43,21 +43,14 @@
                     <a class="dropdown-item" href="/notifications"><i class="fa fa-bell" aria-hidden="true"></i>&nbsp; Notifications</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-history" aria-hidden="true"></i>&nbsp; History</a>
                     <a class="dropdown-item" href="/coupon"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp; Coupons</a>
+                    {{#if (isAdmin userAuthorization)}}
+                    <a class="dropdown-item" href="/admin"><i class="fa fa-database" aria-hidden="true"></i>&nbsp; Manage</a>
+                    {{/if}} 
                     <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout</a>
             </div>
         </div>
-        {{else if (isAdmin userAuthorization)}}
-        <div class="dropdown">
-            <button type='button' class='btn dropdown-toggle btn-user caret-off' data-toggle='dropdown' style="color: red; font-weight: bold">Admin <i class='fa fa-user-plus ml-3'></i></button>
-            <div class="dropdown-menu dropdown-left">
-                    <a class="dropdown-item" href="/profile"><i class="fa fa-address-book" aria-hidden="true"></i>&nbsp; Profile</a>
-                    <a class="dropdown-item" href="/admin/manage/products"><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp; Manage product</a>
-                    <a class="dropdown-item" href="/admin/manage/users"><i class="fa fa-users" aria-hidden="true"></i>&nbsp; Manage user</a>
-                    <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Logout</a>
-            </div>
-        </div>
-        {{else}}        
+        {{else}}
         <button id="btn-login" class="btn btn-danger" type="button" onclick="document.location.href='/login'">Login</button>
-        {{/if}}
+        {{/unless}}
     </div>
 </nav>

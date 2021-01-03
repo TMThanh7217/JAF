@@ -1,0 +1,10 @@
+<div class="container-fluid p-5">
+    <div class="menu-label mb-3 p-2 d-flex">
+      <h1 class="ml-2 mr-auto">Dash board</h1>
+    </div>
+    <div class="container-fluid d-flex flex-column justify-content-around" style="height: 400px">
+        {{#each options}}
+        <button type="button" class="btn btn-outline-danger btn--admin-option" onclick="document.location.href='{{this.href}}'"><i class="{{this.iconClass}}" aria-hidden="true"></i>{{this.title}}</button>
+        {{/each}}
+    </div>
+</div>

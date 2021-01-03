@@ -12,4 +12,12 @@ myModule.isAnonymous = userAuthorization => Number(userAuthorization) == myModul
 
 myModule.isLoggedIn = userAuthorization => !myModule.isAnonymous(userAuthorization);
 
+myModule.errorPage = (req, res) => {
+    res.render("error", {
+        title: "JAF - Error",
+        errTitle: "Authorization Error - Access Denied",
+        errMess: "You are not allowed to access this page. ADMIN only!!!"
+    });
+}
+
 module.exports = myModule;
