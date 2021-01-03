@@ -408,6 +408,13 @@ input[type=number] {
 #comment-form_submit-btn {
     width: 150px;
     align-self: flex-end;
+
+}
+
+#like-product-btn {
+    width: 150px;
+    align-self: flex-end;
+
 }
 
 .cmt-container {
