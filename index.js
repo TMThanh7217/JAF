@@ -3,15 +3,17 @@ const fs = require('fs');
 const { get } = require('http');
 const app = express();
 const bodyParser = require("body-parser")
+var userAuthorization = require("./APIs/userAuthorization");
 //const router = express.Router();
 const port = process.env.PORT || 8000;
 app.use(express.static(__dirname + "/public"));
 const models = require('./models');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-const userAuthorization = require('./APIs/userAuthorization');
-
-
+app.use((req, res, next)=> {
+  res.locals.userAuthorization = req.app.get('userAuthorization');
+  next();
+});
 
 function isManageProducts(pageNumber) {
   return pageNumber == 1;
@@ -80,6 +82,8 @@ app.use('/deal', require('./routes/dealRouter'));
 app.use("/admin", require("./routes/adminRouter"));
 
 app.use('/products', require("./routes/productsRouter"));
+
+app.use('/comments', require("./routes/commentRouter"));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
