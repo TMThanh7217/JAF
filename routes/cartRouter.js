@@ -2,7 +2,6 @@ var express = require("express");
 var router = express.Router();
 
 router.get('/', (req, res) => {
-    res.locals.userAuthorization = req.app.get('userAuthorization');
     var cart = req.session.cart;
     res.locals.cart = cart.getCart();
     res.render('cart');

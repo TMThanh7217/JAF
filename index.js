@@ -3,12 +3,14 @@ const fs = require('fs');
 const { get } = require('http');
 const app = express();
 const bodyParser = require("body-parser")
+
 //const router = express.Router();
 const port = process.env.PORT || 8000;
 app.use(express.static(__dirname + "/public"));
 const models = require('./models');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 const userAuthorization = require('./APIs/userAuthorization');
 
 const cookieParser = require('cookie-parser');
@@ -24,6 +26,7 @@ app.use(session({
 
 var Cart = require('./controllers/cartController');
 app.use((req, res, next) => {
+  res.locals.userAuthorization = req.app.get('userAuthorization');
   var cart = new Cart(req.session.cart ? req.session.cart : {});
   req.session.cart = cart;
   res.locals.totalQuantity = cart.totalQuantity;
@@ -97,6 +100,8 @@ app.use('/deal', require('./routes/dealRouter'));
 app.use("/admin", require("./routes/adminRouter"));
 
 app.use('/products', require("./routes/productsRouter"));
+
+app.use('/comments', require("./routes/commentRouter"));
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)

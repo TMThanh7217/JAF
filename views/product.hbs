@@ -56,23 +56,25 @@
                         </script>
                 </div>
             </div>
-            <button class="btn btn-order" data-id='{{product.id}}'>Add to cart</button>
+            <div class="row">
+                <button class="btn btn-order">Add to cart</button>
+                <button class="btn btn-danger btn-like-product" onclick="">Like this product</button>
+            </div>
         </div>
     </div>
 
     <div class="container-fluid p-5">
      
-        <form id="comment-form" class="md-form d-flex flex-column">
+        <form id="comment-form" class="md-form d-flex flex-column" action="/comments" method="POST">
 
             <div class="label-area">
                 <i id="comment-form_icon" class="fas fa-pencil-alt prefix"></i>
                 <label id="comment-form_label" for="comment-form_text-area">Give a comment</label>
             </div>
 
-            <textarea id="comment-form_text-area" name="text-area" class="md-textarea form-control" rows="3"></textarea>
-            
-            <button id="comment-form_submit-btn" type="button" class="btn btn-danger mt-3" onclick="">Send</button>
 
+            <textarea id="comment-form_text-area" name="content" class="md-textarea form-control" rows="3"></textarea>
+            <button id="comment-form_submit-btn" type="submit" class="btn btn-danger mt-3" onclick="">Send</button>
         </form>
     
     </div>

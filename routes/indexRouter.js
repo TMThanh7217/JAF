@@ -16,7 +16,6 @@ router.get("/", (req, res) => {
                     .then(products => {
                         var trendDrinks = products;
 
-                        res.locals.userAuthorization = req.app.get('userAuthorization');
                         var page_data = {
                             title: "JAF - Home",
                             mostLiked : trendingProducts[0],

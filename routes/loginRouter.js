@@ -5,7 +5,7 @@ var bcrypt = require('bcrypt');
 var userAuthorizationAPI = require('../APIs/userAuthorization');
 
 router.get("/login", (req, res) => {
-    res.locals.userAuthorization = req.app.get("userAuthorization");
+    
     res.render('login');
 });
 
