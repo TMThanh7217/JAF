@@ -11,7 +11,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 const userAuthorization = require('./APIs/userAuthorization');
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
 
+let session = require('express-session');
+app.use(session({
+  cookie: {httpOnly: true, maxAge: 30 * 24 * 60 * 60 * 1000},
+  secret: "S3cret",
+  resave: false,
+  saveUninitialized: false
+}));
+
+var Cart = require('./controllers/cartController');
+app.use((req, res, next) => {
+  var cart = new Cart(req.session.cart ? req.session.cart : {});
+  req.session.cart = cart;
+  res.locals.totalQuantity = cart.totalQuantity;
+  next();
+})
 
 function isManageProducts(pageNumber) {
   return pageNumber == 1;

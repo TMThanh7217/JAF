@@ -42,6 +42,7 @@
                     <input id="qtyField" type="number" class="form-control text-center col-1" value="1">
                     <div class="input-group-append">
                         <button id="incBtn" class="btn btn-outline-secondary btn-secondary text-white" type="button" onclick="increaseBtnClickedEvent()"><i class="fa fa-plus"></i></button>
+                    </div>
                         <script>
                             function increaseBtnClickedEvent() {
                                 var qtyField = document.querySelector("#qtyField");
@@ -53,10 +54,9 @@
                                 qtyField.value = qtyField.value > 0 ? Number(qtyField.value) - 1 : 0;     
                             }
                         </script>
-                    </div>
                 </div>
             </div>
-            <button class="btn btn-order">Add to cart</button>
+            <button class="btn btn-order" data-id='{{product.id}}'>Add to cart</button>
         </div>
     </div>
 

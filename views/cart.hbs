@@ -23,58 +23,21 @@
                 </tr>
               </thead>
               <tbody>
+                {{#each cart.items}}
                 <tr>
                   <th scope="row" class="border-0">
                     <div class="p-2">
-                      <img src="../images/food/tacos-with-pulled-pork-fresh-vegetables-and-cream.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                      <img src="{{this.item.src}}" alt="" width="70" class="img-fluid rounded shadow-sm">
                       <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">Taco</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Fast Food</span>
+                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{{this.item.name}}</a></h5><span class="text-muted font-weight-normal font-italic d-block">Category: Fast Food</span>
                       </div>
                     </div>
                   </th>
-                  <td class="border-0 align-middle"><strong>$79.00</strong></td>
-                  <td class="border-0 align-middle"><strong>
-                    <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">+</button>
-                      3
-                      <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">-</button>
-                    </strong></td>
-                  <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                  <td class="border-0 align-middle"><strong>${{this.price}}</strong></td>
+                  <td class="border-0 align-middle"><strong>{{this.quantity}}</strong></td>
+                  <td class="border-0 align-middle"><button class="btn btn-light btn-cart--remove" data-id={{this.item.id}}><i class="fas fa-trash"></i></button></td>
                 </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="p-2">
-                      <img src="../images/drink/lime-juice.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
-                      <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Lime Juice </a></h5><span class="text-muted font-weight-normal font-italic">Category: Drink</span>
-                      </div>
-                    </div>
-                  </th>
-                  <td class="align-middle"><strong>$79.00</strong></td>
-                  <td class="align-middle"><strong>
-                    <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">+</button>
-                    3
-                    <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">-</button>
-                    </strong></td>
-                  <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    <div class="p-2">
-                      <img src="../images/food/juicy-beef-burger.jpg" width="70" class="img-fluid rounded shadow-sm">
-                      <div class="ml-3 d-inline-block align-middle">
-                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Beef Burger</a></h5><span class="text-muted font-weight-normal font-italic">Category: Fast Food</span>
-                      </div>
-                    </div>
-                    <td class="align-middle"><strong>$79.00</strong></td>
-                    <td class="align-middle"><strong>
-                        <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">+</button>
-                      3
-                      <button type="button" class="btn btn-light btn-sm mx-2 btn-outline-danger">-</button>
-                    </strong></td>
-                    <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
-                    </td>
-                </tr>
+                {{/each}}
               </tbody>
             </table>
           </div>
@@ -109,7 +72,7 @@
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold">$400.00</h5>
+                <h5 class="font-weight-bold">${{cart.totalPrice}}</h5>
               </li>
             </ul><a href="#" class="btn btn-danger rounded-pill py-2 btn-block">Procceed to checkout</a>
           </div>
@@ -119,4 +82,3 @@
     </div>
   </div>
 </div>
-
