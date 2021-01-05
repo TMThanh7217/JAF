@@ -1,0 +1,18 @@
+[{
+    "id":0,
+    "userId":0,
+    "totalPrice":5.0,
+    "paymentMethod":0
+},
+{
+    "id":1,
+    "userId":0,
+    "totalPrice":5000.0,
+    "paymentMethod":0
+},
+{
+    "id":2,
+    "userId":0,
+    "totalPrice":81523.0223,
+    "paymentMethod":0
+}]

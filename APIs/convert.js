@@ -33,5 +33,21 @@ module.exports = {
             case 1 : type = "stocking"; break;
         }
         return type;
+    },
+
+    paymentToCode : payment => {
+        let code = -1;
+        switch (payment.toLowerCase()) {
+            case "cod" : code = 0; break;
+        }
+        return code;
+    },
+
+    codeToPayment : code => {
+        let type = "unknown";
+        switch (code) {
+            case 0 : type = "cod"; break;
+        }
+        return type;
     }
 }
