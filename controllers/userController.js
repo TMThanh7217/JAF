@@ -23,4 +23,13 @@ controller.createUser = function(user) {
 	})
 };
 
+controller.findAllUser = () => {
+	return new Promise((resolve, reject) => {
+		Users
+			.findAll()
+			.then(users => resolve(users))
+			.catch(error => reject(new Error(error)))
+	});
+};
+
 module.exports = controller;

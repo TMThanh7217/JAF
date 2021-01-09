@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var productsController = require("../controllers/productController");
 var userAuthorizationAPI = require("../APIs/userAuthorization");
+var userController = require("../controllers/userController");
 
 
 router.get("/" , (req, res) => {
@@ -88,7 +89,11 @@ router.get("/manage/users", (req, res) => {
     res.locals.userAuthorization = userAuth;
     if (!userAuthorizationAPI.isAdmin(userAuth))
         userAuthorizationAPI.errorPage(req, res);
-    res.render("manage-users", {title: "JAF - Manage Users"});
+    let userdata = userController.findAllUser();
+    res.render("manage-users", {
+        title: "JAF - Manage Users", 
+        userdata: userdata
+    });
 })
 
 module.exports = router;

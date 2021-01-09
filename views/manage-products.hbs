@@ -150,3 +150,20 @@
     </div>
   </div>
 </div>
+
+<script>
+  function switchProductManageDisplay() {
+    var add_product = document.getElementById("add-product");
+    var search_product = document.getElementById("search-product");
+    if (add_product.style.display == "none") {
+        add_product.style.display = "block";
+        search_product.style.display = "none";
+        document.querySelector('#admin-product-switch-btn').innerHTML = "Search product";
+    }
+    else {
+        add_product.style.display = "none";
+        search_product.style.display = "block";
+        document.querySelector('#admin-product-switch-btn').innerHTML = "Add product";
+    }
+}
+</script>
