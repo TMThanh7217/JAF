@@ -26,7 +26,9 @@ controller.createUser = function(user) {
 controller.findAllUser = () => {
 	return new Promise((resolve, reject) => {
 		Users
-			.findAll()
+			.findAll({
+				raw: true
+			})
 			.then(users => resolve(users))
 			.catch(error => reject(new Error(error)))
 	});

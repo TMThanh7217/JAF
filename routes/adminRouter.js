@@ -89,11 +89,16 @@ router.get("/manage/users", (req, res) => {
     res.locals.userAuthorization = userAuth;
     if (!userAuthorizationAPI.isAdmin(userAuth))
         userAuthorizationAPI.errorPage(req, res);
-    let userdata = userController.findAllUser();
-    res.render("manage-users", {
-        title: "JAF - Manage Users", 
-        userdata: userdata
-    });
+
+    userController
+        .findAllUser()
+        .then(userdata => {
+            res.render("manage-users", {
+                title: "JAF - Manage Users",
+                userdata : userdata,
+            });
+        })
+        .catch(err => res.send("Error: " + err));
 })
 
 module.exports = router;
