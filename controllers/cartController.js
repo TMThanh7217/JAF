@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = class Cart {
     constructor(oldCart) {
         this.items = oldCart.items || {};
@@ -35,18 +33,13 @@ module.exports = class Cart {
         
         storedItem.price = Number(storedItem.item.price) * storedItem.quantity;
         
-        console.log('-----------------------------------------');
-        console.log(`add function price: ${storedItem.price} type ${typeof storedItem.price}`)
-        console.log('-----------------------------------------');
+       
 
         this.totalPrice = this.getTotalPrice();
-        console.log('-----------------------------------------');
-        console.log(`add function tp: ${this.totalPrice} type ${typeof this.totalPrice}`)
-        console.log('-----------------------------------------');
+        
         this.totalQuantity = this.getTotalQuantity();
-        console.log('-----------------------------------------');
-        console.log(`add function tq: ${this.totalQuantity} type ${typeof this.totalQuantity}`)
-        console.log('-----------------------------------------');
+        
+        return this.getCart();
     };
 
     remove(id) {
@@ -56,6 +49,7 @@ module.exports = class Cart {
             this.totalPrice = this.getTotalPrice();
             this.totalQuantity = this.getTotalQuantity();
         }
+        return this.getCart();
     };
 
     update(id, quantity){
@@ -71,8 +65,8 @@ module.exports = class Cart {
 
     empty (){
         this.items = {};
-        this.price = 0;
-        this.quantity = 0;
+        this.totalPrice = 0;
+        this.totalQuantity = 0;
     };
 
     getItemsList() {
@@ -88,7 +82,7 @@ module.exports = class Cart {
         return {
             items: this.getItemsList(),
             totalQuantity: this.totalQuantity,
-            totalPrice: this.totalPrice,
+            totalPrice: this.totalPrice.toFixed(2),
             address: this.address,
             paymentMethod: this.paymentMethod
         }
@@ -100,5 +94,9 @@ module.exports = class Cart {
             totalQuantity: this.totalQuantity, 
             totalPrice: this.totalPrice
         }
+    }
+
+    isEmpty() {
+        return this.totalQuantity == 0;
     }
 }
