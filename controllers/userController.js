@@ -23,5 +23,4 @@ controller.createUser = function(user) {
 	})
 };
 
-
 module.exports = controller;

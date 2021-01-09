@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var productController = require("../controllers/productController");
+var commentController = require("../controllers/commentController");
 var productsArray = require("../APIs/productsArray");
 const DEFAULT_ROW_CAP = 3;
 
@@ -27,12 +28,20 @@ router.get("/:id", (req, res) => {
         .getByID(id)
         .then(product => {
             res.locals.userAuthorization = req.app.get('userAuthorization');
-            var page_data = {
-                title : `JAF - ${product.name}`,
-                product : product,
-                comments : {}
-            }
-            res.render("product", page_data);
+            commentController
+                .getAll(id)
+                .then(comments =>  {
+                    console.log(comments);
+                    var page_data = {
+                        title : `JAF - ${product.name}`,
+                        product : product,
+                        comments : comments
+                    }
+                    res.render("product", page_data);
+                })
+                .catch(err => {
+                    res.json( "AAA: " + err);
+                })
         })
         .catch(err => {
             res.send("Error: " + err);
