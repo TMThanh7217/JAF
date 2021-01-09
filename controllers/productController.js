@@ -4,32 +4,41 @@ const { resolve } = require("path");
 var model = require("../models");
 var Product = model.Product;
 var converter = require("../APIs/convert");
+let validCategories = ["0", "1"];
 
-controller.getAll = (sort) => {
-    orderQuery = [];
-    switch (sort) {
-        case "name":
-            orderQuery = [["name", "ASC"]];
+controller.getAll = query => {
+    let option = {
+        raw : true,
+        where : {}
+    };
+
+    let order = [];
+    switch (query.order) {
+        case "0":
+            order = [["name", "ASC"]];
             break;
-        case "like":
-            orderQuery = [["like", "DESC"]];
+        case "1":
+            order = [["like", "DESC"]];
             break;
-        case "updatedAt":
-            orderQuery = [["updatedAt", "DESC"]];
+        case "2":
+            order = [["updatedAt", "DESC"]];
             break;
-        case "price":
-            orderQuery = [["price", "ASC"]];
+        case "3":
+            order = [["price", "ASC"]];
             break;
         default:
-            orderQuery = [["name", "ASC"]];
+            order = [["name", "ASC"]];
             break;
     }
+    option.order = order;
+
+
+    if (query.category && !isNaN(query.category) && validCategories.includes(query.category))
+        option.where.type = Number(query.category)
+
     return new Promise((resolve, reject) => {
         Product
-            .findAll({
-                raw : true,
-                order : orderQuery
-            })
+            .findAll(option)
             .then(products => resolve(products))
             .catch(error => reject(new Error(error))); 
     })

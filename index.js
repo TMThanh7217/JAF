@@ -46,7 +46,7 @@ function isManageDrinks(pageNumber) {
 }
 
 let exprHbs = require("express-handlebars");
-const { drinks } = require('./public/js/menu');
+
 let hbs = exprHbs.create({
   extname : "hbs",
   defaultLayout : 'layout',

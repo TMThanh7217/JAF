@@ -5,18 +5,9 @@ var productsArray = require("../APIs/productsArray");
 const DEFAULT_ROW_CAP = 3;
 
 router.get("/", (req, res) => {
-    if (req.query.sort == null || req.query.sort == undefined || req.query.sort == "" || isNaN(req.query.sort))
-        req.query.sort = 'name';
-    else if (Number(req.query.sort) == 0)
-        req.query.sort = 'like';
-    else if (Number(req.query.sort) == 1)
-        req.query.sort = 'name';
-    else if (Number(req.query.sort) == 2)
-        req.query.sort = 'updatedAt';
-    else
-        req.query.sort = 'price';
+    console.log(req.query)
     productController
-        .getAll(req.query.sort)
+        .getAll(req.query)
         .then(products => {
             var productsRows = productsArray.getRows(products, DEFAULT_ROW_CAP);
             res.locals.userAuthorization = req.app.get('userAuthorization');
@@ -28,36 +19,6 @@ router.get("/", (req, res) => {
             res.render("menu", page_data);
         })
         .catch(err => res.send("Error: " + err));
-})
-
-router.get("/drinks", (req, res) => {
-    productController
-        .getDrinks()
-        .then(drinks => {
-            var productsRows = productsArray.getRows(drinks, DEFAULT_ROW_CAP);
-            res.locals.userAuthorization = req.app.get('userAuthorization');
-            var page_data = {
-                title : "JAF - Drinks",
-                name : "Drinks",
-                rows : productsRows
-            }
-            res.render("menu", page_data);
-        })
-})
-
-router.get("/foods", (req, res) => {
-    productController
-        .getFoods()
-        .then(foods => {
-            var productsRows = productsArray.getRows(foods, DEFAULT_ROW_CAP);
-            res.locals.userAuthorization = req.app.get('userAuthorization');
-            var page_data = {
-                title : "JAF - Foods",
-                name : "Foods",
-                rows : productsRows
-            }
-            res.render("menu", page_data);
-        })
 })
 
 router.get("/:id", (req, res) => {
