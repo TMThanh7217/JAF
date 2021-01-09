@@ -47,7 +47,8 @@ function likeProduct() {
         type: 'post',
         data: { id },
         success: result => {
-            $(`b#${id}-like.like-counter`).html(result);
+            console.log($(`#${id}-like`))
+            $(`#${id}-like`).html(result);
         }
     })
 }
