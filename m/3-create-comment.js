@@ -1,29 +1,34 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('OrderItems', {
+    await queryInterface.createTable('Comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      itemId: {
+      userId: {
         type: Sequelize.INTEGER,
-        /*references: {         // Products hasMany OrderItems
-          model: 'Products',
-          key: 'id'
-        }*/
-      },
-      orderId: {
-        type: Sequelize.INTEGER,
-        references: {         // Order hasMany OrderItems
-          model: 'Orders',
+        allowNull: false,
+        references: {         // Users hasMany Comments
+          model: 'Users',
           key: 'id'
         }
       },
-      quantity: {
-        type: Sequelize.INTEGER
+      productId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {         // Products hasMany Comments
+          model: 'Products',
+          key: 'id'
+        }
+      },
+      isLiked: {
+        type: Sequelize.BOOLEAN
+      },
+      content: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +41,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('OrderItems');
+    await queryInterface.dropTable('Comments');
   }
 };

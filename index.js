@@ -101,8 +101,6 @@ app.use("/admin", require("./routes/adminRouter"));
 
 app.use('/products', require("./routes/productsRouter"));
 
-app.use('/comments', require("./routes/commentRouter"));
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })

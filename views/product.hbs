@@ -82,10 +82,10 @@
     <div class="container-fluid p-5">
         {{#each comments}}
         <div class="row">
-            <div class="col-md-2 col-sm-4 col-lg-2"><img src="{{this.avatar}}" alt="" class="cmt-avatar img-thumbnail img-fluid"></div>
+            <div class="col-md-2 col-sm-4 col-lg-2"><img src="{{this.[User.avatar]}}" alt="" class="cmt-avatar img-thumbnail img-fluid"></div>
             <div class="col-md-10 col-sm-8 col-lg-10 cmt-col">
-                <span class="cmt-author h2"><b>{{this.author}}</b></span>
-                <span class="date-sm">in <span style="font-size: 16px">{{this.date}}</span></span>
+                <span class="cmt-author h2"><b>{{this.[User.name]}}</b></span>
+                <span class="date-sm"><span style="font-size: 16px">Posted {{this.createdAt}}</span></span>
                 <div class="prd-rating">
                     {{#if this.isLiked}}
                     <i class="fa fa-heart mr-2" style="color: palevioletred; font-size: 30px"></i>

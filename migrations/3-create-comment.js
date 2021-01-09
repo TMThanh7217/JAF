@@ -22,17 +22,11 @@ module.exports = {
           key: 'id'
         }
       },
-      avatar: {
-        type: Sequelize.STRING
-      },
-      author: {
-        type: Sequelize.STRING
-      },
       isLiked: {
         type: Sequelize.BOOLEAN
       },
       content: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,
