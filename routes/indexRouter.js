@@ -33,4 +33,20 @@ router.get("/", (req, res) => {
         .catch(err => res.send("Error: " + err));
 })
 
+router.post('/like', (req, res) => {
+    console.log("like: " + req.body.id)
+    productController
+        .getByID(req.body.id)
+        .then(product => { 
+            console.log(product);
+            productController
+                .updateAttributeOne(product.id, 'like', product.like + 1)
+                .then(result => {
+                    res.json(product.like + 1);
+                })
+                .catch(err => res.json(err));
+        })
+        .catch(err => res.json(err));
+})
+
 module.exports = router

@@ -3,6 +3,7 @@ let urlParams = new URLSearchParams(location.search);
 $(document).ready(() => {
     $('.btn-order').on('click', addToCart);
     $('.btn-cart--remove').on('click', removeFromCart);
+    $('.btn-like').on('click', likeProduct);
 });
 
 
@@ -37,4 +38,16 @@ function selectParams(key , value) {
     let url = `/products?${urlParams.toString()}`;
     console.log(url);
     location.href = url;
+}
+
+function likeProduct() {
+    let id = $(this).data('id');
+    $.ajax({
+        url: '/like',
+        type: 'post',
+        data: { id },
+        success: result => {
+            $(`b#${id}-like.like-counter`).html(result);
+        }
+    })
 }
