@@ -2,7 +2,7 @@
     <div class="card u-shadow-v18 g-bg-white text-center rounded g-px-20 g-mb-5 h-100">
         <div class="card-header d-flex align-items-center justify-content-center g-bg-white product-img_container">
             <div class="text-block px-3 pt-2">
-                <h2><i class="fa fa-heart mr-2 heart-ico" style="color: palevioletred;"></i><span class="h2"><b>{{this.like}}</b></span></h2>
+                <h2><i class="fa fa-heart mr-2 heart-ico" style="color: palevioletred;"></i><span class="h2"><b id='{{this.id}}-like' class='like-counter'>{{this.like}}</b></span></h2>
             </div>
             <img class="img-thumbnail sm-img product-img-sm" src={{this.src}} alt="">
             <div class="middle">
@@ -15,37 +15,13 @@
             <span class="d-block g-color-primary g-font-size-16 mb-3 mt-auto price">${{this.price}}</span>
             <div class="row">
                 <div class="col-2 d-flex justify-content-center align-items-center">
-                    <button class="btn btn-md btn-danger mb-2" type="button"  data-toggle="modal" data-target="#commentModal"><i class="fa fa-commenting-o text-white" aria-hidden="true"></i></button>
-                    <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="commentModalLabel">Give a comment</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form id="commentForm"action="/comment" method="POST">
-                                    <div class="form-group">
-                                        <label for="comment" class="col-form-label d-flex align-items-end"><strong>Comment:</strong></label>
-                                        <textarea class="form-control" id="comment-form_text-area" name="comment" placeholder="Text here ..."></textarea>
-                                    </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" form="commentForm" class="btn btn-danger">Send comment</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <button class="btn btn-md btn-danger mb-2" type="button" data-id={{this.id}} data-toggle="modal" data-target="#commentModal"><i class="fa fa-commenting-o text-white" aria-hidden="true"></i></button>
                 </div>
                 <div class="col-8">
                     <button class="btn btn-lg btn-order mb-2 mr-2" type="button" data-id="{{this.id}}">Add to cart</button>
                 </div>
                 <div class="col-2 d-flex justify-content-center align-items-center">
-                    <button class="btn btn-md btn-like mb-2" type="button"><i class="fa fa-heart text-white"></i></button>
+                    <button class="btn btn-md btn-like mb-2" type="button" data-id={{this.id}}><i class="fa fa-heart text-white"></i></button>
                 </div>
             </div>
         </div>

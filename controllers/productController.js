@@ -1,9 +1,12 @@
+'use strict';
 var controller = {}
 const { rejects } = require("assert");
 const { resolve } = require("path");
 var model = require("../models");
 var Product = model.Product;
 var converter = require("../APIs/convert");
+const { query } = require("express");
+
 let validCategories = ["0", "1"];
 
 controller.getAll = query => {
@@ -138,7 +141,7 @@ controller.getByID = id => {
 }
 
 controller.searchNameLike = name => {
-    return new Promise((resolve, rejects) => {
+    return new Promise((resolve, reject) => {
         Product
             .findAll({
                 where : {
@@ -147,8 +150,24 @@ controller.searchNameLike = name => {
                 raw : true
             })
             .then(products => resolve(products))
-            .catch(err => rejects(err));
+            .catch(err => reject(err));
     })
+}
+
+controller.updateAttributeOne = (id, attr, value) => {
+    let option = { updatedAt: new Date()};
+    option[attr] = value;
+    return new Promise((resolve, reject) => {
+        Product
+            .update(option,
+                {
+                    where : {
+                        id : id
+                }}
+            )
+            .then(result => resolve(result))
+            .catch(result => reject(result));
+    });
 }
 
 module.exports = controller;
