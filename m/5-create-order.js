@@ -9,13 +9,14 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {         // Users has many Orders
+          model: 'Users',
+          key: 'id'
+        }
       },
       totalPrice: {
-        type: Sequelize.DECIMAL
-      },
-      totalQuantity: {
-        type: Sequelize.INTEGER
+        type: Sequelize.FLOAT
       },
       paymentMethod: {
         type: Sequelize.INTEGER

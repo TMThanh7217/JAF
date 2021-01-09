@@ -8,18 +8,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      header: {
+        type: Sequelize.STRING
+      },
       author: {
         type: Sequelize.STRING
       },
       userId: {
-        type: Sequelize.INTEGER,
-        references: {         // Users has many Notifications
-          model: 'Users',
-          key: 'id'
-        }
+        type: Sequelize.INTEGER
       },
       content: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

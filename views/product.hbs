@@ -5,7 +5,7 @@
         </div>
         <div class="col-7 product-info d-flex flex-column justify-content-between">
             <h1 class="h1"><strong>{{product.name}}</strong></h1>
-            <h2><i class="fa fa-heart mr-2" style="color: palevioletred;"></i><span class="h2"><b>{{product.like}}</b></span></h2>
+            <h2><i class="fa fa-heart mr-2 heart-ico" style="color: palevioletred;"></i><span class="h2"><b>{{product.like}}</b></span></h2>
             <div class="container-fluid m-bg-white product-infor_prices">
                 <span class="product-infor_prices-real">${{product.price}}</span>
                 <del class="product-infor_prices-org">$5</del>
@@ -58,7 +58,7 @@
             </div>
             <div class="row">
                 <button class="btn btn-order">Add to cart</button>
-                <button class="btn btn-danger btn-like-product" onclick="">Like this product</button>
+                <button class="btn btn-md btn-like mb-2" type="button"><i class="fa fa-heart text-white"></i></button>
             </div>
         </div>
     </div>

@@ -10,17 +10,20 @@ module.exports = {
       },
       itemId: {
         type: Sequelize.INTEGER,
-        /*references: {         // Products hasMany OrderItems
+        references: {
           model: 'Products',
           key: 'id'
-        }*/
+        }
       },
       orderId: {
         type: Sequelize.INTEGER,
-        references: {         // Order hasMany OrderItems
+        references: {
           model: 'Orders',
           key: 'id'
         }
+      },
+      price: {
+        type: Sequelize.DECIMAL
       },
       quantity: {
         type: Sequelize.INTEGER

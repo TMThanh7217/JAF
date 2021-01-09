@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Order.belongsTo(models.User, {foreignKey: 'userId'});
-      Order.hasMany(models.OrderItem);
+      Order.hasMany(models.OrderItem, {foreignKey: 'orderId'});
     }
   };
   Order.init({
     userId: DataTypes.INTEGER,
-    totalPrice: DataTypes.FLOAT,
+    totalPrice: DataTypes.DECIMAL,
+    totalQuantity: DataTypes.INTEGER,
     paymentMethod: DataTypes.INTEGER
   }, {
     sequelize,
