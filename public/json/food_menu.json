@@ -1,5 +1,4 @@
 [{
-    "id":0,
     "name":"Noodle",
     "detail":"Chili noodle soup with fresh vegetables on top",
     "type":"food",
@@ -10,7 +9,6 @@
     "like":20
 },
 {
-    "id":1,
     "name":"Breakfast Set #1",
     "detail":"Full english breakfast",
     "type":"food",
@@ -21,7 +19,6 @@
     "like":20
 },
 {
-    "id":2,
     "name":"Salad #1",
     "detail":"Green salad with bread",
     "type":"food",
@@ -32,7 +29,6 @@
     "like":20
 },
 {
-    "id":3,
     "name":"Salad #2",
     "detail":"Healthy green beans salad with egg and hemp seeds",
     "type":"food",
@@ -43,7 +39,6 @@
     "like":20
 },
 {
-    "id":4,
     "name":"Beef Burger",
     "detail":"Juicy beef burger",
     "type":"food",
@@ -54,7 +49,6 @@
     "like":20
 },
 {
-    "id":5,
     "name":"Omelet",
     "detail":"Omelet with ham cheese spinach and tomatoes",
     "type":"food",
@@ -65,7 +59,6 @@
     "like":20
 },
 {
-    "id":6,
     "name":"Stuffed bell pepper rice",
     "detail":"Stuffed bell pepper rice",
     "type":"food",
@@ -76,7 +69,6 @@
     "like":20
 },
 {
-    "id":7,
     "name":"Tacos #1",
     "detail":"Tacos with pulled pork fresh vegetables and cream",
     "type":"food",
@@ -87,7 +79,6 @@
     "like":20
 },
 {
-    "id":8,
     "name":"Couscous",
     "detail":"vegetable-couscous-with-shrimps-and-fishegetable couscous with shrimps and fish",
     "type":"food",
@@ -98,7 +89,6 @@
     "like":20
 },
 {
-    "id":9,
     "name":"Tacos #2",
     "detail":"Vegetables tacos with cilantro and lemon",
     "type":"food",
@@ -109,7 +99,6 @@
     "like":20
 },
 {
-    "id":10,
     "name":"Classic burger",
     "detail":"classic-burger",
     "type":"food",
@@ -120,7 +109,6 @@
     "like":20
 },
 {
-    "id":11,
     "name":"Pizza",
     "detail":"Pizza with tomato",
     "type":"food",
@@ -131,7 +119,6 @@
     "like":20
 },
 {
-    "id":12,
     "name":"Salmon",
     "detail":"Salmon with seasame",
     "type":"food",
@@ -142,7 +129,6 @@
     "like":20
 },
 {
-    "id":13,
     "name":"Pancake",
     "detail":"Pancake with delicious honey on top",
     "type":"food",

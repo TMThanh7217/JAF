@@ -1,5 +1,4 @@
 [{
-    "id":0,
     "name":"Coffee Americano",
     "detail":"Cold coffee americano with ice cube",
     "type":"drink",
@@ -10,7 +9,6 @@
     "like":20
 },
 {
-    "id":1,
     "name":"Lemon Drink",
     "detail":"Fresh non alcoholic lemon drink",
     "type":"drink",
@@ -21,7 +19,6 @@
     "like":20
 },
 {
-    "id":2,
     "name":"Cocktail",
     "detail":"Gin and tonic cocktail with orange and thyme",
     "type":"drink",
@@ -32,7 +29,6 @@
     "like":20
 },
 {
-    "id":3,
     "name":"Lime juice",
     "detail":"Fresh lime juice",
     "type":"drink",
@@ -43,7 +39,6 @@
     "like":20
 },
 {
-    "id":4,
     "name":"Special Drink #1",
     "detail":"Summer good morning drink",
     "type":"drink",
@@ -54,7 +49,6 @@
     "like":20
 },
 {
-    "id":5,
     "name":"Cappucino",
     "detail":"Hot cappucino",
     "type":"drink",
@@ -65,7 +59,6 @@
     "like":20
 },
 {
-    "id":6,
     "name":"Cereals muesli",
     "detail":"Tasty cereals muesli",
     "type":"drink",
@@ -76,7 +69,6 @@
     "like":20
 },
 {
-    "id":7,
     "name":"Orange juice",
     "detail":"Freshly squeeze orange juice",
     "type":"drink",
