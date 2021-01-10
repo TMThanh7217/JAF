@@ -1,0 +1,16 @@
+[{
+    "name":"Code 1",
+    "effect":"0.45",
+    "code":"code1",
+    "expired":"2025-1-1T00:05:32.000Z"
+},{
+    "name":"Code 2",
+    "effect":"0.55",
+    "code":"code2",
+    "expired":"2025-1-1T00:05:32.000Z"
+},{
+    "name":"Code 3",
+    "effect":"0.2",
+    "code":"code3",
+    "expired":"2025-1-1T00:05:32.000Z"
+}]
