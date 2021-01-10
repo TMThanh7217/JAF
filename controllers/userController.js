@@ -10,7 +10,7 @@ controller.searchUser = function(username, callback){
 		raw: true
 	}).then(function(this_user) {
 		callback(this_user);
-	});
+	}).catch(error => reject(new Error(error)));
 };
 
 controller.createUser = function(user) {
@@ -19,6 +19,15 @@ controller.createUser = function(user) {
 			user.username = user.username.toLowerCase();
 			user.password = hash;
 			return Users.create(user);
+			/*Users.create(user)
+				.then(function(user) {
+					// you can now access the newly created user
+					console.log('success', user.toJSON());
+				})
+				.catch(function(err) {
+					// print the error details
+					console.log(err, request.body.email);
+				});*/
 		})
 	})
 };

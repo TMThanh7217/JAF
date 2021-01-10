@@ -60,7 +60,7 @@ router.post('/register', (req, res) => {
 
     // check confirm password
     if (user.password != confirmPassword) {
-        return res.render('login', {errMessage: 'Password does not match', func: "register()"});
+        return res.render('login', {errMessage: 'Password does not match'});
     }
 
     // check if user exists
