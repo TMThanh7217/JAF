@@ -15,33 +15,36 @@ router.post('/login', (req, res) => {
 
     console.log("username: " + username + " | password: " + password);
 
+    
     controller
-        .searchUser(username.toLowerCase(), function(user) {
-            if (user != null){
-                bcrypt.compare(password, user.password, (err, same) => {
-                    if (same) {
-                        req.app.set('userAuthorization', userAuthorizationAPI.isAdmin(user.authorization) ?
-                                                                                        userAuthorizationAPI.ADMIN :
-                                                                                        userAuthorizationAPI.COMMON);
-                        res.redirect('/');
-                    }
-                    else {
-                        res.locals.userAuthorization = req.app.get('userAuthorization');
-                        res.render('login', {
-                            title: "JAF - Login",
-                            errMessage: "Password or user name is incorrect."
-                        })
-                    }
-                })
-            }
-            else {
-                res.locals.userAuthorization = req.app.get('userAuthorization');
-                res.render('login', {
-                    title: "JAF - Login",
-                    errMessage: "Password or user name is incorrect."
-                })
-            }
-    });
+        .getUserByUsername(username)
+            .then(foundUser => {
+                if (foundUser != null){
+                    bcrypt.compare(password, foundUser.password, (err, same) => {
+                        if (same) {
+                            req.app.set('userAuthorization', userAuthorizationAPI.isAdmin(foundUser.authorization) ?
+                                                                                            userAuthorizationAPI.ADMIN :
+                                                                                            userAuthorizationAPI.COMMON);
+                            res.redirect('/');
+                        }
+                        else {
+                            res.locals.userAuthorization = req.app.get('userAuthorization');
+                            res.render('login', {
+                                title: "JAF - Login",
+                                errMessage: "Password or user name is incorrect."
+                            })
+                        }
+                    })
+                }
+                else {
+                    res.locals.userAuthorization = req.app.get('userAuthorization');
+                    res.render('login', {
+                        title: "JAF - Login",
+                        errMessage: "Password or user name is incorrect."
+                    })
+                }
+            })
+            .catch(err => res.send(err.toString()));
 });
 
 router.post('/register', (req, res) => {
@@ -65,14 +68,16 @@ router.post('/register', (req, res) => {
 
     // check if user exists
     controller
-        .searchUser(user.username , function(userReg) {
-            if (userReg != null) {
+        .getUserByUsername(user.username)
+        .then(foundUser => {
+            if (foundUser != null) {
                 return res.render('login', {errMessage: 'User name already exists'});
             }
             // create account
-            controller.createUser(user);
-            res.render("login", {Message: 'Account created'});
-        });    
+            controller.createUser(user)
+            return res.render("login", {Message: 'Account created'});
+        })
+        .catch(err => res.send(err.toString()));    
 });
 
 router.get('/logout', (req, res) => {

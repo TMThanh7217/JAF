@@ -4,7 +4,11 @@ var router = express.Router();
 router.get('/', (req, res) => {
     var cart = req.session.cart;
     res.locals.cart = cart.getCart();
-    res.render('cart');
+    let page_data = {
+        title: "JAF - Cart",
+        isEmpty: res.locals.totalQuantity == 0
+    }
+    res.render('cart', page_data);
 });
 
 

@@ -51,6 +51,8 @@ function removeFromCart() {
         success: result => {
             $('#cart-badge').html(result.totalQuantity);
             $(this).parent().parent().remove();
+            if (result.totalQuantity == 0)
+                $('#emptyCartMess').html('Your cart is empty. Please add at least one product to order!')
         }
     })
 }
