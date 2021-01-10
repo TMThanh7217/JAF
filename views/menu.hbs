@@ -9,11 +9,15 @@
         <button class="dropdown-item dropdown-item-warning" onclick="selectParams('order', 2)"><i class="fa fa-clock-o mr-2" aria-hidden="true"></i>Recently</button>
       </div>
     </div>
-    {{#each rows}}
-    <div class="row card-group">
-      {{#each this}}
-        {{> product-card this}}
+    {{#if isEmpty}}
+    <p><b style="font-size: 3rem;">Oops!! No product found!!</b></p>
+    {{else}}
+      {{#each rows}}
+        <div class="row card-group">
+          {{#each this}}
+            {{> product-card this}}
+          {{/each}}
+        </div>
       {{/each}}
-    </div>
-    {{/each}}
+    {{/if}}
 </div>

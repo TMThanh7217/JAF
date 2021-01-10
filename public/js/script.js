@@ -4,6 +4,13 @@ $(document).ready(() => {
     $('.btn-order').on('click', addToCart);
     $('.btn-cart--remove').on('click', removeFromCart);
     $('.btn-like').on('click', likeProduct);
+    $('.btn-search').on('click', searchProducts);
+    $('.form-search').on('submit', e => {
+        e.preventDefault();
+    })
+    $('.search-field').on('keypress', e => {
+        if (e.which == 13) searchProducts();
+    });
 });
 
 
@@ -35,8 +42,8 @@ function removeFromCart() {
 
 function selectParams(key , value) {
     urlParams.set(key, value);
-    let url = `/products?${urlParams.toString()}`;
-    console.log(url);
+    let pathName = $(location).attr('pathname');
+    let url = `${pathName}?${urlParams.toString()}`;
     location.href = url;
 }
 
@@ -51,4 +58,12 @@ function likeProduct() {
             $(`#${id}-like`).html(result);
         }
     })
+}
+
+function searchProducts() {
+    var keyword = $('.search-field').val();
+    console.log(keyword)
+    if (keyword) {
+        location.href = `/products/search?keyword=${keyword}`;
+    }
 }

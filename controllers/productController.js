@@ -6,6 +6,7 @@ var model = require("../models");
 var Product = model.Product;
 var converter = require("../APIs/convert");
 const { query } = require("express");
+const Op = require('Sequelize').Op
 
 let validCategories = ["0", "1"];
 
@@ -37,6 +38,14 @@ controller.getAll = query => {
 
         if (query.category && !isNaN(query.category) && validCategories.includes(query.category))
             option.where.type = Number(query.category)
+
+        if (query.keyword) {
+            let keyword = query.keyword;
+            option.where[Op.or] = [
+                {name : {[Op.iLike]: `%${keyword}%`}},
+                {detail : {[Op.iLike]:`%${keyword}%`}} 
+            ];
+        }
     }
 
     return new Promise((resolve, reject) => {
@@ -140,20 +149,6 @@ controller.getByID = id => {
     })
 }
 
-controller.searchNameLike = name => {
-    return new Promise((resolve, reject) => {
-        Product
-            .findAll({
-                where : {
-
-                },
-                raw : true
-            })
-            .then(products => resolve(products))
-            .catch(err => reject(err));
-    })
-}
-
 controller.updateAttributeOne = (id, attr, value) => {
     let option = { updatedAt: new Date()};
     option[attr] = value;
@@ -166,7 +161,7 @@ controller.updateAttributeOne = (id, attr, value) => {
                 }}
             )
             .then(result => resolve(result))
-            .catch(result => reject(result));
+            .catch(err => reject(new Error(err)));
     });
 }
 
