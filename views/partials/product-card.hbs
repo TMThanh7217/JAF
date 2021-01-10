@@ -2,26 +2,30 @@
     <div class="card u-shadow-v18 g-bg-white text-center rounded g-px-20 g-mb-5 h-100">
         <div class="card-header d-flex align-items-center justify-content-center g-bg-white product-img_container">
             <div class="text-block px-3 pt-2">
-                <h2><i class="fa fa-heart mr-2 heart-ico" style="color: palevioletred;"></i><span class="h2"><b id='{{this.id}}-like' class='like-counter'>{{this.like}}</b></span></h2>
+                <h2><i class="fa fa-heart mr-2 heart-ico" style="color: palevioletred;"></i><span class="h2"><b id='{{product.id}}-like' class='like-counter'>{{product.like}}</b></span></h2>
             </div>
-            <img class="img-thumbnail sm-img product-img-sm" src={{this.src}} alt="">
+            <img class="img-thumbnail sm-img product-img-sm" src={{product.src}} alt="">
             <div class="middle">
-                <button class="btn btn-danger view-detail-btn" onclick="document.location.href='/products/{{this.id}}'">View detail</button>
+                <button class="btn btn-danger view-detail-btn" onclick="document.location.href='/products/{{product.id}}'">View detail</button>
             </div>
         </div>
         <div class="card-body d-flex flex-column">
-            <h4 class="h5 g-color-black g-font-weight-600 g-mb-10 mt-0 mb-3">{{this.name}}</h4>
-            <p>{{this.detail}}</p>
-            <span class="d-block g-color-primary g-font-size-16 mb-3 mt-auto price">${{this.price}}</span>
+            <h4 class="h5 g-color-black g-font-weight-600 g-mb-10 mt-0 mb-3">{{product.name}}</h4>
+            <p>{{product.detail}}</p>
+            <span class="d-block g-color-primary g-font-size-16 mb-3 mt-auto price">${{product.price}}</span>
             <div class="row">
                 <div class="col-2 d-flex justify-content-center align-items-center">
-                    <button class="btn btn-md btn-danger mb-2" type="button" data-id={{this.id}} data-toggle="modal" data-target="#commentModal"><i class="fa fa-commenting-o text-white" aria-hidden="true"></i></button>
+                    <button class="btn btn-md btn-danger mb-2" type="button" data-id={{product.id}} data-toggle="modal" data-target="#commentModal"><i class="fa fa-commenting-o text-white" aria-hidden="true"></i></button>
                 </div>
                 <div class="col-8">
-                    <button class="btn btn-lg btn-order mb-2 mr-2" type="button" data-id="{{this.id}}" role="button" data-toggle="popover" data-timeout="500" data-trigger="focus" title="Notification" data-content="Add to cart successfully!">Add to cart</button>
+                    {{#if (isAdmin userAuthor)}}
+                    <button class="btn btn-lg btn-JAF mb-2 mr-2" type="button" role="button" data-toggle="popover" data-timeout="500" data-trigger="focus" title="Notification" data-content="You don't have permission to do this action!">Add to cart</button>
+                    {{else}}
+                    <button class="btn btn-lg btn-JAF btn-order mb-2 mr-2" type="button" data-id="{{product.id}}" role="button" data-toggle="popover" data-timeout="500" data-trigger="focus" title="Notification" data-content="Add to cart successfully!">Add to cart</button>
+                    {{/if}}
                 </div>
                 <div class="col-2 d-flex justify-content-center align-items-center">
-                    <button class="btn btn-md btn-like mb-2" type="button" data-id={{this.id}}><i class="fa fa-heart text-white"></i></button>
+                    <button class="btn btn-md btn-like mb-2" type="button" data-id={{product.id}}><i class="fa fa-heart text-white"></i></button>
                 </div>
             </div>
         </div>

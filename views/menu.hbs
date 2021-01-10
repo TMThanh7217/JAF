@@ -14,9 +14,19 @@
     {{else}}
       {{#each rows}}
         <div class="row card-group">
+          {{#if (isAdmin userAuthorization)}}
           {{#each this}}
-            {{> product-card this}}
+          {{> product-card product=this userAuthor=1}}
           {{/each}}
+          {{else if (isCommon userAuthorization)}}
+          {{#each this}}
+          {{> product-card product=this userAuthor=0}}
+          {{/each}}
+          {{else}}
+          {{#each this}}
+          {{> product-card product=this userAuthor=-1}}
+          {{/each}}
+          {{/if}}
         </div>
       {{/each}}
     {{/if}}

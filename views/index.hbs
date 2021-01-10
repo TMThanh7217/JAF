@@ -37,12 +37,22 @@
 <div class="container-fluid p-5">
   <div id="food_menu">
       <div class="menu-label mb-3 p-2">
-          <h1 class="ml-2">Some Foods</h1>
+          <h1 class="ml-2">Some Foods </h1>
       </div>
       <div class="row card-group">
+          {{#if (isAdmin userAuthorization)}}
           {{#each pre_foods}}
-          {{> product-card this}}
+          {{> product-card product=this userAuthor=1}}
           {{/each}}
+          {{else if (isCommon userAuthorization)}}
+          {{#each pre_foods}}
+          {{> product-card product=this userAuthor=0}}
+          {{/each}}
+          {{else}}
+          {{#each pre_foods}}
+          {{> product-card product=this userAuthor=-1}}
+          {{/each}}
+          {{/if}}
       </div>
   </div>
   <button class="btn btn-danger btn-large btn-seemore mx-auto mb-3" onclick="document.location.href='/products?category=0'">See more</button>
@@ -54,9 +64,19 @@
           <h1 class="ml-2">Some Drinks</h1>
       </div>
       <div class="row card-group">
+          {{#if (isAdmin userAuthorization)}}
           {{#each pre_drinks}}
-            {{> product-card this}}
+          {{> product-card product=this userAuthor=1}}
           {{/each}}
+          {{else if (isCommon userAuthorization)}}
+          {{#each pre_drinks}}
+          {{> product-card product=this userAuthor=0}}
+          {{/each}}
+          {{else}}
+          {{#each pre_drinks}}
+          {{> product-card product=this userAuthor=-1}}
+          {{/each}}
+          {{/if}}
       </div>
   </div>
   <button class="btn btn-danger btn-large btn-seemore mx-auto mb-3" onclick="document.location.href='/products?category=1'">See more</button>

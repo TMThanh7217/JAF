@@ -1,4 +1,5 @@
 var express = require("express");
+const userAuthorizationAPI = require("../APIs/userAuthorization");
 var router = express.Router();
 var productController = require("../controllers/productController");
 
@@ -15,7 +16,6 @@ router.get("/", (req, res) => {
                     .getTrendingDrinks()
                     .then(products => {
                         var trendDrinks = products;
-
                         var page_data = {
                             title: "JAF - Home",
                             mostLiked : trendingProducts[0],

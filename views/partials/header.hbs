@@ -35,12 +35,17 @@
 
     <div class="navbar-nav ml-5">
         {{#unless (isAnonymous userAuthorization)}}
+        {{#if (isCommon userAuthorization)}}
+        <span class="fa-stack mr-2 mr-5 fa-1x">
+            <i class='fa fa-shopping-cart fa-stack-2x icon-link' onclick="document.location.href='/cart'"></i>
+            <span class="badge badge-info badge-top" id="cart-badge">{{totalQuantity}}</span>
+        </span>
+        {{/if}}
         <div class="dropdown">
             <button type='button' class='btn dropdown-toggle btn-user caret-off' data-toggle='dropdown'>Account <i class='fa fa-user ml-3'></i></button>
             <div class="dropdown-menu dropdown-left">
                     {{#if (isCommon userAuthorization)}}
                     <a class="dropdown-item" href="/profile"><i class="fa fa-address-book" aria-hidden="true"></i>&nbsp; Profile</a>
-                    <a class="dropdown-item" href="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp; Cart<span class="badge badge-light" id="cart-badge">{{totalQuantity}}</span></a>
                     <a class="dropdown-item" href="/notifications"><i class="fa fa-bell" aria-hidden="true"></i>&nbsp; Notifications</a>
                     <a class="dropdown-item" href="#"><i class="fa fa-history" aria-hidden="true"></i>&nbsp; History</a>
                     <a class="dropdown-item" href="/coupon"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp; Coupons</a>
@@ -53,7 +58,7 @@
             </div>
         </div>
         {{else}}
-        <span class="fa-stack fa-stack-3x mr-2">
+        <span class="fa-stack mr-2 mr-5 fa-1x">
             <i class='fa fa-shopping-cart fa-stack-2x icon-link' onclick="document.location.href='/cart'"></i>
             <span class="badge badge-info badge-top" id="cart-badge">{{totalQuantity}}</span>
         </span>
