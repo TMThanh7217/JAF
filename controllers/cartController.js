@@ -57,8 +57,8 @@ module.exports = class Cart {
         if (storedItem && quantity > 0) {
             storedItem.quantity = quantity;
             storedItem.price = Number(storedItem.item.price) * storedItem.quantity;
-            storedItem.totalPrice = this.getTotalPrice();
-            storedItem.totalQuantity = this.getTotalQuantity();
+            this.totalPrice = this.getTotalPrice();
+            this.totalQuantity = this.getTotalQuantity();
         }
         return this.getCartItem(id);
     };

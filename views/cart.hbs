@@ -79,8 +79,10 @@
             </ul>
             {{#if isEmpty}}
             <a href="#" class="btn btn-danger rounded-pill py-2 btn-block" data-toggle="modal" data-target="#errorEmptyCartModal">Procceed to checkout</a>
-            {{> empty-cart-error-modal}}
-            
+            {{> empty-cart-error-modal}}       
+            {{else if (isAnonymous userAuthorization)}}
+            <a href="#" class="btn btn-danger rounded-pill py-2 btn-block" data-toggle="modal" data-target="#requireLoginModal">Procceed to checkout</a>
+            {{> login-require-modal}} 
             {{else}}
             <a href="#" class="btn btn-danger rounded-pill py-2 btn-block" data-toggle="modal" data-target="#confirmModal">Procceed to checkout</a>
             {{> confirm-payment-modal}}

@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
         .catch(err => next(err));
 });
 
-router.post('/remove', (req, res, next) => {
+router.post('/remove', (req, res) => {
     var productID = Number(req.body.id);
     var cart = req.session.cart;
     cart.remove(productID);
@@ -44,5 +44,30 @@ router.post('/remove', (req, res, next) => {
     result.realPrice = realPrice.toFixed(2);
     res.json(result);
 });
+
+router.post('/pay', (req, res) => {
+    let orderController = require('../controllers/orderController');
+    let order = {};
+    order.userId = res.locals.userId;
+    order.totalPrice = cart.totalPrice;
+    order.totalQuantity = cart.totalQuantity;
+    order.paymentMethod = cart.paymentMethod;
+
+    orderController
+        .create(order)
+        .then(order => {
+            let orderItemController = require('../controllers/orderItemController');
+            let cart = res.locals.cart;
+            let orderItem = {};
+            orderItem.orderId = order.id;
+            for(let item of cart.getCart().items) {
+                orderItem.itemId = item.id;
+                orderItem.price = item.price;
+                orderItem.quantity = item.quantity;
+                let orderItemRecord = orderItemController.create(orderItem);
+                console.log(orderItemRecord);
+            }
+        })
+})
 
 module.exports = router;
