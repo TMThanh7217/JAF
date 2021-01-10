@@ -1,6 +1,30 @@
 let urlParams = new URLSearchParams(location.search);
-
+let headerNavLinks = [".header__home-link", "header__menu-link", "header__drinks-link", "header__foods-link"];
 $(document).ready(() => {
+    let pathName = $(location).attr('pathname');
+    console.log(pathName)
+    console.log(urlParams.get('category')== "0")
+    if (pathName == "/") {
+        for(let className of headerNavLinks)
+            $(className).parent().removeClass('active');
+        $('.header__home-link').parent().addClass('active');
+    }
+    else if (pathName == "/products" && !urlParams.has('category')) {
+        for(let className of headerNavLinks)
+            $(className).parent().removeClass('active');
+        $('.header__menu-link').parent().addClass('active');
+    }
+    else if (pathName == "/products" && urlParams.get('category') == "0") {
+        for(let className of headerNavLinks)
+            $(className).parent().removeClass('active');
+        $('.header__foods-link').parent().addClass('active');
+    }
+    else if (pathName == "/products" && urlParams.get('category') == "1") {
+        for(let className of headerNavLinks)
+            $(className).parent().removeClass('active');
+        $('.header__drinks-link').parent().addClass('active');
+    }
+    
     $('.btn-order').on('click', addToCart);
     $('.btn-cart--remove').on('click', removeFromCart);
     $('.btn-like').on('click', likeProduct);
