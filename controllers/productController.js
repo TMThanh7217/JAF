@@ -14,30 +14,30 @@ controller.getAll = query => {
         raw : true,
         where : {}
     };
+    if (query) {
+        let order = [];
+        switch (query.order) {
+            case "0":
+                order = [["name", "ASC"]];
+                break;
+            case "1":
+                order = [["like", "DESC"]];
+                break;
+            case "2":
+                order = [["updatedAt", "DESC"]];
+                break;
+            case "3":
+                order = [["price", "ASC"]];
+                break;
+            default:
+                order = [["name", "ASC"]];
+                break;
+        }
+        option.order = order;
 
-    let order = [];
-    switch (query.order) {
-        case "0":
-            order = [["name", "ASC"]];
-            break;
-        case "1":
-            order = [["like", "DESC"]];
-            break;
-        case "2":
-            order = [["updatedAt", "DESC"]];
-            break;
-        case "3":
-            order = [["price", "ASC"]];
-            break;
-        default:
-            order = [["name", "ASC"]];
-            break;
+        if (query.category && !isNaN(query.category) && validCategories.includes(query.category))
+            option.where.type = Number(query.category)
     }
-    option.order = order;
-
-
-    if (query.category && !isNaN(query.category) && validCategories.includes(query.category))
-        option.where.type = Number(query.category)
 
     return new Promise((resolve, reject) => {
         Product
