@@ -1,29 +1,29 @@
 <div class="container-fluid d-flex flex-column align-items-center mt-3">
     <div class="container d-flex flex-column align-items-center my-3">
         <div id="cart" class="container-fluid mb-2 p-3 ">
-            <div class="card-header bg-info text-center" style="background-color:antiquewhite;">
+            <div class="card-header text-white text-center" style="background-color:#dc3545;height: 4rem !important;">
                 <h1>History</h1>
             </div>
             <div class="card-body bg-container">
             {{#each orders}}
-            <hr class="">
+            <hr class="history-card">
             <div class = "date-time text-center"><p>{{this.createAt}}</p></div>
             <div class = "BillID text-center m-3"><h4>Bill ID: {{this.id}}</h4></div>
-            {{#each orderItems}}
+            {{#each this.items}}
                 <div class="row item my-2">
                     <div class="col-3 item-img">
-                        <img src="{{this.Product.src}}" alt="" class="img-fluid img-thumbnail product-img" onclick="document.location.href='/products/{{this.id}}'">
+                        <img src="{{this.[Product.src]}}" alt="" class="img-fluid img-thumbnail product-img" onclick="document.location.href='/products/{{this.id}}'">
                     </div>
                     <div class="col-3 item-info">
-                        <p class="item-info_name" onclick="document.location.href='/products/{{this.id}}'">{{this.Product.name}}</p>
+                        <p class="item-info_name" onclick="document.location.href='/products/{{this.id}}'">{{this.[Product.name]}}</p>
                         <p class="item-info_action">
                             <span class="item-info_buy-later ml-2 btn-order" data-id={{this.id}} data-toggle="popover" data-timeout="500" data-trigger="focus" title="Notification" data-content="Add to cart successfully!">Buy again</span>
                         </p>
                     </div>
                     <div class="col-2 item_pricess">
-                        <h5 class="item-pricess_real-price">${{this.Product.price}}</h5>
+                        <h5 class="item-pricess_real-price">${{this.price}}</h5>
                         <h5 class="item-pricess_discount-price">
-                            <del>${{this.Product.price}}</del>
+                            <del>${{this.price}}</del>
                             <span>|</span>
                             <span>-x%</span>
                         </h5>
@@ -33,8 +33,8 @@
                     </div>
                 </div>
             {{/each}}
-            <p class="text-center">-----------------------------------------------------------------------</p>
-            <div class="total m-3">
+            <p class="text-center text-mute">-----------------------------------------------------------------------</p>
+            <div class="total mx-3 mt-3 mb-5">
                 <div class="row">
                     <div class="col-5" style="left: 150px">
                         <h4>Total Price: </h4>
