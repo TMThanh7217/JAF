@@ -40,6 +40,22 @@ controller.findAllUser = () => {
 
 controller.findById = async function(id) {
 	return await Users.findByPk(id, {raw: true});
-}
+};
+
+controller.updateUser = function(user) {
+	return new Promise((resolve, reject) => {
+		Users
+			.update({
+				name: user.name,
+				email: user.email,
+				gender: user.gender,
+				phone: user.phone
+			}, {
+				where: { id: user.id }
+			})
+			.then(users => resolve(users))
+			.catch(error => reject(new Error(error)))
+	});
+};
 
 module.exports = controller;
