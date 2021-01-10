@@ -30,8 +30,8 @@
             <input type="text" class="input-field" name="regUsername" placeholder="Username" required>
             <input type="password" class="input-field" name="regPassword" placeholder="Password" required>
             <input type="password" class="input-field" name="regConfirmPassword" placeholder="Confirmassword" required>
-            <input type="checkbox" class="input-box"><span>Agree to the terms and conditions</span>
-            <button type="submit" class="sumbit-btn">REGISTER</button>  
+            <input type="checkbox" id="terms" class="input-box" onclick="enableRegister()"><span>Agree to the terms and conditions</span>
+            <button type="submit" id="register-btn" class="sumbit-btn" disabled>REGISTER</button>  
         </form>
     </div>
 </div>
@@ -39,15 +39,26 @@
     var x=document.getElementById("login");
     var y=document.getElementById("register");
     var z=document.getElementById("btn");
+    var reg = document.getElementById("register-btn");
+
     function register(){
     x.style.left="-400px";
     y.style.left="50px";
     z.style.left="110px";
     }
+
     function login()
     {
     x.style.left="50px";
     y.style.left="-400px";
     z.style.left="0px";
+    }
+
+    function enableRegister() {
+        var checkedValue = $('#terms:checked').val();
+        if (checkedValue) 
+            reg.removeAttribute('disabled');
+        else 
+            reg.setAttribute('disabled', true);
     }
 </script>

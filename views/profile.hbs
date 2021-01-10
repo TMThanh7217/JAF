@@ -4,10 +4,12 @@
           <ul style=" list-style-type: none">
             <li class="active my-3" style="font-size:20px;"><a href="/profile">
             <i class="fa fa-users">My Account</i></a></li>
+            {{#if (isCommon userAuthorization)}}
             <li class="my-3" style="font-size:20px;"><a href="/coupon">
             <i class="fa fa-ticket" style="color:black">My Coupon</i></a></li>
             <li class="my-3" style="font-size:20px;"><a href="/notifications">
             <i class="fa fa-bell" style="color:black">My Notifications</i></a></li>
+            {{/if}}
           </ul>
         </div>
 
@@ -27,17 +29,17 @@
             <label for="exampleFormControlSelect1">Gender: </label>
             <div class="form-check form-check-inline">
               {{#if user.gender}}
-              <input class="form-check-input mx-2" form="profileForm" type="radio" name="male" id="maleBtn" value="m" onclick="switchM()" checked disabled>
+              <input class="form-check-input mx-2" form="profileForm" type="radio" name="maleBtn" id="maleBtn" value="m" onclick="switchM()" checked disabled>
               {{else}}
-              <input class="form-check-input mx-2" form="profileForm" type="radio" name="male" id="maleBtn" value="m" onclick="switchM()" disabled>
+              <input class="form-check-input mx-2" form="profileForm" type="radio" name="maleBtn" id="maleBtn" value="m" onclick="switchM()" disabled>
               {{/if}}
               <label class="form-check-label" for="maleBtn">Male</label>
             </div>
             <div class="form-check form-check-inline">
               {{#if user.gender}}
-              <input class="form-check-input" form="profileForm" type="radio" name="female" id="femaleBtn" value="f" onclick="switchF()" disabled>
+              <input class="form-check-input" form="profileForm" type="radio" name="femaleBtn" id="femaleBtn" value="f" onclick="switchF()" disabled>
               {{else}}
-              <input class="form-check-input" form="profileForm" type="radio" name="female" id="femaleBtn" value="f" onclick="switchF()" checked disabled>
+              <input class="form-check-input" form="profileForm" type="radio" name="femaleBtn" id="femaleBtn" value="f" onclick="switchF()" checked disabled>
               {{/if}}
               <label class="form-check-label" for="femaleBtn">Female</label>
           </div>

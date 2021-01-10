@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    let female = req.body.female;
+    let female = req.body.femaleBtn;
     let gender = true;
     if (female)
         gender = false;
@@ -29,6 +29,7 @@ router.post('/', (req, res) => {
     }
     console.log(req.body.nameField);
     console.log(req.body.emailField);
+    console.log(req.body.femaleBtn);
     console.log(req.body.phoneField);
     console.log(user);
     userController 

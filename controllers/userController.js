@@ -31,6 +31,7 @@ controller.findAllUser = () => {
 	return new Promise((resolve, reject) => {
 		Users
 			.findAll({
+				where: { authorization: 0 },
 				raw: true
 			})
 			.then(users => resolve(users))

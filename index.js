@@ -92,6 +92,8 @@ app.use('/coupon', require('./routes/couponRouter'));
 
 app.use('/help', require('./routes/helpRouter'));
 
+app.use('/history', require('./routes/historyRouter'));
+
 app.use('/cart', require('./routes/cartRouter'));
 
 app.use('/notifications', require('./routes/notificationsRouter'));
