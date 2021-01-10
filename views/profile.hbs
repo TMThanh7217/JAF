@@ -14,39 +14,39 @@
       <div class="col-8" style="border: 1px solid white">
         <h4><small>Your Information</small></h4>
         <hr>
-        <form >
+        <form action="/profile" method="POST">
           <div class="form-group">
             <label for="exampleFormControlInput1">Full Name</label>
-            <input type="text" class="form-control" id="name-field" value="{{user.name}}" disabled>
+            <input type="text" class="form-control" id="nameField" name="nameField" value="{{user.name}}" disabled>
           </div>
           <div class="form-group">
             <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="email-field" value="{{user.email}}" disabled>
+            <input type="email" class="form-control" id="emailField" name="emailField" value="{{user.email}}" disabled>
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Gender: </label>
             <div class="form-check form-check-inline">
               {{#if user.gender}}
-              <input class="form-check-input mx-2" type="radio" name="male-btn-checked" id="male-btn-checked" value="m" checked disabled>
+              <input class="form-check-input mx-2" type="radio" name="male" id="maleBtn" value="m" onclick="switchM()" checked disabled>
               {{else}}
-              <input class="form-check-input mx-2" type="radio" name="male-btn-unchecked" id="male-btn-unchecked" value="m" disabled>
+              <input class="form-check-input mx-2" type="radio" name="male" id="maleBtn" value="m" onclick="switchM()" disabled>
               {{/if}}
-              <label class="form-check-label" for="inlineRadio1">Male</label>
+              <label class="form-check-label" for="maleBtn">Male</label>
             </div>
             <div class="form-check form-check-inline">
               {{#if user.gender}}
-              <input class="form-check-input" type="radio" name="female-btn-unchecked" id="female-btn-unchecked" value="f" disabled>
+              <input class="form-check-input" type="radio" name="female" id="femaleBtn" value="f" onclick="switchF()" disabled>
               {{else}}
-              <input class="form-check-input" type="radio" name="female-btn-checked" id="female-btn-checked" value="f" checked disabled>
+              <input class="form-check-input" type="radio" name="female" id="femaleBtn" value="f" onclick="switchF()" checked disabled>
               {{/if}}
-              <label class="form-check-label" for="inlineRadio2">Female</label>
+              <label class="form-check-label" for="femaleBtn">Female</label>
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect2">Phone Number</label>
-            <input type="number" class="form-control" id="phone-field" value="{{user.phone}}" disabled>
+            <input type="number" class="form-control" id="phoneField" value="{{user.phone}}" disabled>
           </div>
           <button type="button" id="edit-prof-btn" class="btn btn-warning btn-lg" onclick="edit()">Edit</button>      
-          <button type="button" id="update-prof-btn" class="btn btn-warning btn-lg" onclick="update()" style="display: none">Update</button>      
+          <button type="submit" id="update-prof-btn" class="btn btn-warning btn-lg" onclick="update()" style="display: none">Update</button>      
           </div>
         </form>
         <br><br>
@@ -54,14 +54,13 @@
     </div>
     </div>
 
+    
 <script>
-  var nf = document.getElementById('name-field');
-  var ef = document.getElementById('email-field');
-  var pg = document.getElementById('phone-field');
-  var mc = document.getElementById('male-btn-checked');
-  var muc = document.getElementById('male-btn-unchecked');
-  var fc = document.getElementById('female-btn-checked');
-  var fuc = document.getElementById('female-btn-unchecked');
+  var nf = document.getElementById('nameField');
+  var ef = document.getElementById('emailField');
+  var pg = document.getElementById('phoneField');
+  var mb = document.getElementById('maleBtn');
+  var fb = document.getElementById('femaleBtn');
   var editBtn = document.getElementById('edit-prof-btn');
   var updateBtn = document.getElementById('update-prof-btn');
   
@@ -69,12 +68,8 @@
     nf.removeAttribute('disabled');
     ef.removeAttribute('disabled');
     pg.removeAttribute('disabled');
-    if (mc != null)
-      mc.removeAttribute('disabled');
-    else muc.removeAttribute('disabled');
-    if (fc != null)
-      fc.removeAttribute('disabled');
-    else fuc.removeAttribute('disabled');
+    mb.removeAttribute('disabled');
+    fb.removeAttribute('disabled');
     editBtn.style.display = "none";
     updateBtn.style.display = "block";
   }
@@ -85,11 +80,17 @@
     nf.setAttribute('disabled', true);
     ef.setAttribute('disabled', true);
     pg.setAttribute('disabled', true);
-    if (mc != null)
-      mc.setAttribute('disabled', true);
-    else muc.setAttribute('disabled', true);
-    if (fc != null)
-      fc.setAttribute('disabled', true);
-    else fuc.setAttribute('disabled', true);
+    mb.setAttribute('disabled', true);
+    fb.setAttribute('disabled', true);
+  }
+
+  function switchF() {
+    mb.checked = false;
+    fb.checked = true;
+  }
+   
+  function switchM() {
+    mb.checked = true;
+    fb.checked = false;
   }
 </script>

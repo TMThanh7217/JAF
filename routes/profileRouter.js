@@ -7,12 +7,31 @@ router.get('/', (req, res) => {
     userController
         .findById(id)
         .then(user => {
-            console.log(user);
+            //console.log(user);
             res.render('profile', {
                 user: user
             });})
         .catch(err => res.send(err.toString()));
+})
 
+router.post('/', (req, res) => {
+    let female = req.body.female;
+    let gender = true;
+    if (female)
+        gender = false;
+    let user = {
+        id: req.app.get('userId'),
+        name: req.body.nameField,
+        email: req.body.emailField,
+        gender: gender,
+        phone: req.body.phoneField,
+    }
+
+    userController 
+        .updateUser(user)
+        .then(
+            res.redirect('profile'))
+        .catch(err => res.send(err.toString()));
 })
 
 module.exports = router;

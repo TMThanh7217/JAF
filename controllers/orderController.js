@@ -21,6 +21,30 @@ controller.getWithItems = async function() {
     })
 }
 
+controller.getByUserId = async function(userId) {
+    return await Order.findAll({
+        raw: true,
+        where: {
+            userId: userId
+        },
+        order: [['createdAt', 'ASC']]
+    })
+}
+
+controller.getByUserIdWithItems = async function(userId) {
+    return await Order.findAll({
+        raw: true,
+        include: [{
+            model: model.OrderItem,
+        }],
+        where: {
+            userId: userId
+        },
+        order: [['id', 'ASC']]
+    })
+}
+
+
 controller.create = async function(order) {
     return await Order.create(order);
 }
