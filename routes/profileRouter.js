@@ -3,16 +3,15 @@ var router = express.Router();
 var userController = require('../controllers/userController');
 
 router.get('/', (req, res) => {
-    res.locals.userAuthorization = req.app.get('userAuthorization');
-    let username = req.app.get('username');
+    let id = req.app.get('userId');
     userController
-        .getUserByUsername(username)
-        .then( user => {
+        .findById(id)
+        .then(user => {
             console.log(user);
             res.render('profile', {
                 user: user
             });})
-        .catch(err => next(err));
+        .catch(err => res.send(err.toString()));
 
 })
 

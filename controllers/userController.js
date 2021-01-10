@@ -38,4 +38,8 @@ controller.findAllUser = () => {
 	});
 };
 
+controller.findById = async function(id) {
+	return await Users.findByPk(id, {raw: true});
+}
+
 module.exports = controller;
