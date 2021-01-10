@@ -467,3 +467,28 @@ input[type=number] {
 .comment-row + .comment-row {
     margin-top: 3rem;
 }
+
+.item-info_buy-later {
+    color: rgb(61, 96, 137);
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.item-info_name {
+    color: rgb(61, 96, 137);
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.item-info_buy-later:hover, .item-info_name:hover {
+    text-decoration: underline;
+}
+
+.product-img {
+    cursor: pointer;
+}
+
+hr.history-card + hr.history-card {
+    margin-top: 10px !important;
+}

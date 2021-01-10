@@ -15,4 +15,17 @@ controller.getByOrderId = async function(orderId) {
     })
 }
 
+controller.getByOrderIdIncludeProduct = async function(id) {
+    return await OrderItem.findAll({
+        raw: true,
+        where: {
+            orderId: id
+        },
+        include: [{
+            model: model.Product,
+            attributes: ['name', 'src']
+        }]
+    })
+}
+
 module.exports = controller;

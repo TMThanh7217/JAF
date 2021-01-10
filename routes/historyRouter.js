@@ -18,11 +18,12 @@ router.get('/', (req, res) => {
             console.log(orderRecords)
             for(let rec of orderRecords) {
                 orderItemController
-                    .getByOrderId(rec.id)
+                    .getByOrderIdIncludeProduct(rec.id)
                     .then(orderItemRecords => {
                         rec.items = orderItemRecords;
+                        rec.discount = 0;
+                        rec.finalPrice = ((1- rec.discount) * Number(rec.totalPrice)).toFixed(2);
                         orders.push(rec);
-                        console.log(rec.items);
                     })
                     .catch(err => res.send(err.toString()));
             }
