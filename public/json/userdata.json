@@ -1,5 +1,4 @@
 [{
-    "id":0,
     "name":"Tieu Trinh Trinh",
     "email":"hocvatly12@gmail.com",
     "gender":true,
@@ -10,7 +9,6 @@
     "authorization" : 1
 },
 {
-    "id":1,
     "name":"Aperiam Eligendi",
     "email":"AperiamEligendi@gmail.com",
     "gender":true,
@@ -21,7 +19,6 @@
     "authorization" : 0
 },
 {
-    "id":2,
     "name":"Dolorum Voluptatum",
     "email":"DolorumVoluptatum@gmail.com",
     "gender":false,
@@ -32,7 +29,6 @@
     "authorization" : 0
 },
 {
-    "id":3,
     "name":"Consectetur Amet",
     "email":"ConsecteturAmet@gmail.com",
     "gender":true,
