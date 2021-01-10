@@ -70,7 +70,7 @@ router.post('/pay', (req, res) => {
             let orderItem = {};
             orderItem.orderId = order.id;
             for(let item of cart.getCart().items) {
-                orderItem.itemId = item.id;
+                orderItem.itemId = item.item.id;
                 orderItem.price = item.price;
                 orderItem.quantity = item.quantity;
                 orderItemController
