@@ -13,9 +13,10 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    let path = require('path');
+   
+    /*let path = require('path');
     let fs = require('fs');
-    //let comments = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/comment.json')));
+    let comments = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/comment.json')));*/
     let rad = require('../APIs/random');
     let commentArr = [];
     let tf = [true, false];
