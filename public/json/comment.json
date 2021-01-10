@@ -1,27 +1,24 @@
 [{
+        "userId":1,
         "productId":1,
-        "avatar":"images/logo & bg & etc/default-avatar.jpg",
-        "author":"Nana Nakawa",
         "isLiked":true,
         "content":"I like it, I love it!!!"
     },
     {
+        "userId":1,
         "productId":1,
-        "avatar":"images/logo & bg & etc/default-avatar.jpg",
-        "author":"Some body",
         "isLiked":false,
         "content":"No, it suck!!"
     },
     {
+        "userId":1,
         "productId":1,
-        "avatar":"images/logo & bg & etc/default-avatar.jpg",
-        "author":"Some guy",
         "isLiked":true,
         "content":"Fine, better with sugar."
     },
     {
-        "avatar":"images/logo & bg & etc/default-avatar.jpg",
-        "author":"Some one",
+        "userId":1,
+        "productId":1,
         "isLiked":true,
         "content":"It ok to be not ok."
 }]

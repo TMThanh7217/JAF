@@ -34,7 +34,11 @@ module.exports = {
       comment.updatedAt = Sequelize.literal('NOW()');
       commentArr.push(comment);
     }
-    await queryInterface.bulkInsert('Comments', commentArr);
+    for (let data of comments) {
+      data.createdAt = Sequelize.literal('NOW()');
+      data.updatedAt = Sequelize.literal('NOW()');
+    }
+    await queryInterface.bulkInsert('Comments', comments);
   },
 
   down: async (queryInterface, Sequelize) => {

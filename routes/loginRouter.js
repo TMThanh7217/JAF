@@ -12,7 +12,6 @@ router.get("/login", (req, res) => {
 router.post('/login', (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
-
     console.log("username: " + username + " | password: " + password);
 
     
@@ -22,9 +21,11 @@ router.post('/login', (req, res) => {
                 if (foundUser != null){
                     bcrypt.compare(password, foundUser.password, (err, same) => {
                         if (same) {
+                            req.locals.userId = username; // save username here for later use
                             req.app.set('userAuthorization', userAuthorizationAPI.isAdmin(foundUser.authorization) ?
                                                                                             userAuthorizationAPI.ADMIN :
                                                                                             userAuthorizationAPI.COMMON);
+                                                                                            
                             res.redirect('/');
                         }
                         else {
