@@ -11,6 +11,21 @@ $(document).ready(() => {
     $('.search-field').on('keypress', e => {
         if (e.which == 13) searchProducts();
     });
+    $('.popover-dismiss').popover({
+        trigger: 'focus'
+    })
+    $(function () {
+        $('[data-toggle="popover"][data-timeout]').popover({ trigger:"manual" }).click(function() { 
+            var pop = $(this); 
+            var quantity = $('#qtyField') ? Number($('#qtyField').val()) : 1;
+            if (quantity <= 0) return;
+            pop.popover("show") 
+            pop.on('shown.bs.popover',function() { 
+             setTimeout(function() {
+              pop.popover("hide")}, $(this).data("timeout")); 
+            })
+        })
+    })
 });
 
 

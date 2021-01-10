@@ -53,6 +53,10 @@
             </div>
         </div>
         {{else}}
+        <span class="fa-stack fa-stack-3x mr-2">
+            <i class='fa fa-shopping-cart fa-stack-2x icon-link' onclick="document.location.href='/cart'"></i>
+            <span class="badge badge-info badge-top" id="cart-badge">{{totalQuantity}}</span>
+        </span>
         <button id="btn-login" class="btn btn-danger" type="button" onclick="document.location.href='/login'">Login</button>
         {{/unless}}
     </div>

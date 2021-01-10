@@ -460,3 +460,17 @@ input[type=number] {
 .btn--admin-option {
     font-size: 50px;
 }
+
+.badge-top {
+    position: relative;
+    margin-left: 80%;
+    margin-top: -60% !important;
+}
+
+.icon-link {
+    cursor: pointer;
+}
+
+.icon-link:hover {
+    color: aliceblue;
+}
