@@ -42,6 +42,7 @@ $(document).ready(() => {
             })
         })
     })
+    $('.btn-modal-comment').on('click', sendComment);
 });
 
 
@@ -98,4 +99,16 @@ function searchProducts() {
     if (keyword) {
         location.href = `/products/search?keyword=${keyword}`;
     }
+}
+
+function sendComment() {
+    let id = $(this).data('id');
+    let content = $('#comment-form_text-area').val();
+    let userId = $(this).data('userID');
+    let isLike = true;
+    $.ajax({
+        url: '/comment',
+        type: 'post',
+        data: { id, content, userId, isLike},
+    })
 }
