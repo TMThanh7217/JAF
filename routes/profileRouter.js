@@ -4,9 +4,9 @@ var userController = require('../controllers/userController');
 
 router.get('/', (req, res) => {
     res.locals.userAuthorization = req.app.get('userAuthorization');
-    let userId = req.app.get('userId');
+    let username = req.app.get('username');
     userController
-        .getUserByUsername(userId)
+        .getUserByUsername(username)
         .then( user => {
             console.log(user);
             res.render('profile', {
