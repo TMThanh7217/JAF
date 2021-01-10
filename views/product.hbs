@@ -3,28 +3,13 @@
         <div class="col-5 d-flex justify-content-center">
             <img src="{{product.src}}" class="img-fluid img-thumbnail mx-auto" alt="" style="max-height: 400px;">
         </div>
-        <div class="col-7 product-info d-flex flex-column justify-content-between">
+        <div class="p-2 col-7 product-info d-flex flex-column justify-content-between">
             <h1 class="h1"><strong>{{product.name}}</strong></h1>
             <h2><i class="fa fa-heart mr-2 heart-ico" style="color: palevioletred;"></i><span class="h2"><b id='{{product.id}}-like' class='like-counter'>{{product.like}}</b></span></h2>
             <div class="container-fluid m-bg-white product-infor_prices">
                 <span class="product-infor_prices-real">${{product.price}}</span>
                 <del class="product-infor_prices-org">$5</del>
                 <span class="product-infor_prices-discount">-20%</span>
-            </div>
-            
-            <div class="container-fluid size-checkbox">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">S</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                    <label class="form-check-label" for="inlineRadio2">M</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                    <label class="form-check-label" for="inlineRadio3">L</label>
-                </div>
             </div>
 
             <div class="container-fluid addr-info">
@@ -56,32 +41,30 @@
                         </script>
                 </div>
             </div>
-            <div class="row d-flex justify-content-between align-items-center">
-                <button class="btn btn-order btn-JAF mx-auto my-auto" type="button" data-id={{product.id}}>Add to cart</button>
-                <button class="btn btn-md btn-like mb-2 mx-auto my-auto"><i class="fa fa-heart text-white"></i></button>
+            <div class="ml-3 row d-flex align-items-start align-items-center">
+                <button class="btn btn-order btn-JAF mr-5" type="button" data-id={{product.id}}>Add to cart</button>
+                <button class="btn btn-md btn-like" type="button" data-id={{product.id}}><i class="fa fa-heart text-white"></i></button>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid p-5">
-     
-        <form id="comment-form" class="md-form d-flex flex-column" action="/comments" method="POST">
-
+    <div class="container-fluid p-5 d-flex flex-column">
+        <form id="commentForm">
             <div class="label-area">
                 <i id="comment-form_icon" class="fas fa-pencil-alt prefix"></i>
                 <label id="comment-form_label" for="comment-form_text-area">Give a comment</label>
             </div>
-
-
-            <textarea id="comment-form_text-area" name="content" class="md-textarea form-control" rows="3"></textarea>
-            <button id="comment-form_submit-btn" type="submit" class="btn btn-danger mt-3" onclick="">Send</button>
+            <div class="form-group">
+                <label for="comment" class="col-form-label d-flex align-items-end"><strong>Comment:</strong></label>
+                <textarea form="commentForm" class="form-control" id="comment-form_text-area" name="comment" placeholder="Text here ..."></textarea>
+            </div>
+            <button type="button" data-product=-1 form="commentForm" data-dismiss="modal" class="btn btn-danger btn-sendComment align-self-start">Send comment</button>
         </form>
-    
     </div>
 
     <div class="container-fluid p-5">
         {{#each comments}}
-        <div class="row">
+        <div class="row comment-row">
             <div class="col-md-2 col-sm-4 col-lg-2"><img src="{{this.[User.avatar]}}" alt="" class="cmt-avatar img-thumbnail img-fluid"></div>
             <div class="col-md-10 col-sm-8 col-lg-10 cmt-col">
                 <span class="cmt-author h2"><b>{{this.[User.name]}}</b></span>
@@ -97,15 +80,6 @@
                 </div>
                 <div class="cmt-container p-2 my-2">
                     <p>{{this.content}}</p>
-                </div>
-                
-                <div class="cmt-rating_group-count row">
-                    <span class="cmt-rating_like-count col-lg-1 col-md-2 col-sm-2 col-xs-3"><i class="fa fa-thumbs-o-up mr-2" aria-hidden="true"></i>{{this.like}}</span>
-                    <span class="cmt-rating_dislike-count col-lg-1 col-md-2 col-sm-2 col-xs-3"><i class="fa fa-thumbs-o-down mr-2" aria-hidden="true"></i>{{this.dislike}}</span>
-                </div>
-                <div class="cmt-rating_group-btn row">
-                    <span class="cmt-rating_like col-lg-1 col-md-2 col-sm-2 col-xs-3">Like</span>
-                    <span class="cmt-rating_dislike col-lg-1 col-md-2 col-sm-2 col-xs-3">Dislike</span>
                 </div>
 
             </div>

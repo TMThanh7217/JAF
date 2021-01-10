@@ -365,17 +365,6 @@ input[type=number] {
     max-height: 200px;
 }
 
-.cmt-rating_like-count, .cmt-rating_dislike-count {
-    font-size: 16px;
-    color: rgb(69, 93, 204);
-}
-
-.cmt-rating_like, .cmt-rating_dislike {
-    cursor: pointer;
-    font-size: 16px;
-    color: rgb(69, 93, 204);
-}
-
 .cmt-rating_like:hover, .cmt-rating_dislike:hover {
     cursor: pointer;
     margin-left: 20px;
@@ -432,7 +421,7 @@ input[type=number] {
 
 .cmt-container {
     border: 1px solid gainsboro;
-    height: 50%;
+    min-height: 50%;
 }
 
 .cmt-col {
@@ -473,4 +462,8 @@ input[type=number] {
 
 .icon-link:hover {
     color: aliceblue;
+}
+
+.comment-row + .comment-row {
+    margin-top: 3rem;
 }

@@ -49,7 +49,6 @@ $(document).ready(() => {
 
 
 function addToCart() {
-    console.log("loc")
     var id = $(this).data('id');
     var quantity = $('#qtyField') ? Number($('#qtyField').val()) : 1;
     $.ajax({

@@ -48,7 +48,6 @@ router.get("/:id", (req, res) => {
             commentController
                 .getAll(id)
                 .then(comments =>  {
-                    console.log(comments);
                     var page_data = {
                         title : `JAF - ${product.name}`,
                         product : product,
