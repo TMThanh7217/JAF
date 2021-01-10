@@ -4,11 +4,14 @@ var userController = require('../controllers/userController');
 
 router.get('/', (req, res) => {
     res.locals.userAuthorization = req.app.get('userAuthorization');
-    let userId = res.locals.userId;
+    let userId = req.app.get('userId');
     userController
         .getUserByUsername(userId)
         .then( user => {
-            res.render('profile', user);})
+            console.log(user);
+            res.render('profile', {
+                user: user
+            });})
         .catch(err => next(err));
 
 })

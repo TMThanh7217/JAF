@@ -15,7 +15,7 @@ module.exports = {
     */
     let path = require('path');
     let fs = require('fs');
-    let comments = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/comment.json')));
+    //let comments = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/json/comment.json')));
     let rad = require('../APIs/random');
     let commentArr = [];
     let tf = [true, false];
@@ -26,7 +26,7 @@ module.exports = {
     ]
     for (let i = 0; i < 100; i++) {
       let comment = {};
-      comment.productId = rad.randInt(0, 21);
+      comment.productId = rad.randInt(1, 21);
       comment.userId = rad.randInt(1, 3);
       comment.isLiked = tf[rad.randInt(0, 1)];
       comment.content  = lorem[rad.randInt(0, 2)];
@@ -34,11 +34,8 @@ module.exports = {
       comment.updatedAt = Sequelize.literal('NOW()');
       commentArr.push(comment);
     }
-    for (let data of comments) {
-      data.createdAt = Sequelize.literal('NOW()');
-      data.updatedAt = Sequelize.literal('NOW()');
-    }
-    await queryInterface.bulkInsert('Comments', comments);
+
+    await queryInterface.bulkInsert('Comments', commentArr);
   },
 
   down: async (queryInterface, Sequelize) => {

@@ -27,6 +27,7 @@ app.use(session({
 var Cart = require('./controllers/cartController');
 app.use((req, res, next) => {
   res.locals.userAuthorization = req.app.get('userAuthorization');
+  res.locals.userId = req.app.get('userId');
   var cart = new Cart(req.session.cart ? req.session.cart : {});
   req.session.cart = cart;
   res.locals.totalQuantity = cart.totalQuantity;
