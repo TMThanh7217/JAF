@@ -1,4 +1,4 @@
-<div class="modal" tabindex="-1" role="dialog" id="confirmModal">
+<div class="modal fade" tabindex="-1" role="dialog" id="confirmModal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,11 +8,22 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>{{mess}}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary"  data-dismiss="modal" onclick={{action}}>Confirm</button>
+        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+          <div class="p-4">
+            <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
+            <ul class="list-unstyled mb-4">
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>${{cart.totalPrice}}</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
+                <h5 class="font-weight-bold">${{cart.totalPrice}}</h5>
+              </li>
+            </ul>
+            <div class="container-fluid d-flex justify-content-end">
+              <button class="btn btn-danger btn-confirm-payment mr-2 rounded-pill py-2" data-dismiss="modal">Confirm</button>
+              <button class="btn btn-secondary rounded-pill py-2" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

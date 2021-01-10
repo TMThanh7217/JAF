@@ -71,17 +71,23 @@
           <div class="p-4">
             <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.</p>
             <ul class="list-unstyled mb-4">
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong>$390.00</strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong>$10.00</strong></li>
-              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tax</strong><strong>$0.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal </strong><strong style="font-weight: bold; font-size:20px">$<span id="totalPrice" style="font-weight: bold; font-size:20px">{{cart.totalPrice}}</span></strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and handling</strong><strong style="font-weight: bold; font-size:20px">$<span id="tax" style="font-weight: bold; font-size:20px">{{tax}}</span></strong></li>
               <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Total</strong>
-                <h5 class="font-weight-bold">${{cart.totalPrice}}</h5>
+                <h5 class="font-weight-bold">$<span id="realPrice" class="h5" style="font-weight: bold">{{realPrice}}</span></h5>
               </li>
-            </ul><a href="#" class="btn btn-danger rounded-pill py-2 btn-block">Procceed to checkout</a>
+            </ul>
+            {{#if isEmpty}}
+            <a href="#" class="btn btn-danger rounded-pill py-2 btn-block" data-toggle="modal" data-target="#errorEmptyCartModal">Procceed to checkout</a>
+            {{> empty-cart-error-modal}}
+            
+            {{else}}
+            <a href="#" class="btn btn-danger rounded-pill py-2 btn-block" data-toggle="modal" data-target="#confirmModal">Procceed to checkout</a>
+            {{> confirm-payment-modal}}
+            {{/if}}
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
