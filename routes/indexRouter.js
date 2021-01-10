@@ -2,6 +2,8 @@ var express = require("express");
 const userAuthorizationAPI = require("../APIs/userAuthorization");
 var router = express.Router();
 var productController = require("../controllers/productController");
+var commentController = require("../controllers/commentController");
+const { isLoggedIn } = require("../APIs/userAuthorization");
 
 router.get("/", (req, res) => {
     productController
@@ -47,6 +49,24 @@ router.post('/like', (req, res) => {
                 .catch(err => res.json(err));
         })
         .catch(err => res.json(err));
+})
+
+router.post('/comment', (req, res) => {
+    if(userAuthorizationAPI.isLoggedIn(res.locals.userAuthorization)) {
+        let comment = {};
+        comment.userId = res.locals.userId;
+        comment.productId = req.body.productId;
+        comment.content = req.body.content;
+        comment.isLiked = req.body.isLiked;
+        commentController
+            .create(comment)
+            .then(comment => {
+                console.log(comment);
+                res.json(true);
+            })
+            .catch(err => res.send(err.toString()));
+    }
+    res.json(false);
 })
 
 module.exports = router

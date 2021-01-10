@@ -15,13 +15,17 @@
             <span class="d-block g-color-primary g-font-size-16 mb-3 mt-auto price">${{product.price}}</span>
             <div class="row">
                 <div class="col-2 d-flex justify-content-center align-items-center">
+                    {{#if (isLoggedIn userAuthor)}}
                     <button class="btn btn-md btn-danger btn-modal-comment mb-2" type="button" data-id={{product.id}} data-toggle="modal"><i class="fa fa-commenting-o text-white" aria-hidden="true"></i></button>
+                    {{else}}
+                    <button class="btn btn-md btn-danger mb-2" type="button" data-toggle="modal" data-target="#requireLoginModal"><i class="fa fa-commenting-o text-white" aria-hidden="true"></i></button>
+                    {{/if}}
                 </div>
                 <div class="col-8">
                     {{#if (isAdmin userAuthor)}}
                     <button class="btn btn-lg btn-JAF mb-2 mr-2" type="button" role="button" data-toggle="popover" data-timeout="500" data-trigger="focus" title="Notification" data-content="You don't have permission to do this action!">Add to cart</button>
                     {{else}}
-                    <button class="btn btn-lg btn-JAF btn-order mb-2 mr-2" type="button" data-id="{{product.id}} data-userId="{{userId}}" role="button" data-toggle="popover" data-timeout="500" data-trigger="focus" title="Notification" data-content="Add to cart successfully!">Add to cart</button>
+                    <button class="btn btn-lg btn-JAF btn-order mb-2 mr-2" type="button" data-id="{{product.id}}" data-userId="{{userId}}" role="button" data-toggle="popover" data-timeout="500" data-trigger="focus" title="Notification" data-content="Add to cart successfully!">Add to cart</button>
                     {{/if}}
                 </div>
                 <div class="col-2 d-flex justify-content-center align-items-center">
@@ -32,3 +36,6 @@
     </div>
 </div>
 {{> modal-comment}}
+{{#if (isAnonymous userAuthor)}}
+{{> login-require-modal}}
+{{/if}}

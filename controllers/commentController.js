@@ -3,13 +3,8 @@ var models = require('../models');
 const user = require('../models/user');
 var Comments = models.Comment;
 
-controller.add = (comment) => {
-    return new Promise((resolve, reject) => {
-        Comments
-            .create(comment)
-            .then(data => resolve(data))
-            .catch(error => reject(new Error(error)));
-    });
+controller.create = async function (comment) {
+        return await Comments.create(comment);
 };
 
 controller.getAll = (productId) => {

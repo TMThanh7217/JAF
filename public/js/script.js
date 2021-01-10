@@ -42,11 +42,14 @@ $(document).ready(() => {
             })
         })
     })
-    $('.btn-modal-comment').on('click', sendComment);
+    $('.btn-modal-comment').on('click', openCommentModal);
+    $('#commentForm').on('submit', e => { e.preventDefault(); });
+    $('.btn-sendComment').on('click', sendComment)
 });
 
 
 function addToCart() {
+    console.log("loc")
     var id = $(this).data('id');
     var quantity = $('#qtyField') ? Number($('#qtyField').val()) : 1;
     $.ajax({
@@ -101,14 +104,24 @@ function searchProducts() {
     }
 }
 
+function openCommentModal() {
+    $("#commentModal").modal("show");
+    $("button.btn-sendComment").data('product', $(this).data('id'));
+}
+
 function sendComment() {
-    let id = $(this).data('id');
     let content = $('#comment-form_text-area').val();
-    let userId = $(this).data('userID');
-    let isLike = true;
-    $.ajax({
-        url: '/comment',
-        type: 'post',
-        data: { id, content, userId, isLike},
-    })
+    if (content) {
+        let productId = $(this).data('product');
+        let userId = $("input[name='userId']").val();
+        let isLiked = true;
+        $.ajax({
+            url: '/comment',
+            type: 'post',
+            data: { productId, content, userId, isLiked },
+            success: () => {
+                $('#comment-form_text-area').val("");
+            }
+        })
+    }
 }
