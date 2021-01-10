@@ -45,29 +45,44 @@ router.post('/remove', (req, res) => {
     res.json(result);
 });
 
+router.post('/empty', (req, res, next) => {
+    var cart = req.session.cart;
+    cart.empty();
+    req.session.cart = cart;
+    res.json("OK");
+});
+
 router.post('/pay', (req, res) => {
+    let convert = require('../APIs/convert');
     let orderController = require('../controllers/orderController');
     let order = {};
+    let cart = req.session.cart;
     order.userId = res.locals.userId;
     order.totalPrice = cart.totalPrice;
     order.totalQuantity = cart.totalQuantity;
-    order.paymentMethod = cart.paymentMethod;
-
+    order.paymentMethod = convert.paymentToCode(cart.paymentMethod);
     orderController
         .create(order)
         .then(order => {
+            order = order.dataValues;
             let orderItemController = require('../controllers/orderItemController');
-            let cart = res.locals.cart;
+            let cart = req.session.cart;
             let orderItem = {};
             orderItem.orderId = order.id;
             for(let item of cart.getCart().items) {
                 orderItem.itemId = item.id;
                 orderItem.price = item.price;
                 orderItem.quantity = item.quantity;
-                let orderItemRecord = orderItemController.create(orderItem);
-                console.log(orderItemRecord);
+                orderItemController
+                    .create(orderItem)
+                    .then(record => {
+                        
+                    })
+                    .catch(err => res.send(err.toString()));
             }
+            res.send("OK");
         })
+        .catch(err => res.send(err.toString()));
 })
 
 module.exports = router;

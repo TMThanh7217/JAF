@@ -45,6 +45,7 @@ $(document).ready(() => {
     $('.btn-modal-comment').on('click', openCommentModal);
     $('#commentForm').on('submit', e => { e.preventDefault(); });
     $('.btn-sendComment').on('click', sendComment)
+    $('.btn-confirm-payment').on('click', order)
 });
 
 
@@ -123,4 +124,24 @@ function sendComment() {
             }
         })
     }
+}
+
+function emptyCart() {
+    $.ajax({
+        url: '/cart/empty',
+        type: 'POST',
+        success: result => {
+            location.reload();         
+        }
+    })
+}
+
+function order() {
+    $.ajax({
+        url: 'cart/pay',
+        method: 'post',
+        success: result => {
+            emptyCart();
+        }
+    })
 }
