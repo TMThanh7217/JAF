@@ -50,6 +50,9 @@ $(document).ready(() => {
     $('#update-prof-btn').on('click', updateProf);
     $('.btn-remove-user').on('click', adminRemoveUser);
     $('#confirmAddUserBtn').on('click', adminAddUser);
+    $('#confirmAddProductBtn').on('click', adminAddProduct);
+    $('.adminDeleteProduct').on('click', adminRemoveProduct);
+    $('.adminUpdateProduct').on('click', adminUpdateProduct);
     $('.btn-apply-coupon').on('click', applyCoupon);
     $('#apply-fail-alert').hide()
     $('#apply-success-alert').hide()
@@ -195,10 +198,10 @@ function adminAddUser() {
 }
 
 function adminRemoveUser() {
-    console.log("ok");
-    console.log($('#adminUserId'));
+    //console.log("ok");
+    //console.log($('#adminUserId'));
     let userId = $(this).data('id');
-    console.log(userId);
+    //console.log(userId);
     $.ajax({
         url: '/admin/manage/users/remove',
         type: 'POST',
@@ -208,6 +211,61 @@ function adminRemoveUser() {
         }
     })
 }
+
+function adminAddProduct() {
+    let name = $('#adminAddProductname').val();
+    let detail = $('#adminAddDetail').val();
+    let type = $('#adminAddProductype').val();
+    let price = $('#adminAddPrice').val();
+    let status = $('#adminAddStatus').val();
+    let stock = $('#adminAddQuantity').val();
+
+    if (name && type && price && status && stock) {
+        $.ajax({
+            url: '/admin/manage/products/add',
+            method: 'post',
+            data: {name, detail, type, name, price, status, stock},
+            success: result => {
+                console.log("ok");
+                location.reload();
+            }
+        })
+    }
+}
+
+function adminRemoveProduct() {
+    let productId = $(this).data('id');
+    $.ajax({
+        url: '/admin/manage/products/remove',
+        type: 'post',
+        data: {productId},
+        success: result => {
+            location.reload();
+        }
+    })
+}
+
+function adminUpdateProduct() {
+    console.log('hi hi hi');
+    let id = $(this).data('id');
+    let updateName = "#updateName" + id;
+    let updateType = "#updateType" + id;
+    let updatePrice = "#updatePrice" + id;
+    let updateStatus = "#updateStatus" + id;
+    let updateStock = "#updateStock" + id;
+    let name = $(updateName).val();
+    let type = $(updateType).val();
+    let price = $(updatePrice).val();
+    let status = $(updateStatus).val();
+    let stock = $(updateStock).val();
+    $.ajax({
+        url: '/admin/manage/products/update',
+        type: 'post',
+        data: {id, name, type, price, status, stock},
+        success: result => {
+            location.reload();
+        }
+    })
 
 function applyCoupon() {
     let code = $('#coupon-code-input').val();
@@ -226,4 +284,5 @@ function applyCoupon() {
                 }
             }
         })
+
 }
