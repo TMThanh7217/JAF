@@ -49,7 +49,7 @@ controller.getByIdWithUser = async function(id) {
         raw: true,
         include: [{
             model: model.User,
-            attributes: ['name', 'phone']
+            attributes: ['name', 'phone', 'address']
         }],
         where: {
             id: id

@@ -16,7 +16,8 @@ router.get("/", (req, res) => {
                 title : "JAF - Menu",
                 name : "Menu",
                 rows: productsRows,
-                isEmpty: !Array.isArray(products) || !products.length
+                isEmpty: !Array.isArray(products) || !products.length,
+                userAuthor: res.locals.userAuthorization
             }
             res.render("menu", page_data);
         })
@@ -33,7 +34,8 @@ router.get('/search', (req, res) => {
                 title: "JAF - Search result",
                 name: `Search result of "${keyword}"`,
                 rows: productsRows,
-                isEmpty: !Array.isArray(products) || !products.length
+                isEmpty: !Array.isArray(products) || !products.length,
+                userAuthor: res.locals.userAuthorization
             }
             res.render('menu', page_data);
         })
