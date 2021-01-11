@@ -121,6 +121,9 @@ function sendComment() {
             data: { productId, content, userId, isLiked },
             success: () => {
                 $('#comment-form_text-area').val("");
+                let pathName = $(location).attr('pathname');
+                if (pathName != '/')
+                    location.reload();
             }
         })
     }

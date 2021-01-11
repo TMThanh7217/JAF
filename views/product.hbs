@@ -55,10 +55,10 @@
                 <label id="comment-form_label" for="comment-form_text-area">Give a comment</label>
             </div>
             <div class="form-group">
-                <label for="comment" class="col-form-label d-flex align-items-end"><strong>Comment:</strong></label>
+                <label for="comment-form_text-area" class="col-form-label d-flex align-items-end"><strong>Comment:</strong></label>
                 <textarea form="commentForm" class="form-control" id="comment-form_text-area" name="comment" placeholder="Text here ..."></textarea>
             </div>
-            <button type="button" data-product=-1 form="commentForm" data-dismiss="modal" class="btn btn-danger btn-sendComment align-self-start">Send comment</button>
+            <button type="button" data-product={{product.id}} form="commentForm" data-dismiss="modal" class="btn btn-danger btn-sendComment align-self-start">Send comment</button>
         </form>
     </div>
 
