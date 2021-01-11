@@ -46,8 +46,11 @@ $(document).ready(() => {
     $('#commentForm').on('submit', e => { e.preventDefault(); });
     $('.btn-sendComment').on('click', sendComment);
     $('.btn-confirm-payment').on('click', order);
-    $('#profileForm').on('submit', e => { e.preventDefault(); });
+    $('#profileForm').on('submit', e => { e.preventDefault(); });   
     $('#update-prof-btn').on('click', updateProf);
+    $('#confirmAddUserBtn').on('click', adminAddUser);
+    console.log($('#adminRemoveBtn'));
+    $('#adminRemoveBtn').on('click', adminRemoveUser);
 });
 
 
@@ -157,11 +160,46 @@ function updateProf() {
     let maleBtn = $('#maleBtn').val();
     let femaleBtn = $('#femaleBtn').val();
     let phoneField = $('#phoneField').val();
+    let addressField = $('#addressField').val();
     $.ajax({
         url: '/profile',
         method: 'post',
-        data: {nameField, emailField, maleBtn, femaleBtn, phoneField},
-        succes: result => {
+        data: {nameField, emailField, maleBtn, femaleBtn, phoneField, addressField},
+        success: result => {
+            location.reload();
+        }
+    })
+}
+
+function adminAddUser() {
+    let email = $('#adminAddEmail').val();
+    let username = $('#adminAddUsername').val();
+    let password = $('#adminAddPassword').val();
+    let name = $('#adminAddName').val();
+    let phone = $('#adminAddPhone').val();
+    let address = $('#adminAddAddress').val();
+    if (username && password) {
+        $.ajax({
+            url: '/admin/manage/users/add',
+            method: 'post',
+            data: {email, username, password, name, phone, address},
+            success: result => {
+                location.reload();
+            }
+        })
+    }
+}
+
+function adminRemoveUser() {
+    console.log("ok");
+    console.log($('#adminUserId'));
+    let userId = $('#adminUserId').text();
+    console.log(userId);
+    $.ajax({
+        url: '/admin/manage/users/remove',
+        type: 'POST',
+        data: {userId},
+        success: result => {
             location.reload();
         }
     })

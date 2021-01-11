@@ -18,11 +18,11 @@ controller.getUserByUsername = username => {
 
 controller.createUser = function(user) {
 	bcrypt.genSalt(saltRound, (err, salt) => {
-		bcrypt.hash(user.password, salt, (err, hash) => {
+		bcrypt.hash(user.password, salt, async function(err, hash) {
 			user.username = user.username.toLowerCase();
 			user.password = hash;
 			console.log("ok")
-			return Users.create(user);
+			return await Users.create(user);
 		})
 	})
 };
@@ -50,7 +50,8 @@ controller.updateUser = function(user) {
 				name: user.name,
 				email: user.email,
 				gender: user.gender,
-				phone: user.phone
+				phone: user.phone,
+				address: user.address
 			}, {
 				where: { id: user.id }
 			})
@@ -58,5 +59,11 @@ controller.updateUser = function(user) {
 			.catch(error => reject(new Error(error)))
 	});
 };
+
+controller.deleteUser = async function(id) {
+	return await Users.destroy ({
+		where: {id: id}
+	});
+}
 
 module.exports = controller;

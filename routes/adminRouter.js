@@ -103,6 +103,40 @@ router.get("/manage/users", (req, res) => {
         .catch(err => res.send("Error: " + err));
 })
 
+router.post("/manage/users/add", (req, res) => {
+    let user = {
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password,
+        name: req.body.name,
+        gender: true,
+        phone: req.body.phone,
+        address: req.body.address,
+        authorization: 0
+    };
+
+    // check if user exists
+    userController
+        .getUserByUsername(user.username)
+        .then(foundUser => {
+            console.log(foundUser);
+            if (foundUser != null) {
+                return res.json('User name already exists');
+            }
+            // create account
+            userController.createUser(user);
+            return res.json('Account created');
+        })
+        .catch(err => res.send(err.toString()));    
+})
+
+router.post("/manage/users/remove", (req, res) => {
+    let id = req.body.userId;
+    console.log(id);
+    userController.deleteUser(id);
+    return res.json('Delete account');
+})
+
 router.get('/manage/orders', (req, res) => {
     let userAuth = req.app.get("userAuthorization");
     res.locals.userAuthorization = userAuth;
