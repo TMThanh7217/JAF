@@ -1,0 +1,42 @@
+<div class="container-fluid p-5 d-flex flex-column align-items-center">
+    <div class="menu-label mb-3 p-2 d-flex w-100">
+      <h1 class="ml-2 mr-auto">Order Detail</h1>
+    </div>
+  <div class="card w-50">
+    <div class="card-body">
+      <h5 class="card-title text-center"><b style="font-size: 4rem;">Order {{order.id}}</b></h5>
+      <p class="card-text">Order at: {{order.createdAt}}, by {{order.[User.name]}}</p>
+      <p class="card-text">Payment Method: {{order.paymentMethod}}</p>
+      <p class="card-text">Contact: {{order.[User.phone]}}</p>
+      <p class="card-text">Address: {{order.[User.address]}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      {{#each order.items}}
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-5">
+            <img src="{{this.[Product.src]}}" alt="Product Image" class="sm-img product-img-sm img-thumbnail product-img" onclick="/products/{{this.[Product.id]}}">
+          </div>
+          <div class="col-7">
+            <div class="card border-dark mb-3">
+              <div class="card-header" style="max-height: 3rem;">Item information</div>
+              <div class="card-body text-dark">
+                <h5 class="card-title item-info_name" onclick="/products/{{this.[Product.id]}}">{{this.[Product.name]}}</h5>
+                <p class="card-text">{{this.[Product.detail]}}</p>
+              </div>
+              <div class="card-footer bg-transparent border-dark">
+                <p class="card-text">Price: {{this.price}}</p>
+                <p class="card-text">Quantity: {{this.quantity}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    <div class="card-footer bg-transparent border-dark">
+      <p><b class="card-text" style="font-size:2rem">Total Quantity: {{order.totalQuantity}}</b></p>
+      <p><b class="card-text" style="font-size:2rem">Total Price: ${{order.totalPrice}}</b></p>
+    </div>
+  </div>
+</div>

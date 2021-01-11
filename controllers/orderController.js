@@ -7,7 +7,7 @@ controller.getAllWithUser = async function() {
         raw: true,
         include: [{
             model: model.User,
-            attributes: ["username", "name"]
+            attributes: ["phone", "name"]
         }]
     })  
 }
@@ -44,6 +44,18 @@ controller.getByUserIdWithItems = async function(userId) {
     })
 }
 
+controller.getByIdWithUser = async function(id) {
+    return await Order.findOne({
+        raw: true,
+        include: [{
+            model: model.User,
+            attributes: ['name', 'phone', 'address']
+        }],
+        where: {
+            id: id
+        }
+    })
+}
 
 controller.create = async function(order) {
     return await Order.create(order);

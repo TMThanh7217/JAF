@@ -23,7 +23,7 @@ controller.getByOrderIdIncludeProduct = async function(id) {
         },
         include: [{
             model: model.Product,
-            attributes: ['id', 'name', 'src']
+            attributes: ['id', 'name', 'src', 'detail']
         }]
     })
 }
