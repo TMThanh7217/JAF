@@ -10,6 +10,16 @@ const Op = require('Sequelize').Op
 
 let validCategories = ["0", "1"];
 
+controller.create = async function (product) {
+    return await Product.create(product);
+};
+
+controller.deleteProduct = async function(id) {
+	return await Product.destroy ({
+		where: {id: id}
+	});
+}
+
 controller.getAll = query => {
     let option = {
         raw : true,
@@ -163,6 +173,25 @@ controller.updateAttributeOne = (id, attr, value) => {
             .then(result => resolve(result))
             .catch(err => reject(new Error(err)));
     });
+}
+
+controller.updateSomeAttribute = (product) => {
+    return new Promise((resolve, reject) => {
+        Product
+            .update(
+                {
+                    name: product.name,
+                    type: product.type,
+                    price: product.price,
+                    status: product.status,
+                    stock: product.stock
+                },
+                {
+                    where: {id : product.id}
+                })
+            .then(result => resolve(result))
+            .catch(err => reject(new Error(err)));
+    })
 }
 
 module.exports = controller;

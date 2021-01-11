@@ -11,9 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Product.hasMany(models.Comment, {foreignKey: 'productId'});
-      Product.hasMany(models.OrderItem, {foreignKey: 'itemId'});
-      Product.hasMany(models.CouponItem, {foreignKey: 'productId'});
+      Product.hasMany(models.Comment, {foreignKey: 'productId'}, {onDelete: 'CASCADE'});
+      Product.hasMany(models.OrderItem, {foreignKey: 'itemId'}, {onDelete: 'CASCADE'});
+      Product.hasMany(models.CouponItem, {foreignKey: 'productId'}, {onDelete: 'CASCADE'});
     }
   };
   Product.init({

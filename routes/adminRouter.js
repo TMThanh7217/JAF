@@ -154,6 +154,62 @@ router.post("/manage/users/remove", (req, res) => {
     return res.json('Delete account');
 })
 
+router.post('/manage/products/add', (req, res) => { 
+    let type = req.body.type;
+    let status = req.body.status;
+    let product = {
+        name: req.body.name,
+        detail: req.body.detail,
+        type: type,
+        src: '/images/no_image.jpg',
+        price: req.body.price,
+        status: status,
+        stock: req.body.stock,
+        like: 0,
+        orderTime: 0
+    };
+
+    console.log(product);
+
+    // check if user exists
+    productsController
+        .create(product)
+        .then(product => {
+            console.log(comment);
+            return res.json("Add product successfully");
+        })
+        .catch(err => res.send(err.toString()));
+})
+
+router.post("/manage/products/remove", (req, res) => {
+    let id = req.body.productId;
+    console.log(id);
+    productsController
+        .deleteProduct(id)
+        .then( product => {
+            return res.json('Delete product')
+        ;})
+        .catch(err => res.send(err.toString()));    
+})
+
+router.post("/manage/products/update", (req, res) => {
+    let product = {
+        id: req.body.id,
+        name: req.body.name, 
+        type: req.body.type, 
+        price: req.body.price, 
+        status: req.body.status, 
+        stock: req.body.stock
+    };
+    console.log(product);
+    productsController
+        .updateSomeAttribute(product)
+        .then( product => {
+            return res.json('Update product')
+        ;})
+        .catch(err => res.send(err.toString()));
+})
+
 router.get('/manage/orders', (req, res) => {
     let userAuth = req.app.get("userAuthorization");
     res.locals.userAuthorization = userAuth;
