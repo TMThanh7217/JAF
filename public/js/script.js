@@ -177,12 +177,14 @@ function adminAddUser() {
     let name = $('#adminAddName').val();
     let phone = $('#adminAddPhone').val();
     let address = $('#adminAddAddress').val();
+    console.log("ok");
     if (username && password) {
         $.ajax({
             url: '/admin/manage/users/add',
             method: 'post',
             data: {email, username, password, name, phone, address},
             success: result => {
+                console.log("ok");
                 location.reload();
             }
         })

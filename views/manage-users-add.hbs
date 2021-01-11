@@ -1,13 +1,13 @@
 <div class="pb-5">
-  <div class="container" id="switch-btn-container">
-    <button class="switch-btn btn btn-danger" id="admin-user-switch-btn" onclick="switchUserManageDisplay()">Search user</button>
-  </div>
-
-  <div class="container" id="add-user">
-    <div class="row">
-      <div class="col-12"><h2>Add user</h2></div>
+<div class="container" id="add-user">
+    
+    <div class="container" id="switch-btn-container">
+        <button class="switch-btn btn btn-danger" id="admin-user-switch-btn" onclick="href=document.location.href='/admin/manage/users/search'">Search user</button>
     </div>
-
+    
+    <div class="row">
+        <div class="col-12"><h2>Add user</h2></div>
+    </div>
     <div class="row d-flex justify-content-center">
       <div class="col-6">
         <img src="/images/logo & bg & etc/temp_avatar.png" width="50%" height="auto" alt="" class="img-fluid img-thumbnail img-responsive">
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="col-6">
-        <form action="/manage/users" method="post">
+        <form action="/manage/users/add" method="post">
           <div class="form-group">
             <label for="email">Email:</label>
             <input id="adminAddEmail" name="email" type="email" class="form-control validate" placeholder="email@gmail.com" required>
@@ -56,61 +56,5 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="container" id="search-user" style="display: none;">
-    <div class="row">
-      <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" class="border-0 bg-light">
-                  <div class="p-2 px-3 text-uppercase">User</div>
-                </th>
-                <th scope="col" class="border-0 bg-light">
-                  <div class="py-2 text-uppercase">Delete</div>
-                </th>
-              </tr>
-            </thead>
-            {{#each userdata}}
-            <tbody>
-              <tr>
-                <th scope="row" class="border-0">
-                  <div class="p-2">
-                    {{!-- <img src={{this.avt}} alt="" width="70" class="img-fluid rounded shadow-sm"> --}}
-                    <i class="fa fa-user-circle-o"></i>
-                    <div class="ml-3 d-inline-block align-middle">
-                      <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{{this.name}}</a></h5><span class="text-muted font-weight-normal d-block">ID: {{this.id}}</span>
-                    </div>
-                  </div>
-                </th>
-                <td class="border-0 align-middle"><button type="button" class="text-dark btn btn-remove-user" data-id={{this.id}}><i class="fas fa-trash"></i></button></td>
-              </tr>
-            </tbody>
-            {{/each}}
-          </table>
-        </div>
-        <!-- End -->
-      </div>
-    </div>
-
-  </div>
 </div>
 </div>
-
-<script>
-function switchUserManageDisplay() {
-    var add_product = document.getElementById("add-user");
-    var search_product = document.getElementById("search-user");
-    if (add_product.style.display == "none") {
-        add_product.style.display = "block";
-        search_product.style.display = "none";
-        document.querySelector('#admin-user-switch-btn').innerHTML = "Search user";
-    }
-    else {
-        add_product.style.display = "none";
-        search_product.style.display = "block";
-        document.querySelector('#admin-user-switch-btn').innerHTML = "Add user";
-    }
-}
-</script>

@@ -95,7 +95,24 @@ router.get("/manage/users", (req, res) => {
     userController
         .findAllUser()
         .then(userdata => {
-            res.render("manage-users", {
+            res.render("manage-users-add", {
+                title: "JAF - Manage Users",
+                userdata : userdata,
+            });
+        })
+        .catch(err => res.send("Error: " + err));
+})
+
+router.get("/manage/users/search", (req, res) => {
+    let userAuth = req.app.get("userAuthorization");
+    res.locals.userAuthorization = userAuth;
+    if (!userAuthorizationAPI.isAdmin(userAuth))
+        userAuthorizationAPI.errorPage(req, res);
+
+    userController
+        .findAllUser()
+        .then(userdata => {
+            res.render("manage-users-search", {
                 title: "JAF - Manage Users",
                 userdata : userdata,
             });
@@ -125,7 +142,7 @@ router.post("/manage/users/add", (req, res) => {
             }
             // create account
             userController.createUser(user);
-            return res.json('Account created');
+            res.json('Account created');
         })
         .catch(err => res.send(err.toString()));    
 })
