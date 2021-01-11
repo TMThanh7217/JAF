@@ -92,6 +92,14 @@ app.use('/coupon', require('./routes/couponRouter'));
 
 app.use('/help', require('./routes/helpRouter'));
 
+app.use('/help1', require('./routes/help1Router'));
+
+app.use('/help2', require('./routes/help2Router'));
+
+app.use('/help3', require('./routes/help3Router'));
+
+app.use('/form', require('./routes/formRouter'));
+
 app.use('/history', require('./routes/historyRouter'));
 
 app.use('/cart', require('./routes/cartRouter'));
