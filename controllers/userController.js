@@ -21,7 +21,6 @@ controller.createUser = function(user) {
 		bcrypt.hash(user.password, salt, async function(err, hash) {
 			user.username = user.username.toLowerCase();
 			user.password = hash;
-			console.log("ok")
 			return await Users.create(user);
 		})
 	})
