@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      CouponItem.belongsTo(models.Coupon, {foreignKey: 'couponId'});
-      CouponItem.belongsTo(models.Product, {foreignKey: 'productId'});
+      CouponItem.belongsTo(models.Coupon, {foreignKey: 'couponId'}, {onDelete: 'CASCADE'});
+      CouponItem.belongsTo(models.Product, {foreignKey: 'productId'}, {onDelete: 'CASCADE'});
     }
   };
   CouponItem.init({
