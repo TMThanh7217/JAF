@@ -15,10 +15,11 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    let female = req.body.female;
+    let female = req.body.femaleBtn;
     let gender = true;
     if (female)
         gender = false;
+    console.log(req.body);
     let user = {
         id: req.app.get('userId'),
         name: req.body.nameField,
@@ -26,7 +27,11 @@ router.post('/', (req, res) => {
         gender: gender,
         phone: req.body.phoneField,
     }
-
+    console.log(req.body.nameField);
+    console.log(req.body.emailField);
+    console.log(req.body.femaleBtn);
+    console.log(req.body.phoneField);
+    console.log(user);
     userController 
         .updateUser(user)
         .then(

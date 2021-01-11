@@ -44,8 +44,10 @@ $(document).ready(() => {
     })
     $('.btn-modal-comment').on('click', openCommentModal);
     $('#commentForm').on('submit', e => { e.preventDefault(); });
-    $('.btn-sendComment').on('click', sendComment)
-    $('.btn-confirm-payment').on('click', order)
+    $('.btn-sendComment').on('click', sendComment);
+    $('.btn-confirm-payment').on('click', order);
+    $('#profileForm').on('submit', e => { e.preventDefault(); });
+    $('#update-prof-btn').on('click', updateProf);
 });
 
 
@@ -145,6 +147,22 @@ function order() {
         method: 'post',
         success: result => {
             emptyCart();
+        }
+    })
+}
+
+function updateProf() {
+    let nameField = $('#nameField').val();
+    let emailField = $('#emailField').val();
+    let maleBtn = $('#maleBtn').val();
+    let femaleBtn = $('#femaleBtn').val();
+    let phoneField = $('#phoneField').val();
+    $.ajax({
+        url: '/profile',
+        method: 'post',
+        data: {nameField, emailField, maleBtn, femaleBtn, phoneField},
+        succes: result => {
+            location.reload();
         }
     })
 }

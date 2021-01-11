@@ -4,49 +4,51 @@
           <ul style=" list-style-type: none">
             <li class="active my-3" style="font-size:20px;"><a href="/profile">
             <i class="fa fa-users">My Account</i></a></li>
+            {{#if (isCommon userAuthorization)}}
             <li class="my-3" style="font-size:20px;"><a href="/coupon">
             <i class="fa fa-ticket" style="color:black">My Coupon</i></a></li>
             <li class="my-3" style="font-size:20px;"><a href="/notifications">
             <i class="fa fa-bell" style="color:black">My Notifications</i></a></li>
+            {{/if}}
           </ul>
         </div>
 
       <div class="col-8" style="border: 1px solid white">
         <h4><small>Your Information</small></h4>
         <hr>
-        <form action="/profile" method="POST">
+        <form id="profileForm" action="/profile" method="POST">
           <div class="form-group">
             <label for="exampleFormControlInput1">Full Name</label>
-            <input type="text" class="form-control" id="nameField" name="nameField" value="{{user.name}}" disabled>
+            <input type="text" form="profileForm" class="form-control" id="nameField" name="nameField" value="{{user.name}}" disabled>
           </div>
           <div class="form-group">
             <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="emailField" name="emailField" value="{{user.email}}" disabled>
+            <input type="email" form="profileForm" class="form-control" id="emailField" name="emailField" value="{{user.email}}" disabled>
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Gender: </label>
             <div class="form-check form-check-inline">
               {{#if user.gender}}
-              <input class="form-check-input mx-2" type="radio" name="male" id="maleBtn" value="m" onclick="switchM()" checked disabled>
+              <input class="form-check-input mx-2" form="profileForm" type="radio" name="maleBtn" id="maleBtn" value="m" onclick="switchM()" checked disabled>
               {{else}}
-              <input class="form-check-input mx-2" type="radio" name="male" id="maleBtn" value="m" onclick="switchM()" disabled>
+              <input class="form-check-input mx-2" form="profileForm" type="radio" name="maleBtn" id="maleBtn" value="m" onclick="switchM()" disabled>
               {{/if}}
               <label class="form-check-label" for="maleBtn">Male</label>
             </div>
             <div class="form-check form-check-inline">
               {{#if user.gender}}
-              <input class="form-check-input" type="radio" name="female" id="femaleBtn" value="f" onclick="switchF()" disabled>
+              <input class="form-check-input" form="profileForm" type="radio" name="femaleBtn" id="femaleBtn" value="f" onclick="switchF()" disabled>
               {{else}}
-              <input class="form-check-input" type="radio" name="female" id="femaleBtn" value="f" onclick="switchF()" checked disabled>
+              <input class="form-check-input" form="profileForm" type="radio" name="femaleBtn" id="femaleBtn" value="f" onclick="switchF()" checked disabled>
               {{/if}}
               <label class="form-check-label" for="femaleBtn">Female</label>
           </div>
           <div class="form-group">
             <label for="exampleFormControlSelect2">Phone Number</label>
-            <input type="number" class="form-control" id="phoneField" value="{{user.phone}}" disabled>
+            <input type="number" form="profileForm" class="form-control" id="phoneField" value="{{user.phone}}" disabled>
           </div>
           <button type="button" id="edit-prof-btn" class="btn btn-warning btn-lg" onclick="edit()">Edit</button>      
-          <button type="submit" id="update-prof-btn" class="btn btn-warning btn-lg" onclick="update()" style="display: none">Update</button>      
+          <button type="button" id="update-prof-btn" class="btn btn-warning btn-lg" onclick="update()" style="display: none">Update</button>      
           </div>
         </form>
         <br><br>
