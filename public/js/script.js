@@ -50,6 +50,9 @@ $(document).ready(() => {
     $('#update-prof-btn').on('click', updateProf);
     $('.btn-remove-user').on('click', adminRemoveUser);
     $('#confirmAddUserBtn').on('click', adminAddUser);
+    $('.btn-apply-coupon').on('click', applyCoupon);
+    $('#apply-fail-alert').hide()
+    $('#apply-success-alert').hide()
 });
 
 
@@ -204,4 +207,23 @@ function adminRemoveUser() {
             location.reload();
         }
     })
+}
+
+function applyCoupon() {
+    let code = $('#coupon-code-input').val();
+    if(code)
+        $.ajax({
+            url: '/coupon/check',
+            method: 'post',
+            data: {code},
+            success: result => {
+                if(result) {
+                    location.reload();
+                }
+                else {
+                    $('#apply-success-alert').hide()
+                    $('#apply-fail-alert').show()
+                }
+            }
+        })
 }

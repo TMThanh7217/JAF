@@ -10,4 +10,8 @@ controller.create = async function(coupon) {
     return await Coupon.create(coupon);
 }
 
+controller.findByCode = async function(code) {
+    return await Coupon.findOne({raw: true, where: {code: code}})
+}
+
 module.exports = controller

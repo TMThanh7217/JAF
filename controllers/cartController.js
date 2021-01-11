@@ -99,4 +99,12 @@ module.exports = class Cart {
     isEmpty() {
         return this.totalQuantity == 0;
     }
+
+    applyCoupon(itemIdList, effect) {
+        for (let id of itemIdList)
+            if(this.items[id])
+                this.items[id].price = Number(this.items[id].price) * (1 - effect)
+        this.totalPrice = this.getTotalPrice();
+        this.totalQuantity = this.getTotalQuantity();
+    }
 }
