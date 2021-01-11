@@ -80,14 +80,14 @@
                     {{!-- <img src={{this.avt}} alt="" width="70" class="img-fluid rounded shadow-sm"> --}}
                     <i class="fa fa-user-circle-o"></i>
                     <div class="ml-3 d-inline-block align-middle">
-                      <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{{this.name}}</a></h5><span class="text-muted font-weight-normal d-block">ID: <span id="adminUserId">{{this.id}}</span></span>
+                      <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{{this.name}}</a></h5><span class="text-muted font-weight-normal d-block">ID: {{this.id}}</span>
                     </div>
                   </div>
                 </th>
-                <td class="border-0 align-middle"><button id="adminRemoveBtn" class="text-dark btn"><i class="fas fa-trash"></i></button></td>
+                <td class="border-0 align-middle"><button type="button" class="text-dark btn btn-remove-user" data-id={{this.id}}><i class="fas fa-trash"></i></button></td>
               </tr>
             </tbody>
-            {{/each }}
+            {{/each}}
           </table>
         </div>
         <!-- End -->

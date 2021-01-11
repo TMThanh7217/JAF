@@ -48,9 +48,8 @@ $(document).ready(() => {
     $('.btn-confirm-payment').on('click', order);
     $('#profileForm').on('submit', e => { e.preventDefault(); });   
     $('#update-prof-btn').on('click', updateProf);
+    $('.btn-remove-user').on('click', adminRemoveUser);
     $('#confirmAddUserBtn').on('click', adminAddUser);
-    console.log($('#adminRemoveBtn'));
-    $('#adminRemoveBtn').on('click', adminRemoveUser);
 });
 
 
@@ -193,7 +192,7 @@ function adminAddUser() {
 function adminRemoveUser() {
     console.log("ok");
     console.log($('#adminUserId'));
-    let userId = $('#adminUserId').text();
+    let userId = $(this).data('id');
     console.log(userId);
     $.ajax({
         url: '/admin/manage/users/remove',
