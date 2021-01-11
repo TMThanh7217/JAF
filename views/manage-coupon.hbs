@@ -1,0 +1,27 @@
+<div class="container-fluid p-5">
+    <div class="menu-label mb-3 p-2 d-flex">
+        <h1 class="ml-2 mr-auto">Coupon management</h1>
+    </div>
+    <table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Coupon ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Effect</th>
+            <th scope="col">Code</th>
+            <th scope="col">Expired</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each coupons}}
+        <tr>
+        <th scope="row">{{this.id}}</th>
+        <td>{{this.name}}</td>
+        <td>{{this.effect}}</td>
+        <td>{{this.code}}</td>
+        <td>{{this.expired}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+    </table>
+</div>

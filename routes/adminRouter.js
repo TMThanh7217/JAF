@@ -5,6 +5,7 @@ var userAuthorizationAPI = require("../APIs/userAuthorization");
 var userController = require("../controllers/userController");
 var orderController = require('../controllers/orderController');
 var orderItemController = require('../controllers/orderItemController');
+var couponController = require('../controllers/couponController');
 const convert = require("../APIs/convert");
 
 router.get("/" , (req, res) => {
@@ -29,6 +30,11 @@ router.get("/" , (req, res) => {
             title: "Orders Management",
             href: "/admin/manage/orders",
             iconClass: "fa fa-check-square-o mr-2"
+        },
+        {
+            title: "Coupon Management",
+            href: "/admin/manage/coupons",
+            iconClass: "fas fa-tags mr-2"
         }]
     })
 })
@@ -251,6 +257,23 @@ router.get('/manage/orders/:id', (req, res) => {
                     })
                 })
                 .catch(err => res.send(err.toString()));
+        })
+        .catch(err => res.send(err.toString()));
+})
+
+router.get('/manage/coupons', (req, res) => {
+    let userAuth = req.app.get("userAuthorization");
+    res.locals.userAuthorization = userAuth;
+    if (!userAuthorizationAPI.isAdmin(userAuth))
+        userAuthorizationAPI.errorPage(req, res);
+
+    couponController
+        .getAll()
+        .then(coupons => {
+            res.render('manage-coupon', {
+                title: "JAF - Coupon management",
+                coupons: coupons
+            })
         })
         .catch(err => res.send(err.toString()));
 })
