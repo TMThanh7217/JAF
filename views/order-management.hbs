@@ -1,0 +1,33 @@
+<div class="container-fluid p-5">
+    <div class="menu-label mb-3 p-2 d-flex">
+        <h1 class="ml-2 mr-auto">Order management</h1>
+    </div>
+    <table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">User</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Total Quantity</th>
+            <th scope="col">Payment Method</th>
+            <th scope="col">Date Time</th>
+            <th scope="col">Detail</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each orders}}
+        <tr>
+        <th scope="row">{{this.id}}</th>
+        <td>{{this.[User.name]}}</td>
+        <td>{{this.[User.phone]}}</td>
+        <td><b>${{this.totalPrice}}</b></td>
+        <td>{{this.totalQuantity}}</td>
+        <td>{{this.paymentMethod}}</td>
+        <td>{{this.createdAt}}</td>
+        <td><a href="/admin/manage/orders/{{this.id}}"><i class="fa fa-list" aria-hidden="true"></i> Click here</a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+    </table>
+</div>

@@ -3,7 +3,9 @@ var router = express.Router();
 var productsController = require("../controllers/productController");
 var userAuthorizationAPI = require("../APIs/userAuthorization");
 var userController = require("../controllers/userController");
-
+var orderController = require('../controllers/orderController');
+var orderItemController = require('../controllers/orderItemController');
+const convert = require("../APIs/convert");
 
 router.get("/" , (req, res) => {
     let userAuth = req.app.get("userAuthorization");
@@ -25,7 +27,7 @@ router.get("/" , (req, res) => {
         },
         {
             title: "Orders Management",
-            href: "/admin/manage/order",
+            href: "/admin/manage/orders",
             iconClass: "fa fa-check-square-o mr-2"
         }]
     })
@@ -99,6 +101,51 @@ router.get("/manage/users", (req, res) => {
             });
         })
         .catch(err => res.send("Error: " + err));
+})
+
+router.get('/manage/orders', (req, res) => {
+    let userAuth = req.app.get("userAuthorization");
+    res.locals.userAuthorization = userAuth;
+    if (!userAuthorizationAPI.isAdmin(userAuth))
+        userAuthorizationAPI.errorPage(req, res);
+
+    orderController
+        .getAllWithUser()
+        .then(records => {
+            for (let rec of records)
+                rec.paymentMethod = convert.codeToPayment(rec.paymentMethod).toUpperCase();
+            res.render('order-management', {
+                title: "JAF - Order management",
+                orders: records
+            })
+        })
+        .catch(err => res.send(err.toString()));
+})
+
+router.get('/manage/orders/:id', (req, res) => {
+    let userAuth = req.app.get("userAuthorization");
+    res.locals.userAuthorization = userAuth;
+    if (!userAuthorizationAPI.isAdmin(userAuth))
+        userAuthorizationAPI.errorPage(req, res);
+
+
+    let id = req.params.id;
+    orderController
+        .getByIdWithUser(id)
+        .then(orderRecord => {
+            orderItemController
+                .getByOrderIdIncludeProduct(orderRecord.id)
+                .then(orderItemRecords => {
+                    orderRecord.items = orderItemRecords;
+                    orderRecord.paymentMethod = convert.codeToPayment(orderRecord.paymentMethod).toUpperCase();
+                    res.render('order', {
+                        title: `JAF - Order ${id}`,
+                        order: orderRecord
+                    })
+                })
+                .catch(err => res.send(err.toString()));
+        })
+        .catch(err => res.send(err.toString()));
 })
 
 module.exports = router;
