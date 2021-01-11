@@ -266,10 +266,11 @@ function adminUpdateProduct() {
             location.reload();
         }
     })
+}
 
 function applyCoupon() {
     let code = $('#coupon-code-input').val();
-    if(code)
+    if(code) 
         $.ajax({
             url: '/coupon/check',
             method: 'post',
@@ -284,5 +285,4 @@ function applyCoupon() {
                 }
             }
         })
-
 }
