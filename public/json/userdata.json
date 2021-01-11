@@ -16,7 +16,8 @@
     "avatar":"",
     "username":"aperiameligendi",
     "password":"$2a$10$ahpvtC7NsGb3ddOmrzUq.uVmNb3gJY8vkAQ0n4riNP2LrhXXMouZW",
-    "authorization" : 0
+    "authorization" : 0,
+    "address":"25,Tran Thanh Tong,TP.HCM"
 },
 {
     "name":"Dolorum Voluptatum",
@@ -26,7 +27,8 @@
     "avatar":"",
     "username":"dolorumvoluptatum",
     "password":"$2a$10$0VTwNg8CDCDUeQp9grnc.u8/xLGyTSl/pA61uhbKl6ZZXKmReuXZW",
-    "authorization" : 0
+    "authorization" : 0,
+    "address":"51,Pham The Hien P.3 Q.8,TP.HCM"
 },
 {
     "name":"Consectetur Amet",
@@ -36,5 +38,6 @@
     "avatar":"",
     "username":"consecteturamet",
     "password":"$2a$10$H2t24Nj8HFrNyn.lTxhilOLKNmuA3eoC7cXc7ZhWnVjz62TcEsBbG",
-    "authorization" : 0
+    "authorization" : 0,
+    "address":"123,Ly Thuong Kiet P.8 Q.2,TP.HCM"
 }]
