@@ -52,11 +52,17 @@
         <div class="col-lg-6">
           <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
           <div class="p-4">
+            <div id="apply-success-alert" class="alert alert-success">
+              <strong>Success!</strong> Apply coupon successfully.
+            </div>
+            <div id="apply-fail-alert" class="alert alert-danger">
+              <strong>Error!</strong> Apply coupon unsuccessfully.
+            </div>
             <p class="font-italic mb-4">If you have a coupon code, please enter it in the box below</p>
             <div class="input-group mb-4 border rounded-pill p-2">
-              <input type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0">
+              <input id="coupon-code-input" type="text" placeholder="Apply coupon" aria-describedby="button-addon3" class="form-control border-0">
               <div class="input-group-append border-0">
-                <button id="button-addon3" type="button" class="btn btn-danger px-4 rounded-pill"><i class="fa fa-gift mr-2"></i>Apply coupon</button>
+                <button id="button-addon3" type="button" class="btn btn-danger px-4 rounded-pill btn-apply-coupon"><i class="fa fa-gift mr-2"></i>Apply coupon</button>
               </div>
             </div>
           </div>

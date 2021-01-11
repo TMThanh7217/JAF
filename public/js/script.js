@@ -53,6 +53,9 @@ $(document).ready(() => {
     $('#confirmAddProductBtn').on('click', adminAddProduct);
     $('.adminDeleteProduct').on('click', adminRemoveProduct);
     $('.adminUpdateProduct').on('click', adminUpdateProduct);
+    $('.btn-apply-coupon').on('click', applyCoupon);
+    $('#apply-fail-alert').hide()
+    $('#apply-success-alert').hide()
 });
 
 
@@ -263,4 +266,23 @@ function adminUpdateProduct() {
             location.reload();
         }
     })
+
+function applyCoupon() {
+    let code = $('#coupon-code-input').val();
+    if(code)
+        $.ajax({
+            url: '/coupon/check',
+            method: 'post',
+            data: {code},
+            success: result => {
+                if(result) {
+                    location.reload();
+                }
+                else {
+                    $('#apply-success-alert').hide()
+                    $('#apply-fail-alert').show()
+                }
+            }
+        })
+
 }

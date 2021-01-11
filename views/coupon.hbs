@@ -19,42 +19,23 @@
   <div class="col-8">
     <h4><small>Your Coupon</small></h4>
     <hr>
-    <form>
+    <form class="w-100">
       <div class="card-group">
+        {{#each coupons}}
           <div class="card">
-            <img class="card-img-top" src="images/food/omelet-with-ham-cheese-spinach-and-tomatoes.jpg" alt="Card image cap" style="height: 20rem;">
+            {{!-- <img class="card-img-top" src="/images/" alt="Card image cap" style="height: 20rem;"> --}}
             <div class="card-body" style="position:relative;">
-              <h5 class="card-title">Ultra Combo</h5>
-              <p class="card-text mb-5"> 
-                Use Promo Code: BOH232
-                Expires: Jan 03, 2021
-              </p>
-              <p class="card-text" style="position:absolute;bottom:20px;"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="images/drink/summer-good-morning-drink.jpg" alt="Card image cap" style="height: 20rem;">
-            <div class="card-body" style="position:relative;">
-              <h5 class="card-title">Good Morning Deal</h5>
+              <h5 class="card-title">{{this.name}}</h5>
               <p class="card-text mb-5">
-                  Use Promo Code: BOH232
-                  Expires: Jan 03, 2021</p>
-                  <p class="card-text " style="position:absolute;bottom:20px;"><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
-          </div>
-          <div class="card">
-            <img class="card-img-top" src="images/food/green-salad-with-bread.jpg" alt="Card image cap" style="height: 20rem;">
-            <div class="card-body" style="position:relative;">
-              <h5 class="card-title">Healthy Deal</h5>
-              <p class="card-text mb-5">
-                  Use Promo Code: BOH232
-                  Expires: Jan 03, 2021
+                <p class="card-text">Use Promo Code: {{this.code}}</p>
+                <p class="card-text">Expires: {{this.expired}}</p>
+                <p class="card-text">Affect: -{{this.effect}}%</p>
               </p>
-              <p class="card-text " style="position:absolute;bottom:20px;"><small class="text-muted">Last updated 3 mins ago</small></p>
+              <p class="card-text"><small class="text-muted">Created at: {{this.createdAt}}</small></p>
             </div>
           </div>
-        </div>
-        
+        {{/each}}
+      </div>   
     </form>
     <br><br>
   </div>
