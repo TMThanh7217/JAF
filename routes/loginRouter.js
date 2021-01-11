@@ -76,7 +76,7 @@ router.post('/register', (req, res) => {
                 return res.render('login', {errMessage: 'User name already exists'});
             }
             // create account
-            controller.createUser(user)
+            controller.createUser(user);
             return res.render("login", {Message: 'Account created'});
         })
         .catch(err => res.send(err.toString()));    

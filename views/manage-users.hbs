@@ -17,20 +17,25 @@
         </div>
       </div>
       <div class="col-6">
-        <form action="">
+        <form action="/manage/users" method="post">
           <div class="form-group">
-            <label for="user_name">Username:</label>
-            <input id="user_name" name="user_name" type="text" class="form-control validate" placeholder="Loamxc wez" required>
+            <label for="email">Email:</label>
+            <input id="adminAddEmail" name="email" type="email" class="form-control validate" placeholder="email@gmail.com" required>
+            <label for="username">Username:</label>
+            <input id="adminAddUsername" name="username" type="text" class="form-control validate" placeholder="username" required>
             <label for="password">Password:</label>
-            <input id="password" name="password" type="text" class="form-control validate" placeholder="mniwnvjxuuzx2j1olz" required>
+            <input id="adminAddPassword" name="password" type="text" class="form-control validate" placeholder="password" required>
           </div>
           <div class="form-group">
             <label for="name">Name:</label>
-            <input id="name" name="name" type="text" class="form-control validate" placeholder="Lajcz lorem kzxus sia">
+            <input id="adminAddName" name="name" type="text" class="form-control validate" placeholder="your name">
           </div>
           <div class="form-group">
-            <label for="join_date">Join date:</label>
-            <input id="join_date" name="join_date" type="text" class="form-control validate" placeholder="1/12/2020" required>
+            <label for="phone">Phone:</label>
+            <input id="adminAddPhone" name="phone" type="number" class="form-control validate" placeholder="12345678" required>
+            <label for="address">Addresss:</label>
+            <input id="adminAddAddress" name="address" type="text" class="form-control validate" placeholder="23,Quang Trung,TP.HCM" required>
+            
           </div>
           <div class="form-group">
               <label for="user_type">User type: </label>
@@ -44,10 +49,10 @@
       </div>
       <div class="row col-7 mt-2">
         <div class="col-6">
-          <button type="submit" class="btn btn-danger text-uppercase btn-block">Upload image</button>
+          <button type="button" class="btn btn-danger text-uppercase btn-block">Upload image</button>
         </div>
         <div class="col-6">
-          <button type="submit" class="btn btn-danger text-uppercase btn-block">Confirm</button>
+          <button type="button" id="confirmAddUserBtn" class="btn btn-danger text-uppercase btn-block">Confirm</button>
         </div>
       </div>
     </div>
@@ -75,11 +80,11 @@
                     {{!-- <img src={{this.avt}} alt="" width="70" class="img-fluid rounded shadow-sm"> --}}
                     <i class="fa fa-user-circle-o"></i>
                     <div class="ml-3 d-inline-block align-middle">
-                      <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{{this.name}}</a></h5><span class="text-muted font-weight-normal d-block">ID: {{this.id}}</span>
+                      <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">{{this.name}}</a></h5><span class="text-muted font-weight-normal d-block">ID: <span id="adminUserId">{{this.id}}</span></span>
                     </div>
                   </div>
                 </th>
-                <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fas fa-trash"></i></a></td>
+                <td class="border-0 align-middle"><button id="adminRemoveBtn" class="text-dark btn"><i class="fas fa-trash"></i></button></td>
               </tr>
             </tbody>
             {{/each }}
