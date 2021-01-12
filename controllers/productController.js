@@ -6,7 +6,7 @@ var model = require("../models");
 var Product = model.Product;
 var converter = require("../APIs/convert");
 const { query } = require("express");
-const Op = require('Sequelize').Op
+const Op = require('sequelize').Op
 
 let validCategories = ["0", "1"];
 
